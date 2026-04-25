@@ -1,2 +1,2 @@
-# cs-website
-Rebuilding the Cueserve web experience with a fresh UI, AI‑native positioning, and clear messaging that reflects our evolution into an innovation‑driven technology partner.
+# Cueserve's Website
+> A fresh/new UI with AI‑Native positioning for the Next Era of Digital Engineering.
