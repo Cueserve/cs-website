@@ -7,9 +7,10 @@
 
 ## Core
 
-- [Next.js](https://nextjs.org/) — 14+ (App Router)
+- [Next.js](https://nextjs.org/) — 16 (App Router)
   - SEO is a core requirement, not an add-on. Next.js has native SSR/SSG/ISR, routing, metadata API.
   - Next.js + Vercel is the industry standard for SEO-critical marketing sites.
+  - v16 unlocks Cache Components (`use cache`, `cacheLife`, `cacheTag`, `updateTag`) and PPR — both directly serve the Core Web Vitals goal.
 
 - [TypeScript](https://www.typescriptlang.org/) — 5+
   - Type safety across the codebase.
@@ -38,7 +39,7 @@
 | Tool | Purpose |
 |------|---------|
 | Next.js App Router Metadata API | OG tags, Twitter cards, canonical URLs, structured data |
-| [`next-sitemap`](https://github.com/iamvishnusankar/next-sitemap) | Auto-generates `sitemap.xml` and `robots.txt` on build |
+| Native `app/sitemap.ts` + `app/robots.ts` | Programmatically generated `sitemap.xml` and `robots.txt` — reads MDX frontmatter from `/content/` to enumerate blog + case-study URLs |
 | `next/image` | Automatic image optimization, lazy loading, WebP conversion |
 | Google Search Console | Indexing status, keyword performance, crawl errors |
 | Vercel Analytics | Core Web Vitals, real-user performance data |
