@@ -26,6 +26,7 @@ CS-Website/
 │   ├── app/                    # Routing & SEO (Server Components by default)
 │   │   ├── layout.tsx          # Root layout — global metadata defaults, font variables, <html>/<body>
 │   │   ├── fonts.ts            # next/font declarations (Bebas Neue, Outfit, JetBrains Mono)
+│   │   ├── globals.css         # Tailwind v4 import + @theme design tokens (brand colors, font vars)
 │   │   ├── page.tsx            # Home route
 │   │   ├── opengraph-image.tsx # Default OG image (used when a route doesn't override)
 │   │   ├── icon.tsx            # Favicon
@@ -63,8 +64,6 @@ CS-Website/
 │   ├── content/                # MDX content files
 │   │   ├── blog/               # Blog posts (.mdx)
 │   │   └── case-studies/       # Case studies (.mdx)
-│   ├── styles/                 # Global CSS & Tailwind configurations
-│   │   └── globals.css         # Tailwind imports & globals
 │   ├── lib/                    # Shared Logic (analytics, constants, utilities, helpers, types)
 │   │   └── api/                # Server-side helpers (Resend client, email templates) — called from Server Actions / route handlers
 │   └── ...
@@ -72,8 +71,8 @@ CS-Website/
 │   ├── logos/
 │   ├── images/
 │   └── ...
-├── tailwind.config.ts        # Design tokens & Tailwind config
-├── next.config.js            # Next.js configuration
+├── postcss.config.mjs        # PostCSS config — loads @tailwindcss/postcss (Tailwind v4)
+├── next.config.ts            # Next.js configuration
 ├── tsconfig.json             # TypeScript configuration
 ├── TECH-STACK.md             # Technology choices & rationale
 ├── ARCHITECTURE.md           # This file
@@ -190,7 +189,7 @@ For strategic tool choices and rationale, see [TECH-STACK.md](TECH-STACK.md).
 | **PPR + Cache Components** | Static shell (header, footer, hero) prerendered; dynamic islands (form state, personalization) stream in. `use cache` + `cacheLife` + `cacheTag` control freshness without full rebuilds. |
 | MDX + Git workflow | All content authors are developers; Git-based workflow is sufficient |
 | Native `app/sitemap.ts` over `next-sitemap` | Reuses MDX loader, type-safe, zero deps, framework-tracked |
-| Tailwind tokens in config | Single source of truth for brand colors, fonts, spacing; no scattered CSS |
+| Tailwind v4 CSS-first tokens (`@theme` in `globals.css`) | Single source of truth for brand colors, fonts, spacing; no separate `tailwind.config.ts`; no scattered CSS |
 
 ## Deployment & CI/CD
 
@@ -201,15 +200,30 @@ For strategic tool choices and rationale, see [TECH-STACK.md](TECH-STACK.md).
 
 ## Design System
 
-Design tokens are defined in `tailwind.config.ts` and map directly to the Cueserve Brand Style Guide.
+Design tokens are defined in `src/app/globals.css` under Tailwind v4's `@theme` directive (CSS-first config) and map directly to the Cueserve Brand Style Guide. There is no `tailwind.config.ts` — v4 reads tokens from `@theme` and auto-generates the corresponding utility classes (`bg-cs-dark-blue`, `font-display`, etc.).
 
-| Token | Value |
-|-------|-------|
-| `cs-dark-blue` | `#0C385A` |
-| `cs-light-blue` | `#2384C6` |
-| Font — Display | Bebas Neue |
-| Font — Primary | Outfit |
-| Font — Mono | JetBrains Mono |
+| Token | CSS variable | Value |
+|-------|--------------|-------|
+| `cs-dark-blue` | `--color-cs-dark-blue` | `#0C385A` |
+| `cs-light-blue` | `--color-cs-light-blue` | `#2384C6` |
+| Font — Display | `--font-display` | Bebas Neue |
+| Font — Primary | `--font-primary` | Outfit |
+| Font — Mono | `--font-mono` | JetBrains Mono |
+
+Example shape:
+
+```css
+/* src/app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  --color-cs-dark-blue: #0C385A;
+  --color-cs-light-blue: #2384C6;
+  --font-display: var(--font-bebas-neue);
+  --font-primary: var(--font-outfit);
+  --font-mono: var(--font-jetbrains-mono);
+}
+```
 
 Full token reference: `cueserve-style-guide.html`
 
@@ -223,7 +237,7 @@ Fonts are loaded via [`next/font`](https://nextjs.org/docs/app/api-reference/com
 | Outfit | `next/font/google` | `--font-primary` |
 | JetBrains Mono | `next/font/google` | `--font-mono` |
 
-`tailwind.config.ts` reads these variables in its `fontFamily` config so Tailwind classes (`font-display`, `font-mono`, etc.) resolve to the same fonts.
+`src/app/globals.css` re-exposes these variables under `@theme` (e.g. `--font-display: var(--font-bebas-neue)`) so Tailwind v4 generates the matching utility classes (`font-display`, `font-mono`, etc.) automatically — no `tailwind.config.ts` needed.
 
 **Why**:
 

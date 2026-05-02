@@ -35,13 +35,15 @@ Stack is defined in `TECH-STACK.md`. Do not introduce libraries, services, or pa
 - **Metadata**: every route exports `metadata` or `generateMetadata`. Root sets `title.template`; child routes supply only the page-specific portion. No untitled / undescribed pages.
 - **Caching**: MDX rendering uses `use cache` + `cacheLife` + `cacheTag`. Invalidate via `updateTag` from Server Actions.
 - **SEO files**: `app/sitemap.ts` and `app/robots.ts` are programmatic — do not introduce `next-sitemap` or static files.
-- **Design tokens**: brand colors, fonts, spacing live in `tailwind.config.ts`. No inline hex, no scattered CSS beyond `globals.css`.
+- **Design tokens**: brand colors, fonts, spacing live in `src/app/globals.css` under Tailwind v4's `@theme` directive (CSS-first config — there is no `tailwind.config.ts`). No inline hex, no scattered CSS beyond `globals.css`.
 - **Comments**: write none by default. Names should explain *what*. Comments only for non-obvious *why* (constraint, workaround, invariant).
 
 ## Project state
 
-- **No implementation yet.** Only docs exist (`README`, `TECH-STACK`, `ARCHITECTURE`, `TODO`, this file). No `package.json`, no `src/`, no build pipeline.
-- Treat as greenfield. Do not assume tooling is installed. Do not run `npm` / `pnpm` commands until scaffolding is explicitly approved.
+- **Scaffolded.** Next.js 16 + React 19 + TypeScript 5 + Tailwind v4 in place via `create-next-app` (`--typescript --tailwind --app --src-dir --eslint --import-alias "@/*" --use-npm`).
+- Layout: `package.json`, `next.config.ts`, `tsconfig.json`, `postcss.config.mjs`, `eslint.config.mjs`, `next-env.d.ts`, `.gitignore` at repo root; code under `src/app/` (currently the default Next.js starter — home page, layout, `globals.css`).
+- Package manager: **npm**. Lockfile is `package-lock.json`. Do not introduce `pnpm-lock.yaml` / `yarn.lock`.
+- Cueserve-specific implementation (routes, MDX content, design tokens, brand fonts, components from `ARCHITECTURE.md`) has **not yet replaced** the starter — that work is upcoming.
 
 ## Ask before doing
 

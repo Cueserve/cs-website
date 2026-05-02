@@ -15,9 +15,10 @@
 - [TypeScript](https://www.typescriptlang.org/) — 5+
   - Type safety across the codebase.
 
-- [Tailwind CSS](https://tailwindcss.com/) — 3+
+- [Tailwind CSS](https://tailwindcss.com/) — 4 (CSS-first config)
   - Utility-first styling that maps to Cueserve design tokens.
-  - Design tokens from the Cueserve style guide map directly to `tailwind.config.ts`.
+  - v4 drops the JS config file. Design tokens from the Cueserve style guide live in `src/app/globals.css` under the `@theme` directive; Tailwind reads them directly and auto-generates the matching utility classes.
+  - PostCSS plugin: `@tailwindcss/postcss` (configured in `postcss.config.mjs`).
   - Faster iteration. No context switching between component and stylesheet files.
 
 ## Content
