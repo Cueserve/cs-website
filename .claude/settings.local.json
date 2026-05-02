@@ -6,7 +6,12 @@
       "Read(//d/repo-cs/cs-website-scaffold/src/app/**)",
       "Bash(npm run *)",
       "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} | %{size_download} bytes | %{time_total}s\\\\n\" http://localhost:3000)",
-      "Bash(curl -s http://localhost:3000)"
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(powershell -Command \"Test-Path 'd:\\\\repo-cs\\\\cs-website\\\\public'\")",
+      "Bash(powershell -Command \"Copy-Item 'D:\\\\OneDrive\\\\00 Personal\\\\Viral Parikh\\\\Downloads\\\\hero_ilstr_img.01pg2rng4llp7.svg' 'd:\\\\repo-cs\\\\cs-website\\\\public\\\\hero-illustration.svg' -Force; Get-Item 'd:\\\\repo-cs\\\\cs-website\\\\public\\\\hero-illustration.svg' | Select-Object Name, Length\")",
+      "Bash(powershell -Command \"Remove-Item 'd:\\\\repo-cs\\\\cs-website\\\\src\\\\components\\\\icons\\\\HeroPerson.tsx' -Force; Test-Path 'd:\\\\repo-cs\\\\cs-website\\\\src\\\\components\\\\icons\\\\HeroPerson.tsx'\")"
     ],
     "additionalDirectories": [
       "d:\\repo-cs\\cs-website-scaffold"

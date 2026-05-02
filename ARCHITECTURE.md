@@ -25,7 +25,7 @@ CS-Website/
 ├── src/
 │   ├── app/                    # Routing & SEO (Server Components by default)
 │   │   ├── layout.tsx          # Root layout — global metadata defaults, font variables, <html>/<body>
-│   │   ├── fonts.ts            # next/font declarations (Bebas Neue, Outfit, JetBrains Mono)
+│   │   ├── fonts.ts            # next/font declarations (Space Grotesk, DM Sans, JetBrains Mono)
 │   │   ├── globals.css         # Tailwind v4 import + @theme design tokens (brand colors, font vars)
 │   │   ├── page.tsx            # Home route
 │   │   ├── opengraph-image.tsx # Default OG image (used when a route doesn't override)
@@ -202,12 +202,21 @@ For strategic tool choices and rationale, see [TECH-STACK.md](TECH-STACK.md).
 
 Design tokens are defined in `src/app/globals.css` under Tailwind v4's `@theme` directive (CSS-first config) and map directly to the Cueserve Brand Style Guide. There is no `tailwind.config.ts` — v4 reads tokens from `@theme` and auto-generates the corresponding utility classes (`bg-cs-dark-blue`, `font-display`, etc.).
 
+Brand primaries:
+
 | Token | CSS variable | Value |
 |-------|--------------|-------|
 | `cs-dark-blue` | `--color-cs-dark-blue` | `#0C385A` |
 | `cs-light-blue` | `--color-cs-light-blue` | `#2384C6` |
-| Font — Display | `--font-display` | Bebas Neue |
-| Font — Primary | `--font-primary` | Outfit |
+
+Surfaces, borders, ink scales, and semantic colors are extracted into `@theme` as well — see `src/app/globals.css` for the full token set (`cs-surface*`, `cs-border*`, `cs-ink*`, `cs-success*`).
+
+Fonts:
+
+| Token | CSS variable | Value |
+|-------|--------------|-------|
+| Font — Display | `--font-display` | Space Grotesk |
+| Font — Primary | `--font-primary` | DM Sans |
 | Font — Mono | `--font-mono` | JetBrains Mono |
 
 Example shape:

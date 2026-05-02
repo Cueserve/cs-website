@@ -1,0 +1,9 @@
+<svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="blobGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2384C6"></stop>
+      <stop offset="100%" stop-color="#0C385A"></stop>
+    </radialGradient>
+  </defs>
+  <path d="M230,40 C310,30 390,80 420,160 C450,240 430,340 370,390 C310,440 210,450 150,410 C90,370 50,290 50,210 C50,130 100,55 180,42 Z" fill="url(#blobGrad)" opacity="0.18"></path>
+</svg>

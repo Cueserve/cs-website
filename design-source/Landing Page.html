@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cueserve — AI-First Technology Partner</title>
+<link rel="icon" href="assets/cs-logo-favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: #1E2E3D; -webkit-font-smoothing: antialiased; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F4F8FB; }
+  ::-webkit-scrollbar-thumb { background: #C8DFF0; border-radius: 3px; }
+  button { font-family: inherit; }
+  input, select, textarea { font-family: inherit; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Components -->
+<script type="text/babel" src="components/Header.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/HeroSection.jsx"></script>
+<script type="text/babel" src="components/FeaturesSection.jsx"></script>
+<script type="text/babel" src="components/SupportingSections.jsx"></script>
+
+<script type="text/babel">
+
+// ── CONTACT PAGE ──────────────────────────────────────────
+const ContactPage = () => {
+  const [sent, setSent] = React.useState(false);
+  const [form, setForm] = React.useState({ name: '', email: '', type: '', message: '' });
+
+  return (
+    <section style={{ background: '#F4F8FB', padding: '80px 32px', minHeight: 600 }}>
+      <div style={{ maxWidth: 860, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div style={{ display: 'inline-block', fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#2384C6', marginBottom: 12 }}>Get In Touch</div>
+          <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 36, fontWeight: 700, color: '#0C385A', letterSpacing: '-0.02em', marginBottom: 12 }}>Talk to Us</h2>
+          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 17, color: '#5A7A91', lineHeight: 1.65 }}>Interested in working together? Tell us about your project.</p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, background: '#fff', borderRadius: 16, padding: 40, boxShadow: '0 4px 24px rgba(12,56,90,0.10)', border: '1px solid #E8EFF5' }}>
+          {/* Left info */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <div>
+              <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 20, fontWeight: 600, color: '#0C385A', marginBottom: 10 }}>Contact Information</h3>
+              <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: '#647F93', lineHeight: 1.65 }}>24×7 availability, quick responses, and 100% honest communication.</p>
+            </div>
+            {[
+              { label: 'Address', val: '5, Punit Colony, Pratapnagar, Vadodara — Gujarat, India', icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2384C6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> },
+              { label: 'Email', val: 'hello@cueserve.com', icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2384C6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> },
+              { label: 'Phone', val: '+91 80002 99993', icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2384C6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg> },
+            ].map(({ label, val, icon }) => (
+              <div key={label} style={{ display: 'flex', gap: 12 }}>
+                <div style={{ width: 34, height: 34, background: '#EEF6FC', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{icon}</div>
+                <div>
+                  <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 500, color: '#8BA4B8', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 2 }}>{label}</div>
+                  <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: '#1E2E3D', lineHeight: 1.5 }}>{val}</div>
+                </div>
+              </div>
+            ))}
+            <div style={{ marginTop: 'auto', padding: '16px', background: '#0C385A', borderRadius: 10 }}>
+              <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 5 }}>Response within 24 hours</div>
+              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: 'rgba(255,255,255,0.55)' }}>We review every enquiry personally and respond with honest, feasible timelines.</div>
+            </div>
+          </div>
+
+          {/* Right form */}
+          {sent ? (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+              <div style={{ width: 56, height: 56, background: '#E8F7EF', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A9B5C" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 20, fontWeight: 600, color: '#0C385A' }}>Message Sent!</h3>
+              <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: '#647F93', textAlign: 'center', lineHeight: 1.6 }}>We'll get back to you within 24 hours.</p>
+              <button onClick={() => setSent(false)} style={{ background: '#0C385A', color: '#fff', border: 'none', cursor: 'pointer', fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 14, padding: '10px 22px', borderRadius: 6 }}>Send Another</button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {[['Your Name','name','Jane Smith','text'],['Email Address','email','jane@company.com','email']].map(([label,key,ph,type]) => (
+                <div key={key}>
+                  <label style={{ display: 'block', fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 500, color: '#1E2E3D', marginBottom: 5 }}>{label}</label>
+                  <input type={type} value={form[key]} onChange={e => setForm(f => ({...f,[key]:e.target.value}))} placeholder={ph}
+                    style={{ width: '100%', fontFamily: "'DM Sans',sans-serif", fontSize: 14, padding: '9px 12px', border: '1.5px solid #D0DFEC', borderRadius: 6, outline: 'none', color: '#1E2E3D' }} />
+                </div>
+              ))}
+              <div>
+                <label style={{ display: 'block', fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 500, color: '#1E2E3D', marginBottom: 5 }}>Project Type</label>
+                <select value={form.type} onChange={e => setForm(f => ({...f,type:e.target.value}))}
+                  style={{ width: '100%', fontFamily: "'DM Sans',sans-serif", fontSize: 14, padding: '9px 12px', border: '1.5px solid #D0DFEC', borderRadius: 6, outline: 'none', color: '#1E2E3D', background: '#fff' }}>
+                  <option value="">Select a service…</option>
+                  <option>GenAI Integration</option><option>Agentic AI</option>
+                  <option>Workflow Automation</option><option>Data Systems</option>
+                  <option>Website Development</option><option>Mobile App Development</option>
+                </select>
+              </div>
+              <div>
+                <label style={{ display: 'block', fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 500, color: '#1E2E3D', marginBottom: 5 }}>Message</label>
+                <textarea value={form.message} onChange={e => setForm(f => ({...f,message:e.target.value}))} placeholder="Describe your project…" rows={4}
+                  style={{ width: '100%', fontFamily: "'DM Sans',sans-serif", fontSize: 14, padding: '9px 12px', border: '1.5px solid #D0DFEC', borderRadius: 6, outline: 'none', color: '#1E2E3D', resize: 'vertical' }} />
+              </div>
+              <button onClick={() => setSent(true)} style={{
+                background: '#0C385A', color: '#fff', border: 'none', cursor: 'pointer',
+                fontFamily: "'DM Sans',sans-serif", fontWeight: 500, fontSize: 15,
+                padding: '13px', borderRadius: 6, width: '100%',
+              }}>Send Message</button>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ── ABOUT PAGE ────────────────────────────────────────────
+const AboutPage = () => (
+  <section style={{ background: '#fff', padding: '80px 32px' }}>
+    <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center', marginBottom: 64 }}>
+        <div>
+          <div style={{ display: 'inline-block', fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#2384C6', marginBottom: 12 }}>About Cueserve</div>
+          <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 36, fontWeight: 700, color: '#0C385A', letterSpacing: '-0.02em', marginBottom: 20 }}>Making Life Easy via Technology</h2>
+          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 16, color: '#647F93', lineHeight: 1.7, marginBottom: 16 }}>Cueserve is an AI-first technology partner based in Vadodara, India. We specialize in delivering real outcomes through GenAI, Agentic AI, and intelligent automation.</p>
+          <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 16, color: '#647F93', lineHeight: 1.7, marginBottom: 28 }}>With 20+ engineers expert in Cloud, DevOps, Web, Mobile, and AI, we help companies scale their teams and ship production-grade software.</p>
+          <div style={{ display: 'flex', gap: 32 }}>
+            {[['20+','Engineers'],['50+','Projects'],['$6M','Revenue'],['100%','Client Satisfaction']].map(([val,label]) => (
+              <div key={label}>
+                <span style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 26, fontWeight: 700, color: '#0C385A', display: 'block' }}>{val}</span>
+                <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: '#8BA4B8' }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          {[['Attention to Detail','Meticulous review at every stage — design, code, and QA.'],['Minimum Supervision','We own the work. You stay focused on your business.'],['Stable Delivery','No last-minute surprises. Honest timelines, every time.'],['Speed & Cost','World-class quality at India-competitive rates.']].map(([title, desc]) => (
+            <div key={title} style={{ background: '#F4F8FB', borderRadius: 10, border: '1px solid #E8EFF5', padding: '20px 16px' }}>
+              <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 14, fontWeight: 600, color: '#0C385A', marginBottom: 6 }}>{title}</div>
+              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: '#647F93', lineHeight: 1.55 }}>{desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ── SERVICES PAGE ─────────────────────────────────────────
+const ServicesPage = ({ onNavigate }) => (
+  <div>
+    <FeaturesSection onNavigate={onNavigate} />
+    <ProcessSection />
+  </div>
+);
+
+// ── HOME PAGE ─────────────────────────────────────────────
+const HomePage = ({ onNavigate }) => (
+  <div>
+    <HeroSection onNavigate={onNavigate} />
+    <ClientsStrip />
+    <FeaturesSection onNavigate={onNavigate} />
+    <WhySection />
+    <ProcessSection />
+    <TestimonialsSection />
+    <CTABanner onNavigate={onNavigate} />
+  </div>
+);
+
+// ── APP ───────────────────────────────────────────────────
+const App = () => {
+  const [page, setPage] = React.useState('Home');
+
+  const navigate = (p) => {
+    setPage(p);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderPage = () => {
+    switch (page) {
+      case 'Home':      return <HomePage onNavigate={navigate} />;
+      case 'Services':  return <ServicesPage onNavigate={navigate} />;
+      case 'About':     return <AboutPage />;
+      case 'Contact':   return <ContactPage />;
+      default:          return <HomePage onNavigate={navigate} />;
+    }
+  };
+
+  return (
+    <div>
+      <Header activePage={page} onNavigate={navigate} />
+      <main>{renderPage()}</main>
+      <Footer onNavigate={navigate} />
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

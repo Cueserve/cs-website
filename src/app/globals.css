@@ -1,16 +1,88 @@
 @import "tailwindcss";
 
 @theme {
+  /* ── Brand ──────────────────────────────────────────────── */
   --color-cs-dark-blue: #0c385a;
+  --color-cs-dark-blue-hover: #1a4a6b;
+  --color-cs-dark-blue-mid: #0e4a73;
   --color-cs-light-blue: #2384c6;
+  --color-cs-light-blue-hover: #3991cd;
+  --color-cs-light-blue-soft: #7db8d8;
 
-  --font-display: var(--font-bebas-neue);
-  --font-primary: var(--font-outfit);
+  /* ── Surfaces ───────────────────────────────────────────── */
+  --color-cs-surface: #ffffff;
+  --color-cs-surface-tint: #f4f8fb;
+  --color-cs-surface-subtle: #fafcfe;
+  --color-cs-surface-accent: #eef6fc;
+  --color-cs-surface-dark: #0f1920;
+
+  /* ── Borders ────────────────────────────────────────────── */
+  --color-cs-border: #e8eff5;
+  --color-cs-border-strong: #d0dfec;
+  --color-cs-border-accent: #c8dff0;
+
+  /* ── Text ───────────────────────────────────────────────── */
+  --color-cs-ink: #1e2e3d;
+  --color-cs-ink-muted: #5a7a91;
+  --color-cs-ink-subtle: #647f93;
+  --color-cs-ink-faint: #8ba4b8;
+  --color-cs-ink-trace: #b0c8db;
+  --color-cs-ink-ghost: #c0d5e6;
+
+  /* ── Semantic ───────────────────────────────────────────── */
+  --color-cs-success: #1a9b5c;
+  --color-cs-success-tint: #e8f7ef;
+
+  /* ── Fonts ──────────────────────────────────────────────── */
+  --font-display: var(--font-space-grotesk);
+  --font-primary: var(--font-dm-sans);
   --font-mono: var(--font-jetbrains-mono);
+
+  /* ── Shadows (using brand dark-blue at varying alpha) ───── */
+  --shadow-cs-sm: 0 2px 8px rgba(12, 56, 90, 0.06);
+  --shadow-cs-md: 0 4px 16px rgba(12, 56, 90, 0.1);
+  --shadow-cs-lg: 0 4px 24px rgba(12, 56, 90, 0.08);
+  --shadow-cs-xl: 0 8px 32px rgba(12, 56, 90, 0.16);
+  --shadow-cs-glow: 0 6px 24px rgba(12, 56, 90, 0.22);
+
+  /* ── Hero floating-card animations ──────────────────────── */
+  --animate-cs-float-a: cs-float-a 4s ease-in-out infinite;
+  --animate-cs-float-b: cs-float-b 5s ease-in-out infinite;
+  --animate-cs-float-c: cs-float-c 4.5s ease-in-out infinite;
+  --animate-cs-float-slow: cs-float-b 6s ease-in-out infinite;
+
+  @keyframes cs-float-a {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes cs-float-b {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes cs-float-c {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-primary), system-ui, sans-serif;
-  background-color: #ffffff;
-  color: var(--color-cs-dark-blue);
+  background-color: var(--color-cs-surface);
+  color: var(--color-cs-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cs-surface-tint);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cs-border-accent);
+  border-radius: 3px;
 }

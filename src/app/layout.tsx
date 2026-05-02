@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { bebasNeue, outfit, jetbrainsMono } from "./fonts";
+import { spaceGrotesk, dmSans, jetbrainsMono } from "./fonts";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { organizationJsonLd } from "@/lib/seo/jsonLd";
 import "./globals.css";
 
@@ -35,10 +37,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${outfit.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: organizationJsonLd() }}
