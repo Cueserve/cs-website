@@ -1,6 +1,15 @@
 {
   "permissions": {
     "allow": [
+      "Read(//d/repo-cs/cs-website-scaffold/**)",
+      "Read(//d/repo-cs/cs-website-scaffold/src/**)",
+      "Read(//d/repo-cs/cs-website-scaffold/src/app/**)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} | %{size_download} bytes | %{time_total}s\\\\n\" http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000)"
+    ],
+    "additionalDirectories": [
+      "d:\\repo-cs\\cs-website-scaffold"
     ]
   }
 }

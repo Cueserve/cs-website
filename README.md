@@ -1,6 +1,19 @@
 # Cueserve Website
 
+[![Next.js](https://img.shields.io/badge/Next.js-v16+-black.svg)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue.svg)](https://www.typescriptlang.org/)
+
 > A fresh/new UI with AI‑Native positioning for the Next Era of Digital Engineering.
+
+## Table of Contents
+
+- [Objective](#objective)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Development](#development)
+- [Build](#build)
+- [Testing](#testing)
+- [Documentation](#documentation)
 
 ## Objective
 
@@ -16,6 +29,43 @@ This transformation will go beyond visual refresh—it will redefine how Cueserv
 - **Credibility & Trust Signals** — Highlight real-world AI use-cases, case studies, and testimonials to build trust, reduce buyer hesitation, and demonstrate proven expertise that converts interest into conversions.
 - **Lead Capture Strategy** — Implement **_strategic CTAs, high‑intent landing pages, gated assets, and streamlined lead‑capture flows_** to convert visitors into qualified opportunities and improve funnel performance.
 - **Buyer‑Persona** — Craft tailored messaging for decision‑makers and technical evaluators, ensuring **_relevance, clarity, and resonance_** across all audience segments to increase engagement and conversion.
+
+---
+
+## Prerequisites
+
+- Node.js 18+
+- npm (package manager)
+
+## Installation
+
+```bash
+npm install
+```
+
+## Development
+
+```bash
+npm run dev
+```
+
+Starts the Next.js development server on `http://localhost:3000`.
+
+## Build
+
+```bash
+npm run build
+```
+
+Builds the production-optimized bundle.
+
+## Testing
+
+```bash
+npm test
+```
+
+Runs the test suite (configure as needed based on testing framework).
 
 ---
 
