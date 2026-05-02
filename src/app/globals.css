@@ -32,11 +32,30 @@
   /* ── Semantic ───────────────────────────────────────────── */
   --color-cs-success: #1a9b5c;
   --color-cs-success-tint: #e8f7ef;
+  --color-cs-warning: #d97706;
+  --color-cs-warning-tint: #fef3c7;
+  --color-cs-error: #dc2626;
+  --color-cs-error-tint: #fee2e2;
+  --color-cs-info: #2384c6;
+  --color-cs-info-tint: #e9f4fb;
 
   /* ── Fonts ──────────────────────────────────────────────── */
   --font-display: var(--font-space-grotesk);
   --font-primary: var(--font-dm-sans);
   --font-mono: var(--font-jetbrains-mono);
+
+  /* ── Typography scale (brand overrides) ─────────────────── */
+  --leading-tight:   1.15;
+  --leading-snug:    1.3;
+  --leading-relaxed: 1.65;
+  --tracking-wide:   0.05em;
+  --tracking-wider:  0.1em;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --spacing-page:    75rem;      /* 1200px — max content column */
+  --spacing-content: 53.75rem;   /* 860px  — prose / narrow content */
+  --spacing-gutter:  1.5rem;     /* 24px   — horizontal page padding */
+  --spacing-section: 5rem;       /* 80px   — vertical section rhythm */
 
   /* ── Shadows (using brand dark-blue at varying alpha) ───── */
   --shadow-cs-sm: 0 2px 8px rgba(12, 56, 90, 0.06);
