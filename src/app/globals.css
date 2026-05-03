@@ -84,6 +84,15 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animate-cs-float-a: none;
+    --animate-cs-float-b: none;
+    --animate-cs-float-c: none;
+    --animate-cs-float-slow: none;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

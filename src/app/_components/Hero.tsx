@@ -10,7 +10,7 @@ const STATS = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-8 pb-16 pt-5">
+    <section className="relative overflow-hidden bg-white px-8 pb-20 pt-10 lg:pt-16">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-[120px] -top-[120px] h-[600px] w-[600px] rounded-full"
@@ -30,12 +30,12 @@ export function Hero() {
 
       <div className="mx-auto grid max-w-[1200px] items-center gap-16 lg:grid-cols-2">
         <div>
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-medium text-cs-light-blue">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
             <LayersIcon className="h-3.5 w-3.5" />
             AI-First Technology Partner
           </div>
 
-          <h1 className="mb-5 font-display text-[44px] font-bold leading-[1.08] tracking-[-0.03em] text-cs-dark-blue sm:text-5xl lg:text-[56px]">
+          <h1 className="mb-5 font-display font-bold leading-[1.08] tracking-[-0.03em] text-cs-dark-blue" style={{ fontSize: "clamp(2.75rem, 5vw, 3.5rem)" }}>
             Deliver Real
             <br />
             <span className="text-cs-light-blue">AI Outcomes</span>
@@ -64,7 +64,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <dl className="mt-13 flex gap-10 border-t border-cs-border pt-7">
+          <dl className="mt-13 flex flex-wrap gap-x-10 gap-y-5 border-t border-cs-border pt-7">
             {STATS.map(([value, label]) => (
               <div key={label}>
                 <dt className="font-display text-[28px] font-bold leading-none text-cs-dark-blue">
