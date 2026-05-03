@@ -6,7 +6,7 @@ type LogoProps = {
 
 export function Logo({ className, variant = "default", title = "Cueserve" }: LogoProps) {
   const wordmark = variant === "inverse" ? "#ffffff" : "#0C385A";
-  const accent = "#2384C6";
+  const accent = variant === "inverse" ? "#ffffff" : "#2384C6";
 
   return (
     <svg

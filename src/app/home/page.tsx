@@ -1,7 +1,7 @@
 export { metadata } from "./metadata";
 
 import { AnnouncementBar } from "./_components/AnnouncementBar";
-import { HeroSection } from "./_components/Hero";
+import { HeroSection } from "./_components/HeroSection";
 import { ClientsStrip } from "./_components/ClientsStrip";
 import { FeaturesSection } from "./_components/FeaturesSection";
 import { WhySection } from "./_components/WhySection";
