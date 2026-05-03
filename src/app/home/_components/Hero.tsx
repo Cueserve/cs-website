@@ -8,17 +8,19 @@ const STATS = [
   ["24×7", "Support"],
 ] as const;
 
-export function Hero() {
+export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-white px-8 mt-5">
-
+      {/* Hero Section Grid */}
       <div className="mx-auto grid max-w-[1200px] items-center gap-16 lg:grid-cols-2">
+        {/* Content - Leftside */}
         <div>
+          {/* Badge */}
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
             <LayersIcon className="h-3.5 w-3.5" />
             AI-First Technology Partner
           </div>
-
+          {/* Main Headline */}
           <h1 className="mb-5 font-display font-bold leading-[1.08] tracking-[-0.03em] text-cs-dark-blue" style={{ fontSize: "clamp(2.75rem, 5vw, 3.5rem)" }}>
             Deliver Real
             <br />
@@ -26,13 +28,13 @@ export function Hero() {
             <br />
             at Enterprise Scale
           </h1>
-
+          {/* Description Text */}
           <p className="mb-5 max-w-[480px] text-lg leading-[1.7] text-cs-ink-muted">
             GenAI, Agentic AI, and workflow automation that boosts efficiency
             and significantly reduces operational costs — delivered by a team
             that actually cares.
           </p>
-
+          {/* CTA Buttons */}
           <div className="mb-5 flex flex-wrap gap-3">
             <Link
               href="/contact"
@@ -47,7 +49,7 @@ export function Hero() {
               See Our Services →
             </Link>
           </div>
-
+          {/* Stats Section */}
           <dl className="mt-5 mb-5 flex flex-wrap gap-x-10 gap-y-5 border-t border-cs-border pt-5">
             {STATS.map(([value, label]) => (
               <div key={label}>
@@ -59,7 +61,7 @@ export function Hero() {
             ))}
           </dl>
         </div>
-
+        {/* Content - Rightside */}
         <div className="relative flex items-center justify-center">
           <AIDashboardVisual />
         </div>

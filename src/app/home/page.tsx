@@ -1,7 +1,7 @@
 export { metadata } from "./metadata";
 
 import { AnnouncementBar } from "./_components/AnnouncementBar";
-import { Hero } from "./_components/Hero";
+import { HeroSection } from "./_components/Hero";
 import { ClientsStrip } from "./_components/ClientsStrip";
 import { FeaturesSection } from "./_components/FeaturesSection";
 import { WhySection } from "./_components/WhySection";
@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <AnnouncementBar />
-      <Hero />
+      <HeroSection />
       <ClientsStrip />
       <FeaturesSection />
       <WhySection />
