@@ -19,7 +19,7 @@ CS-Website/
 │   ├── extensions.json
 │   ├── settings.json
 │   └── launch.json
-├── docs/                       # Product & architecture documentation
+├── docs/                       # Project documentation
 ├── tools/
 │   └── prompts/                # LLM prompt templates (source for slash commands)
 ├── src/

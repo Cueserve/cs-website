@@ -1,3 +1,4 @@
+import { AnnouncementBar } from "./_components/AnnouncementBar";
 import { Hero } from "./_components/Hero";
 import { ClientsStrip } from "./_components/ClientsStrip";
 import { FeaturesSection } from "./_components/FeaturesSection";
@@ -9,6 +10,7 @@ import { CTABanner } from "./_components/CTABanner";
 export default function HomePage() {
   return (
     <>
+      <AnnouncementBar />
       <Hero />
       <ClientsStrip />
       <FeaturesSection />

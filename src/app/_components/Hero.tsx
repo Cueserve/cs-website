@@ -10,27 +10,11 @@ const STATS = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-8 pb-20 pt-10 lg:pt-16">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-[120px] -top-[120px] h-[600px] w-[600px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(35,132,198,0.07) 0%, transparent 65%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-[80px] left-[30%] h-[400px] w-[400px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(12,56,90,0.05) 0%, transparent 65%)",
-        }}
-      />
+    <section className="relative overflow-hidden bg-white px-8 mt-5">
 
       <div className="mx-auto grid max-w-[1200px] items-center gap-16 lg:grid-cols-2">
         <div>
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
             <LayersIcon className="h-3.5 w-3.5" />
             AI-First Technology Partner
           </div>
@@ -43,13 +27,13 @@ export function Hero() {
             at Enterprise Scale
           </h1>
 
-          <p className="mb-9 max-w-[480px] text-lg leading-[1.7] text-cs-ink-muted">
+          <p className="mb-5 max-w-[480px] text-lg leading-[1.7] text-cs-ink-muted">
             GenAI, Agentic AI, and workflow automation that boosts efficiency
             and significantly reduces operational costs — delivered by a team
             that actually cares.
           </p>
 
-          <div className="mb-13 flex flex-wrap gap-3">
+          <div className="mb-5 flex flex-wrap gap-3">
             <Link
               href="/contact"
               className="rounded-md bg-cs-dark-blue px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-cs-dark-blue-hover active:scale-[0.98]"
@@ -64,7 +48,7 @@ export function Hero() {
             </Link>
           </div>
 
-          <dl className="mt-13 flex flex-wrap gap-x-10 gap-y-5 border-t border-cs-border pt-7">
+          <dl className="mt-5 mb-5 flex flex-wrap gap-x-10 gap-y-5 border-t border-cs-border pt-5">
             {STATS.map(([value, label]) => (
               <div key={label}>
                 <dt className="font-display text-[28px] font-bold leading-none text-cs-dark-blue">
