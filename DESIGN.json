@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-03T00:00:00.000Z",
+  "title": "Design System: Cueserve",
+  "extensions": {
+    "colorMeta": {
+      "ocean-depth": {
+        "role": "primary",
+        "displayName": "Ocean Depth",
+        "canonical": "oklch(25% 0.085 238)",
+        "tonalRamp": [
+          "oklch(12% 0.06 238)",
+          "oklch(20% 0.08 238)",
+          "oklch(28% 0.09 238)",
+          "oklch(38% 0.09 238)",
+          "oklch(50% 0.09 238)",
+          "oklch(65% 0.07 238)",
+          "oklch(80% 0.04 238)",
+          "oklch(93% 0.01 238)"
+        ]
+      },
+      "meridian-blue": {
+        "role": "secondary",
+        "displayName": "Meridian Blue",
+        "canonical": "oklch(57% 0.12 235)",
+        "tonalRamp": [
+          "oklch(15% 0.07 235)",
+          "oklch(25% 0.09 235)",
+          "oklch(38% 0.11 235)",
+          "oklch(50% 0.13 235)",
+          "oklch(60% 0.13 235)",
+          "oklch(70% 0.11 235)",
+          "oklch(82% 0.07 235)",
+          "oklch(93% 0.02 235)"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Deep Canvas",
+        "canonical": "oklch(13% 0.025 235)",
+        "tonalRamp": [
+          "oklch(8% 0.015 235)",
+          "oklch(13% 0.025 235)",
+          "oklch(20% 0.03 235)",
+          "oklch(30% 0.04 235)",
+          "oklch(45% 0.04 235)",
+          "oklch(62% 0.03 235)",
+          "oklch(78% 0.015 235)",
+          "oklch(92% 0.005 235)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Clear Canvas",
+        "canonical": "oklch(100% 0 0)"
+      },
+      "surface-tint": {
+        "role": "neutral",
+        "displayName": "Cloud Tint",
+        "canonical": "oklch(97% 0.008 238)"
+      },
+      "surface-accent": {
+        "role": "neutral",
+        "displayName": "Accent Wash",
+        "canonical": "oklch(95% 0.012 238)"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "oklch(22% 0.04 238)"
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "oklch(52% 0.05 238)"
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Verified Green",
+        "canonical": "oklch(57% 0.13 155)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. Tightest tracking in the system (-0.03em). Always Ocean Depth or white."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2 headings. Left-aligned in content sections, center in announcement-only sections."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and sub-section H3 headings inside panels and two-column layouts."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Primary running text. Max 70ch line length. Weight 500 for lead-paragraph emphasis."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Card body copy, bullet points, footer links, supporting metadata."
+      },
+      "label": {
+        "displayName": "Label / Eyebrow",
+        "purpose": "Section eyebrow labels. Always uppercase, 0.1em tracking, Meridian Blue on light or Meridian Blue Soft on dark."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Technical annotations, pipeline labels, code-adjacent visuals only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "cs-sm",
+        "value": "0 2px 8px rgba(12, 56, 90, 0.06)",
+        "purpose": "Structural separation only. Sticky header on scroll, feature tab container. Never on passive elements."
+      },
+      {
+        "name": "cs-md",
+        "value": "0 4px 16px rgba(12, 56, 90, 0.10)",
+        "purpose": "Interactive hover lift on content cards. Applied via :hover only."
+      },
+      {
+        "name": "cs-lg",
+        "value": "0 4px 24px rgba(12, 56, 90, 0.08)",
+        "purpose": "Structural container elevation. FeaturesSection two-column panel. Permanent shadow on contained environments only."
+      },
+      {
+        "name": "cs-xl",
+        "value": "0 8px 32px rgba(12, 56, 90, 0.16)",
+        "purpose": "Highest elevation. Modals and overlays only."
+      },
+      {
+        "name": "cs-glow",
+        "value": "0 6px 24px rgba(12, 56, 90, 0.22)",
+        "purpose": "Focus or press glow on primary CTAs. Not used passively."
+      }
+    ],
+    "motion": [
+      {
+        "name": "transition-colors",
+        "value": "transition-property: color, background-color, border-color; transition-duration: 150ms; transition-timing-function: cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "Default color transition for all interactive elements (buttons, nav links, card hover)."
+      },
+      {
+        "name": "transition-all",
+        "value": "transition-property: all; transition-duration: 200ms; transition-timing-function: cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "Card hover transitions where shadow and border also animate. Use sparingly."
+      },
+      {
+        "name": "float-a",
+        "value": "cs-float-a 4s ease-in-out infinite",
+        "purpose": "Hero floating card animation — vertical translateY 0 to -8px. Used on AIDashboardVisual only."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA on white/light surfaces. One per hero section. Ocean Depth background, white text.",
+      "html": "<button class=\"ds-btn-primary\">Book a Free Call</button>",
+      "css": ".ds-btn-primary { background-color: var(--color-cs-dark-blue, #0c385a); color: #ffffff; padding: 14px 28px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; line-height: 1; border: none; border-radius: 6px; cursor: pointer; transition: background-color 150ms cubic-bezier(0,0,0.2,1); display: inline-block; text-decoration: none; } .ds-btn-primary:hover { background-color: var(--color-cs-dark-blue-hover, #1a4a6b); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-cs-light-blue, #2384c6); outline-offset: 3px; }"
+    },
+    {
+      "name": "CTA Button",
+      "kind": "button",
+      "refersTo": "button-cta",
+      "description": "Primary action on dark-navy backgrounds only (CTA Banner, ProcessSection). Meridian Blue fill.",
+      "html": "<button class=\"ds-btn-cta\">Talk to Us Now</button>",
+      "css": ".ds-btn-cta { background-color: var(--color-cs-light-blue, #2384c6); color: #ffffff; padding: 14px 32px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; line-height: 1; border: none; border-radius: 8px; cursor: pointer; transition: background-color 150ms cubic-bezier(0,0,0.2,1); display: inline-block; text-decoration: none; white-space: nowrap; } .ds-btn-cta:hover { background-color: var(--color-cs-light-blue-hover, #3991cd); } .ds-btn-cta:focus-visible { outline: 2px solid rgba(255,255,255,0.7); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on white surfaces. Transparent with border-accent border; transitions to Meridian Blue on hover.",
+      "html": "<button class=\"ds-btn-ghost\">See Our Services →</button>",
+      "css": ".ds-btn-ghost { background-color: transparent; color: var(--color-cs-dark-blue, #0c385a); padding: 13px 28px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; line-height: 1; border: 1.5px solid var(--color-cs-border-accent, #c8dff0); border-radius: 6px; cursor: pointer; transition: border-color 150ms cubic-bezier(0,0,0.2,1), color 150ms cubic-bezier(0,0,0.2,1); display: inline-block; text-decoration: none; } .ds-btn-ghost:hover { border-color: var(--color-cs-light-blue, #2384c6); color: var(--color-cs-light-blue, #2384c6); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-cs-light-blue, #2384c6); outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Eyebrow Label",
+      "kind": "custom",
+      "description": "Uppercase label placed above every section heading. Meridian Blue on light, Meridian Blue Soft on Ocean Depth dark.",
+      "html": "<div class=\"ds-eyebrow\">What We Do</div>",
+      "css": ".ds-eyebrow { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-cs-light-blue, #2384c6); line-height: 1.4; margin-bottom: 0.75rem; } .ds-eyebrow--on-dark { color: var(--color-cs-light-blue-soft, #7db8d8); }"
+    },
+    {
+      "name": "Pillar Card",
+      "kind": "card",
+      "description": "Feature or pillar content card. Flat at rest, lifts and shifts to surface-subtle on hover.",
+      "html": "<article class=\"ds-pillar-card\"><div class=\"ds-pillar-card__icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2384c6\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg></div><h3 class=\"ds-pillar-card__title\">Minimum Supervision</h3><p class=\"ds-pillar-card__body\">Once scoped, we execute independently. Transparent async updates, full ownership.</p></article>",
+      "css": ".ds-pillar-card { background-color: #ffffff; border: 1px solid var(--color-cs-border, #e8eff5); border-radius: 12px; padding: 20px; transition: border-color 200ms cubic-bezier(0,0,0.2,1), background-color 200ms cubic-bezier(0,0,0.2,1), box-shadow 200ms cubic-bezier(0,0,0.2,1); } .ds-pillar-card:hover { border-color: var(--color-cs-border-accent, #c8dff0); background-color: var(--color-cs-surface-subtle, #fafcfe); box-shadow: 0 4px 16px rgba(12, 56, 90, 0.10); } .ds-pillar-card__icon { width: 40px; height: 40px; border-radius: 8px; background-color: var(--color-cs-surface-accent, #eef6fc); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; } .ds-pillar-card__title { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--color-cs-dark-blue, #0c385a); margin: 0 0 8px 0; } .ds-pillar-card__body { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.8125rem; line-height: 1.6; color: var(--color-cs-ink-subtle, #647f93); margin: 0; }"
+    },
+    {
+      "name": "Feature Chip / Tag",
+      "kind": "chip",
+      "description": "Compact inline badge for service category labels above feature panel headings.",
+      "html": "<span class=\"ds-chip\">GenAI Integration</span>",
+      "css": ".ds-chip { display: inline-block; background-color: var(--color-cs-surface-accent, #eef6fc); color: var(--color-cs-light-blue, #2384c6); font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; padding: 4px 10px; border-radius: 4px; line-height: 1.4; }"
+    },
+    {
+      "name": "Navigation Header",
+      "kind": "nav",
+      "description": "Sticky top nav. White at rest, backdrop-blur with cs-sm shadow on scroll. Active link: Meridian Blue bottom border.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-nav__inner\"><a href=\"/\" class=\"ds-nav__logo\" aria-label=\"Cueserve home\"><span style=\"font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem;color:#0c385a;letter-spacing:-0.02em;\">Cueserve</span></a><nav class=\"ds-nav__links\" aria-label=\"Primary\"><a href=\"/services\" class=\"ds-nav__link\">Services</a><a href=\"/case-studies\" class=\"ds-nav__link\">Case Studies</a><a href=\"/about\" class=\"ds-nav__link\">About</a><a href=\"/contact\" class=\"ds-nav__link ds-nav__link--active\">Contact</a></nav><a href=\"/contact\" class=\"ds-nav__cta\">Talk to Us</a></div></header>",
+      "css": ".ds-nav { position: sticky; top: 0; z-index: 50; background-color: #ffffff; border-bottom: 1px solid var(--color-cs-border, #e8eff5); transition: box-shadow 200ms cubic-bezier(0,0,0.2,1); } .ds-nav--scrolled { box-shadow: 0 2px 8px rgba(12, 56, 90, 0.06); backdrop-filter: blur(12px); background-color: rgba(255,255,255,0.95); } .ds-nav__inner { max-width: 75rem; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; } .ds-nav__links { display: flex; align-items: center; gap: 1.75rem; } .ds-nav__link { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; color: var(--color-cs-ink-subtle, #647f93); border-bottom: 2px solid transparent; padding: 4px 0; transition: color 200ms, border-color 200ms; } .ds-nav__link:hover { color: var(--color-cs-dark-blue, #0c385a); } .ds-nav__link--active { color: var(--color-cs-dark-blue, #0c385a); border-bottom-color: var(--color-cs-light-blue, #2384c6); } .ds-nav__cta { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; background-color: var(--color-cs-dark-blue, #0c385a); color: #ffffff; padding: 8px 20px; border-radius: 4px; text-decoration: none; transition: background-color 150ms; } .ds-nav__cta:hover { background-color: var(--color-cs-dark-blue-hover, #1a4a6b); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Trusted Advisor's Office",
+    "overview": "Cueserve's visual system is built around one idea: a visitor should feel they have walked into the office of someone who has already solved their problem. The design is confident without grandstanding, approachable without being casual. Every choice communicates competence before copy does.\n\nThis is not an AI product aesthetic. There are no particle swarms, no glowing neural nets, no abstract intelligence visualizations. The system trusts specificity: real outcomes, real numbers, real workflows documented in concrete terms. Where other AI services sites perform ambition, this system demonstrates it.\n\nThe palette is committed to two colors. Ocean Depth navy anchors authority across full-section backgrounds and primary CTAs; Meridian Blue signals action and progress at interactive moments. Everything else serves these two.",
+    "keyCharacteristics": [
+      "Committed two-color brand strategy: Ocean Depth anchors, Meridian Blue activates",
+      "Display headings with compressed negative tracking (-0.025em to -0.03em)",
+      "Elevation earned through structure and interaction; flat surfaces at rest",
+      "Alternating dark/light section rhythm giving Ocean Depth full-section presence on every page",
+      "Section eyebrow labels (11px, uppercase, 0.1em tracking, Meridian Blue) as consistent wayfinding",
+      "Brand-tinted shadow vocabulary using rgba(12, 56, 90) base"
+    ],
+    "rules": [
+      {
+        "name": "The Two-Color Conviction Rule",
+        "body": "Ocean Depth and Meridian Blue are the only accent-weight colors. Neither appears decoratively. Ocean Depth anchors trust; Meridian Blue signals action. No other color competes for attention.",
+        "section": "colors"
+      },
+      {
+        "name": "The Brand-Tinted Depth Rule",
+        "body": "All shadows use rgba(12, 56, 90, α). Pure black shadows are prohibited. Even depth cues reinforce Ocean Depth.",
+        "section": "colors"
+      },
+      {
+        "name": "The Compressed Headline Rule",
+        "body": "Display and Headline never carry positive letter-spacing. Tight negative tracking (-0.025em to -0.03em) is what distinguishes this system from generic corporate type. Any headline that reads 'airy' is wrong.",
+        "section": "typography"
+      },
+      {
+        "name": "The Minimum Floor Rule",
+        "body": "No user-readable copy falls below 0.75rem. Label (0.6875rem) is the documented exception for eyebrows and metadata only.",
+        "section": "typography"
+      },
+      {
+        "name": "The Structural-Only Rule",
+        "body": "Shadow does not appear on passive decorative elements. A card at rest is flat. Shadow is earned through hover interaction, scrolled header state, or structural containment.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do place a section eyebrow label above every named section heading.",
+      "Do compress Display and Headline tracking to -0.025em or -0.03em.",
+      "Do tint every shadow with rgba(12, 56, 90, α). Pure black shadows break brand coherence.",
+      "Do let Ocean Depth fill at least one full-width section background per page.",
+      "Do write specific outcomes in copy: real numbers, timelines, named technologies.",
+      "Do reserve Meridian Blue for interactive and active states only.",
+      "Do apply card hover lift (shadow-cs-md, border-accent, surface-subtle) consistently."
+    ],
+    "donts": [
+      "Don't look like a generic IT outsourcing site. No stock photography of handshakes, no blue gradient hero banners.",
+      "Don't look like a hyperscaler AI vanity page (Google AI, Azure style). No abstract particle visualizations.",
+      "Don't use the dark AI aesthetic: neon gradients on black, matrix rain, cyberpunk reference points.",
+      "Don't apply border-left or border-right greater than 1px as a colored accent stripe on cards or callouts.",
+      "Don't apply background-clip: text with a gradient fill. Single solid colors only.",
+      "Don't add shadows to passive flat surfaces at rest.",
+      "Don't use glassmorphism as a decorative style.",
+      "Don't apply positive letter-spacing to headings or body text.",
+      "Don't build identical card grids with same-size icon+heading+text structure repeated uniformly."
+    ]
+  }
+}
