@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/home" },
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
@@ -27,7 +27,7 @@ export function Header() {
   }, []);
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/home" ? pathname === "/home" : pathname.startsWith(href);
 
   return (
     <header
@@ -39,7 +39,7 @@ export function Header() {
       ].join(" ")}
     >
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-8">
-        <Link href="/" className="flex items-center" aria-label="Cueserve home">
+        <Link href="/home" className="flex items-center" aria-label="Cueserve home">
           <Logo className="h-9 w-auto" />
         </Link>
 
