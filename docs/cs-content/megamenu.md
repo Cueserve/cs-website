@@ -14,7 +14,7 @@ Maintained by: Viral Parikh
 
 #### Who We Are
 
-A small, AI‑native engineering team delivering with uncompromising quality and excellence.
+An AI‑native engineering team delivering with uncompromising quality and excellence.
 
 #### What Defines Us
 
@@ -35,7 +35,7 @@ A small, AI‑native engineering team delivering with uncompromising quality and
 
 - **Founded:** 2010 in India
 - **Delivery Model:** Remote‑first, globally distributed  
-- **Team:** Average 7+ yrs of experience, specialized, AI‑focused  
+- **Team:** AI-focused with average 10+ years of experience and 50+ successful projects delivered including AI-native solutions.
 - **Focus:** SMBs, growth‑stage startups, mid‑market  
 - **Core Belief:** AI should make your business activities measurably better — or we didn’t do our job.
 - **Trust Signals:** 50+ projects delivered, AI-native Delivery Framework, ISO-aligned Practices, Cloud & AI Certifications
@@ -44,7 +44,7 @@ A small, AI‑native engineering team delivering with uncompromising quality and
 
 **Punchline:** Built by people who care, for teams who expect more.
 **Description:** We're a tight-knit team of engineers, architects, and AI practitioners who care about the work. Come see what we've shipped.  
-**CTA Button:** Meet the Team →
+**CTA Button:** See Our Team →
 
 ---
 
@@ -54,7 +54,7 @@ A small, AI‑native engineering team delivering with uncompromising quality and
 
 #### What We Deliver
 
-Flexible AI-enabled delivery for software development, business activity automation, and digital transformation that improves day-to-day business operations with measurable results.
+Flexible AI-powered software development, business process automation, and digital transformation — engineered to improve day-to-day operations with measurable, outcome-driven results.
 
 #### Engagement Models
 
@@ -67,17 +67,17 @@ Flexible AI-enabled delivery for software development, business activity automat
 - Custom Software Development
 - Product Development
 - Mobile & Web Application Development
-- Legacy System Modernisation
+- Legacy System Modernization & Migration
 - AI-Powered Workflow & Process Automation
-- Gen-AI Integration
-- AI Agent Development
-- Data & Analytics Engineering
+- Generative AI Integration Services
+- AI Agent Development & Deployment
+- Data Engineering & Analytics Solutions
 - Cloud Infrastructure & DevSecOps
-- Hire Dedicated Developers & Teams
+- Hire Dedicated Developers & Engineering Teams
 
 ### Static Info — Our Achievements
 
-- **Team:** — 4 out 5 developers has more than 10+yrs of experience, AI-lead developments which delivers value.
+- **Team:** — 4 out of 5 developers have 10+ years of experience, delivering AI-led solutions that drive measurable value.
 - **AI-native Delivery:** — 50-70% reduction in manual processes through AI-powered automated workflows.
 - **AI-Agents:** — 20+ agent deployed for traditional business operations to automate day-to-day tasks.
 - **Predictable Scaling:** — 95% on‑time delivery with dedicated teams and milestone‑driven execution.
@@ -106,18 +106,15 @@ We don't sell technology. We solve business problems — with AI as the leverage
 
 ### SubMenu — Solutions
 
-- AI‑Powered Workflows  
-- Data & Analytics Platforms  
-- Platform & Infrastructure Modernisation  
-- Customer Experience Engineering  
-- Legacy System Transformation  
-- Startup MVP & Product Acceleration  
+- AI‑Powered Workflow Automation  
 - Intelligent Document Processing  
 - AI‑Augmented Customer Support  
-- Predictive Operations  
-- Unified Data Platform  
-- Workflow Orchestration  
-- Rapid MVP Build  
+- Predictive Operations & Analytics  
+- Unified Data & Analytics Platform  
+- Platform & Infrastructure Modernisation  
+- Legacy System Transformation  
+- Customer Experience Engineering  
+- Startup MVP & Rapid Product Launch  
 
 ### Static Info — Accelerators
 
@@ -152,10 +149,10 @@ Outcomes over outputs. Every project leaves a measurable mark.
 ### SubMenu — Browse By
 
 - AI & Automation  
-- Custom Software
+- Custom Software Development
 - Product Launches  
-- Web & Mobile  
-- Legacy Modernisation
+- Web & Mobile Development  
+- Legacy System Modernisation
 - Client Testimonials  
 
 ### Static Info — Featured Work 
@@ -172,7 +169,7 @@ Note: Current entries are illustrative placeholders; replace with real project d
 
 **Punchline:** Want to see the full picture?
 **Description:** Browse our case studies — filtered by industry, technology, or outcome. No gated PDFs, no sales calls required.
-**CTA Button:** View All Work →
+**CTA Button:** View Case Studies →
 
 ---
 
