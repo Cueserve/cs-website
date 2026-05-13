@@ -36,6 +36,7 @@ Stack is defined in `TECH-STACK.md`. Do not introduce libraries, services, or pa
 - **Caching**: MDX rendering uses `use cache` + `cacheLife` + `cacheTag`. Invalidate via `updateTag` from Server Actions.
 - **SEO files**: `app/sitemap.ts` and `app/robots.ts` are programmatic — do not introduce `next-sitemap` or static files.
 - **Design tokens**: brand colors, fonts, spacing live in `src/app/globals.css` under Tailwind v4's `@theme` directive (CSS-first config — there is no `tailwind.config.ts`). No inline hex, no scattered CSS beyond `globals.css`.
+- **File naming**: React component files use **PascalCase** (`Header.tsx`, `HeroSection.tsx`). Non-component files use **lowercase** (`page.tsx`, `layout.tsx`, `robots.ts`, `sitemap.ts`, utilities). PascalCase signals "importable component."
 - **Comments**: write none by default. Names should explain *what*. Comments only for non-obvious *why* (constraint, workaround, invariant).
 
 ## Project state

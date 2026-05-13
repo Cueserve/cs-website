@@ -27,7 +27,9 @@ Not innovation-as-hype — innovation that ships. Not trust-through-logos — tr
 Voice: direct, confident, no hedging. Warm in that the team clearly gives a damn ("a team that actually cares"), but never folksy or casual to the point of undermining technical credibility.
 
 Dual emotional goal:
+
 - "These people get it." — Instant AI credibility. Visitors should feel they don't need to explain what they're trying to build.
+
 - "I need to reach out." — Conversion urgency that feels earned, not pushed.
 
 ## Anti-references
