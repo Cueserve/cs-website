@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  onMouseEnter?: () => void;
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -13,6 +14,7 @@ interface Props {
 export function DropdownPanel({
   isOpen,
   onClose,
+  onMouseEnter,
   children,
   className,
   style,
@@ -33,7 +35,7 @@ export function DropdownPanel({
   }, [isOpen]);
 
   return (
-    <div ref={ref} className={className} style={style}>
+    <div ref={ref} className={className} style={style} onMouseEnter={onMouseEnter}>
       {children}
     </div>
   );

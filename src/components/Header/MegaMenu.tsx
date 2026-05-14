@@ -5,13 +5,15 @@ import { DropdownPanel } from "./DropdownPanel";
 interface Props {
   config: MegaMenuConfig;
   onClose: () => void;
+  onMouseEnter?: () => void;
 }
 
-export function MegaMenu({ config, onClose }: Props) {
+export function MegaMenu({ config, onClose, onMouseEnter }: Props) {
   return (
     <DropdownPanel
       isOpen={true}
       onClose={onClose}
+      onMouseEnter={onMouseEnter}
       className="absolute top-full right-0 z-40 mt-1.5 w-[920px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-[14px] border border-cs-border bg-white"
       style={{
         boxShadow:
@@ -65,19 +67,28 @@ export function MegaMenu({ config, onClose }: Props) {
         <div className="flex-1 bg-cs-surface p-5">
           <PanelTitle>{config.rightTitle}</PanelTitle>
           <ul className="space-y-1.5">
-            {config.staticInfoCards.map(({ heading, body }) => (
-              <li
-                key={heading}
-                className="rounded-lg border border-cs-border bg-white p-2.5"
-              >
-                <p className="text-[11px] font-bold text-cs-dark-blue">
-                  {heading}
-                </p>
-                <p className="text-[10px] leading-snug text-cs-ink-muted">
-                  {body}
-                </p>
-              </li>
-            ))}
+            {config.staticInfoCards.map(({ heading, body, href }) => {
+              const cardClass =
+                "block rounded-lg border border-cs-border bg-white p-2.5 transition-colors" +
+                (href ? " hover:border-cs-light-blue hover:bg-cs-surface-tint" : "");
+              const content = (
+                <>
+                  <p className="text-[11px] font-bold text-cs-dark-blue">{heading}</p>
+                  <p className="text-[10px] leading-snug text-cs-ink-muted">{body}</p>
+                </>
+              );
+              return (
+                <li key={heading}>
+                  {href ? (
+                    <Link href={href} onClick={onClose} className={cardClass}>
+                      {content}
+                    </Link>
+                  ) : (
+                    <div className={cardClass}>{content}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

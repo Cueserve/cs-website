@@ -53,10 +53,19 @@ export function DesktopNav({ openMenu, onMenuEnter, onMenuLeave }: Props) {
       </nav>
 
       {openMenu && (
-        <MegaMenu
-          config={MEGA_MENU_MAP[openMenu]}
-          onClose={onMenuLeave}
-        />
+        <>
+          {/* Transparent bridge fills the mt-1.5 gap so mouseleave doesn't fire mid-transit */}
+          <div
+            className="absolute left-0 right-0 top-full z-40 h-1.5"
+            onMouseEnter={() => onMenuEnter(openMenu)}
+            aria-hidden="true"
+          />
+          <MegaMenu
+            config={MEGA_MENU_MAP[openMenu]}
+            onClose={onMenuLeave}
+            onMouseEnter={() => onMenuEnter(openMenu)}
+          />
+        </>
       )}
     </div>
   );

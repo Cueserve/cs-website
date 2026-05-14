@@ -32,6 +32,7 @@ export interface SubMenuItem {
 export interface StaticInfoCard {
   heading: string;
   body: string;
+  href?: string;
 }
 
 export interface FooterStrip {
@@ -112,14 +113,17 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
       {
         heading: "Founded 2010",
         body: "India · Remote-first, globally distributed",
+        href: "/about",
       },
       {
         heading: "50+ Projects Delivered",
         body: "AI-native solutions · 10+ yrs avg experience",
+        href: "/about",
       },
       {
         heading: "SMBs & Mid-market",
         body: "ISO-aligned · Cloud & AI certified",
+        href: "/about",
       },
     ],
     footer: {
@@ -170,18 +174,22 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
       {
         heading: "Senior Heavy",
         body: "4/5 devs with 10+ yrs experience",
+        href: "/services",
       },
       {
         heading: "AI-Native Delivery",
         body: "50–70% reduction in manual processes",
+        href: "/services",
       },
       {
         heading: "20+ AI Agents Deployed",
         body: "For day-to-day business operations",
+        href: "/services",
       },
       {
         heading: "95% On-Time",
         body: "Milestone-driven execution",
+        href: "/services",
       },
     ],
     footer: {
@@ -228,18 +236,21 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
     ],
     rightTitle: "Accelerators",
     staticInfoCards: [
-      { heading: "AI Agent Starter Kit", body: "Deploy fast, iterate faster" },
+      { heading: "AI Agent Starter Kit", body: "Deploy fast, iterate faster", href: "/solutions" },
       {
         heading: "Document Intelligence Accelerator",
         body: "Intelligent document processing",
+        href: "/solutions",
       },
       {
         heading: "Workflow Automation Blueprints",
         body: "Pre-built automation templates",
+        href: "/solutions",
       },
       {
         heading: "Unified Data Layer Accelerator",
         body: "Consolidate & activate your data",
+        href: "/solutions",
       },
     ],
     footer: {
@@ -287,13 +298,15 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
       {
         heading: "AI Document Processor",
         body: "70% reduction in manual review time",
+        href: "/case-studies",
       },
       {
         heading: "Cloud Migration",
         body: "Zero downtime, 40% cost reduction",
+        href: "/case-studies",
       },
-      { heading: "LLM Support Bot", body: "55% ticket deflection" },
-      { heading: "Mobile Commerce App", body: "4.8★ launch rating" },
+      { heading: "LLM Support Bot", body: "55% ticket deflection", href: "/case-studies" },
+      { heading: "Mobile Commerce App", body: "4.8★ launch rating", href: "/case-studies" },
     ],
     footer: {
       punchline: "Want to see the full picture?",

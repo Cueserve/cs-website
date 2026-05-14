@@ -41,7 +41,7 @@ export function useHeaderState(): HeaderState {
   }, []);
 
   const closeDesktopMenu = useCallback(() => {
-    closeTimerRef.current = setTimeout(() => setOpenMenu(null), 80);
+    closeTimerRef.current = setTimeout(() => setOpenMenu(null), 200);
   }, []);
 
   const toggleMobileNav = useCallback(() => setMobileNavOpen((o) => !o), []);
