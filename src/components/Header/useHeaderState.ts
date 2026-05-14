@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { MenuKey } from "@/lib/navigation";
 
 export interface HeaderState {
@@ -29,25 +29,31 @@ export function useHeaderState(): HeaderState {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const openDesktopMenu = (key: MenuKey) => {
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  const openDesktopMenu = useCallback((key: MenuKey) => {
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     setOpenMenu(key);
-  };
+  }, []);
 
-  const closeDesktopMenu = () => {
+  const closeDesktopMenu = useCallback(() => {
     closeTimerRef.current = setTimeout(() => setOpenMenu(null), 80);
-  };
+  }, []);
 
-  const toggleMobileNav = () => setMobileNavOpen((o) => !o);
+  const toggleMobileNav = useCallback(() => setMobileNavOpen((o) => !o), []);
 
-  const closeMobileNav = () => {
+  const closeMobileNav = useCallback(() => {
     setMobileNavOpen(false);
     setOpenMobileMenu(null);
-  };
+  }, []);
 
-  const toggleMobileAccordion = (key: MenuKey) => {
+  const toggleMobileAccordion = useCallback((key: MenuKey) => {
     setOpenMobileMenu((prev) => (prev === key ? null : key));
-  };
+  }, []);
 
   return {
     scrolled,
