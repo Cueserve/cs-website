@@ -62,6 +62,7 @@ export function DesktopNav({ openMenu, onMenuEnter, onMenuLeave }: Props) {
           />
           <MegaMenu
             config={MEGA_MENU_MAP[openMenu]}
+            menuKey={openMenu}
             onClose={onMenuLeave}
             onMouseEnter={() => onMenuEnter(openMenu)}
           />

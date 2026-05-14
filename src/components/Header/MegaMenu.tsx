@@ -1,20 +1,22 @@
 import Link from "next/link";
-import type { MegaMenuConfig } from "@/lib/navigation";
+import type { MegaMenuConfig, MenuKey } from "@/lib/navigation";
 import { DropdownPanel } from "./DropdownPanel";
+import { HireDevelopersCard } from "@/components/HireDevelopersCard";
 
 interface Props {
   config: MegaMenuConfig;
+  menuKey: MenuKey;
   onClose: () => void;
   onMouseEnter?: () => void;
 }
 
-export function MegaMenu({ config, onClose, onMouseEnter }: Props) {
+export function MegaMenu({ config, menuKey, onClose, onMouseEnter }: Props) {
   return (
     <DropdownPanel
       isOpen={true}
       onClose={onClose}
       onMouseEnter={onMouseEnter}
-      className="absolute top-full right-0 z-40 mt-1.5 w-[920px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-[14px] border border-cs-border bg-white"
+      className={`absolute top-full right-0 z-40 mt-1.5 max-w-[calc(100vw-2rem)] overflow-hidden rounded-[14px] border border-cs-border bg-white ${menuKey === "services" ? "w-[1040px]" : "w-[920px]"}`}
       style={{
         boxShadow:
           "0 8px 32px rgba(12,56,90,0.10), 0 2px 8px rgba(12,56,90,0.06)",
@@ -23,7 +25,7 @@ export function MegaMenu({ config, onClose, onMouseEnter }: Props) {
       {/* 3-column body */}
       <div className="flex min-h-[220px]">
         {/* Left — Showcase */}
-        <div className="flex-[0_0_38%] border-r border-cs-border p-5">
+        <div className={`border-r border-cs-border p-5 ${menuKey === "services" ? "flex-[0_0_44%]" : "flex-[0_0_38%]"}`}>
           <PanelTitle>{config.leftTitle}</PanelTitle>
           <ul className="space-y-1">
             {config.showcaseItems.map(({ Icon, title, description }) => (
@@ -43,6 +45,11 @@ export function MegaMenu({ config, onClose, onMouseEnter }: Props) {
               </li>
             ))}
           </ul>
+          {menuKey === "services" && (
+            <div className="mt-4">
+              <HireDevelopersCard variant="full" href="/services" onClick={onClose} />
+            </div>
+          )}
         </div>
 
         {/* Center — SubMenu links */}

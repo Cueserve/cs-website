@@ -4,7 +4,6 @@ import {
   UsersIcon,
   TargetIcon,
   MonitorIcon,
-  UserPlusIcon,
   BookOpenIcon,
   ZapIcon,
   BarChart2Icon,
@@ -100,7 +99,7 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
           "We measure success by business impact, not hours or tickets.",
       },
     ],
-    centerTitle: "More about Company",
+    centerTitle: "Our Background",
     subMenuLinks: [
       { label: "Our Story", href: "/about" },
       { label: "Mission & Values", href: "/about" },
@@ -135,19 +134,13 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
   },
 
   services: {
-    leftTitle: "Engagement Models",
+    leftTitle: "How We Engage",
     showcaseItems: [
       {
         Icon: MonitorIcon,
         title: "Build With Us",
         description:
           "Full-cycle delivery. We own the outcome, you own the product.",
-      },
-      {
-        Icon: UserPlusIcon,
-        title: "Augment Your Team",
-        description:
-          "Drop in pre-vetted senior engineers exactly when you need them.",
       },
       {
         Icon: BookOpenIcon,
@@ -158,18 +151,15 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
     ],
     centerTitle: "Featured Services",
     subMenuLinks: [
-      { label: "Custom Software Development", href: "/services" },
-      { label: "Product Development", href: "/services" },
+      { label: "Custom Software & Product Development", href: "/services" },
       { label: "Mobile & Web Application Development", href: "/services" },
       { label: "Legacy System Modernization & Migration", href: "/services" },
       { label: "AI-Powered Workflow & Process Automation", href: "/services" },
-      { label: "Generative AI Integration Services", href: "/services" },
       { label: "AI Agent Development & Deployment", href: "/services" },
       { label: "Data Engineering & Analytics Solutions", href: "/services" },
       { label: "Cloud Infrastructure & DevSecOps", href: "/services" },
-      { label: "Hire Dedicated Developers & Engineering Teams", href: "/services" },
     ],
-    rightTitle: "Our Achievements",
+    rightTitle: "Proof Points",
     staticInfoCards: [
       {
         heading: "Senior Heavy",
@@ -202,7 +192,7 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
   },
 
   solutions: {
-    leftTitle: "Solution Approaches",
+    leftTitle: "Where We Focus",
     showcaseItems: [
       {
         Icon: ZapIcon,
@@ -222,7 +212,7 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
           "Build the platform backbone that grows without rebuilding.",
       },
     ],
-    centerTitle: "Solutions",
+    centerTitle: "Explore Solutions",
     subMenuLinks: [
       { label: "AI-Powered Workflow Automation", href: "/solutions" },
       { label: "Intelligent Document Processing", href: "/solutions" },
@@ -234,7 +224,7 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
       { label: "Customer Experience Engineering", href: "/solutions" },
       { label: "Startup MVP & Rapid Product Launch", href: "/solutions" },
     ],
-    rightTitle: "Accelerators",
+    rightTitle: "Starter Kits",
     staticInfoCards: [
       { heading: "AI Agent Starter Kit", body: "Deploy fast, iterate faster", href: "/solutions" },
       {
@@ -263,7 +253,7 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
   },
 
   ourWork: {
-    leftTitle: "How We Work",
+    leftTitle: "Why It Works",
     showcaseItems: [
       {
         Icon: CheckCircleIcon,
@@ -293,7 +283,7 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
       { label: "Legacy System Modernisation", href: "/case-studies" },
       { label: "Client Testimonials", href: "/case-studies" },
     ],
-    rightTitle: "Featured Work",
+    rightTitle: "Featured Works",
     staticInfoCards: [
       {
         heading: "AI Document Processor",

@@ -50,9 +50,9 @@ export function HeroSection() {
             </Link>
           </div>
           {/* Stats Section */}
-          <dl className="mt-5 mb-5 flex flex-wrap gap-x-10 gap-y-5 border-t border-cs-border pt-5">
+          <dl className="mt-5 mb-5 flex flex-wrap gap-y-5 divide-x divide-cs-border border-t border-cs-border pt-5">
             {STATS.map(([value, label]) => (
-              <div key={label}>
+              <div key={label} className="px-8 first:pl-0">
                 <dt className="font-display text-[28px] font-bold leading-none text-cs-dark-blue">
                   {value}
                 </dt>
