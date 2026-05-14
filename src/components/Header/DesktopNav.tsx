@@ -29,7 +29,9 @@ export function DesktopNav({ openMenu, onMenuEnter, onMenuLeave }: Props) {
       <nav className="flex items-center" aria-label="Primary">
         {MEGA_MENU_ORDER.map((key) => {
           const isActive =
-            openMenu === key || pathname.startsWith(NAV_HREFS[key]);
+            openMenu === key ||
+            pathname === NAV_HREFS[key] ||
+            pathname.startsWith(NAV_HREFS[key] + "/");
           return (
             <div key={key} onMouseEnter={() => onMenuEnter(key)}>
               <Link
@@ -53,7 +55,6 @@ export function DesktopNav({ openMenu, onMenuEnter, onMenuLeave }: Props) {
       {openMenu && (
         <MegaMenu
           config={MEGA_MENU_MAP[openMenu]}
-          isOpen={true}
           onClose={onMenuLeave}
         />
       )}

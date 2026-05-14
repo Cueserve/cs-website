@@ -4,16 +4,13 @@ import { DropdownPanel } from "./DropdownPanel";
 
 interface Props {
   config: MegaMenuConfig;
-  isOpen: boolean;
   onClose: () => void;
 }
 
-export function MegaMenu({ config, isOpen, onClose }: Props) {
-  if (!isOpen) return null;
-
+export function MegaMenu({ config, onClose }: Props) {
   return (
     <DropdownPanel
-      isOpen={isOpen}
+      isOpen={true}
       onClose={onClose}
       className="absolute top-full right-0 z-40 mt-1.5 w-[920px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-[14px] border border-cs-border bg-white"
       style={{
