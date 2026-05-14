@@ -3,6 +3,9 @@
 # Visual brainstorming sessions
 .superpowers/
 
+# Superpowers skill docs (local tooling, not project content)
+docs/superpowers/
+
 # dependencies
 /node_modules
 /.pnp
