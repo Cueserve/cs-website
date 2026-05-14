@@ -22,7 +22,7 @@ export function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 relative border-b border-cs-border transition-all duration-200",
+        "sticky top-0 z-50 border-b border-cs-border transition-all duration-200",
         scrolled
           ? "bg-cs-surface/95 shadow-cs-sm backdrop-blur-md"
           : "bg-cs-surface",
