@@ -36,6 +36,7 @@ export function MobileMenu({
               <button
                 type="button"
                 aria-expanded={isOpen}
+                aria-controls={`mobile-submenu-${key}`}
                 onClick={() => onAccordionToggle(key)}
                 className={[
                   "flex w-full items-center justify-between rounded px-2 py-2 text-left text-sm font-medium transition-colors",
@@ -53,7 +54,7 @@ export function MobileMenu({
               </button>
 
               {isOpen && (
-                <ul className="space-y-0.5 rounded-3xl border border-cs-border bg-white p-3">
+                <ul id={`mobile-submenu-${key}`} className="space-y-0.5 rounded-3xl border border-cs-border bg-white p-3">
                   {subMenuLinks.map(({ label, href }) => (
                     <li key={label}>
                       <Link
