@@ -28,7 +28,7 @@ export function Header() {
           : "bg-cs-surface",
       ].join(" ")}
     >
-      <div className="mx-auto flex h-14 max-w-[1200px] items-center px-8">
+      <div className="flex h-14 w-full items-center px-8">
         {/* Logo — far left */}
         <Link href="/" aria-label="Cueserve home">
           <Logo className="h-9 w-auto" />
