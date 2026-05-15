@@ -34,10 +34,10 @@ export function ProcessSection() {
           </h2>
         </header>
 
-        <div className="relative grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div
             aria-hidden
-            className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-10 z-0 hidden h-px bg-cs-light-blue/25 lg:block"
+            className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[52px] z-0 hidden h-px bg-cs-light-blue/25 lg:block"
           />
           {STEPS.map((step, i) => {
             const tinted = i % 2 === 0;
@@ -47,13 +47,16 @@ export function ProcessSection() {
                 className={[
                   "relative z-10 rounded-xl border p-7",
                   tinted
-                    ? "border-cs-light-blue/25 bg-cs-light-blue/12"
-                    : "border-white/8 bg-white/5",
+                    ? "border-cs-light-blue/25"
+                    : "border-white/8",
                 ].join(" ")}
                 style={
                   tinted
-                    ? { backgroundColor: "rgba(35,132,198,0.12)" }
-                    : { backgroundColor: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.08)" }
+                    ? { background: "linear-gradient(rgba(35,132,198,0.12), rgba(35,132,198,0.12)), #0c385a" }
+                    : { 
+                        background: "linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)), #0c385a", 
+                        borderColor: "rgba(255,255,255,0.08)" 
+                      }
                 }
               >
                 <div
