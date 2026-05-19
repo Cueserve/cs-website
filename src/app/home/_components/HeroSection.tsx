@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LayersIcon } from "@/components/icons/HeroIcons";
 import { AIDashboardVisual } from "./AIDashboardVisual";
@@ -9,6 +12,21 @@ const STATS = [
 ] as const;
 
 export function HeroSection() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const getRevealStyle = (delayMs: number) => ({
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? "none" : "translateY(35px) scale(0.96)",
+    filter: mounted ? "blur(0px)" : "blur(8px)",
+    transition: "opacity 1400ms cubic-bezier(0.16, 1, 0.3, 1), transform 1400ms cubic-bezier(0.16, 1, 0.3, 1), filter 1200ms cubic-bezier(0.16, 1, 0.3, 1)",
+    transitionDelay: `${delayMs}ms`,
+    willChange: "opacity, transform, filter",
+  });
+
   return (
     <section className="relative overflow-hidden bg-white px-8 mt-5">
       {/* Hero Section Grid */}
@@ -16,12 +34,18 @@ export function HeroSection() {
         {/* Content - Leftside */}
         <div>
           {/* Badge */}
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
+          <div
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue"
+            style={getRevealStyle(100)}
+          >
             <LayersIcon className="h-3.5 w-3.5" />
             AI-First Technology Partner
           </div>
           {/* Main Headline */}
-          <h1 className="mb-5 font-display font-bold leading-[1.08] tracking-[-0.03em] text-cs-dark-blue" style={{ fontSize: "clamp(2.75rem, 5vw, 3.5rem)" }}>
+          <h1
+            className="mb-5 font-display font-bold leading-[1.08] tracking-[-0.03em] text-cs-dark-blue"
+            style={{ ...getRevealStyle(200), fontSize: "clamp(2.75rem, 5vw, 3.5rem)" }}
+          >
             Deliver Real
             <br />
             <span className="text-cs-light-blue">AI Outcomes</span>
@@ -29,13 +53,19 @@ export function HeroSection() {
             at Enterprise Scale
           </h1>
           {/* Description Text */}
-          <p className="mb-5 max-w-[480px] text-lg leading-[1.7] text-cs-ink-muted">
+          <p
+            className="mb-5 max-w-[480px] text-lg leading-[1.7] text-cs-ink-muted"
+            style={getRevealStyle(350)}
+          >
             GenAI, Agentic AI, and workflow automation that boosts efficiency
             and significantly reduces operational costs — delivered by a team
             that actually cares.
           </p>
           {/* CTA Buttons */}
-          <div className="mb-5 flex flex-wrap gap-3">
+          <div
+            className="mb-5 flex flex-wrap gap-3"
+            style={getRevealStyle(500)}
+          >
             <Link
               href="/contact"
               className="rounded-md bg-cs-dark-blue px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-cs-dark-blue-hover active:scale-[0.98]"
@@ -50,7 +80,10 @@ export function HeroSection() {
             </Link>
           </div>
           {/* Stats Section */}
-          <dl className="mt-5 mb-5 flex flex-wrap gap-y-5 divide-x divide-cs-border border-t border-cs-border pt-5">
+          <dl
+            className="mt-5 mb-5 flex flex-wrap gap-y-5 divide-x divide-cs-border border-t border-cs-border pt-5"
+            style={getRevealStyle(650)}
+          >
             {STATS.map(([value, label]) => (
               <div key={label} className="px-8 first:pl-0">
                 <dt className="font-display text-[28px] font-bold leading-none text-cs-dark-blue">
@@ -62,7 +95,10 @@ export function HeroSection() {
           </dl>
         </div>
         {/* Content - Rightside */}
-        <div className="relative flex items-center justify-center">
+        <div
+          className="relative flex items-center justify-center"
+          style={getRevealStyle(300)}
+        >
           <AIDashboardVisual />
         </div>
       </div>
