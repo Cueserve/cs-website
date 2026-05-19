@@ -22,10 +22,10 @@ export function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 border-b border-cs-border transition-all duration-500",
+        "sticky top-0 z-50 border-b transition-all duration-500",
         scrolled
-          ? "bg-cs-surface/80 shadow-cs-md backdrop-blur-xl"
-          : "bg-cs-surface/40 backdrop-blur-lg",
+          ? "bg-white/10 shadow-cs-md backdrop-blur-lg border-transparent" 
+          : "bg-white/20 backdrop-blur-md border-transparent",
       ].join(" ")}
     >
       <div className="mx-auto flex h-14 max-w-[1270px] items-center px-8">
