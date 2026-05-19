@@ -37,7 +37,8 @@ export function ProcessSection() {
         <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div
             aria-hidden
-            className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[52px] z-0 hidden h-px bg-cs-light-blue/25 lg:block"
+            className="pointer-events-none absolute left-[12.5%] right-[12.5%] z-0 hidden h-px bg-cs-light-blue/25 lg:block"
+            style={{ top: "53px" }}
           />
           {STEPS.map((step, i) => {
             const tinted = i % 2 === 0;
