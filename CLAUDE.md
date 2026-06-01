@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 > Project-specific rules for Claude Code.
-> Last updated: 2026-05-01
+> Last updated: 2026-05-15
 > Maintained by: Viral Parikh
 
 ---
@@ -56,6 +56,12 @@ Pause and confirm before:
 - Introducing a CMS or moving content out of MDX/Git
 - Anything listed under `TECH-STACK.md` → "Revisit Triggers"
 - Restructuring `app/` or `src/`
+
+## AI features — guardrails
+
+- No AI gimmicks on the homepage — AI must earn its place through utility, not novelty.
+- No heavy AI features (chatbots, AI search, generative UI) unless explicitly scoped and approved.
+- The bar: credible positioning + one small, polished AI interaction beats noisy AI everywhere.
 
 ## Out of scope unless asked
 
