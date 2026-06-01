@@ -22,16 +22,16 @@ export function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 border-b border-cs-border transition-all duration-200",
+        "sticky top-0 z-50 border-b transition-all duration-500",
         scrolled
-          ? "bg-cs-surface/95 shadow-cs-sm backdrop-blur-md"
-          : "bg-cs-surface",
+          ? "bg-white/10 shadow-cs-md backdrop-blur-lg border-transparent" 
+          : "bg-white/20 backdrop-blur-md border-transparent",
       ].join(" ")}
     >
-      <div className="flex h-14 w-full items-center px-8">
+      <div className="mx-auto flex h-14 max-w-[1270px] items-center px-8">
         {/* Logo — far left */}
         <Link href="/" aria-label="Cueserve home">
-          <Logo className="h-9 w-auto" />
+          <Logo className="h-7 w-auto" />
         </Link>
 
         {/* Spacer pushes nav + CTA to the right */}
