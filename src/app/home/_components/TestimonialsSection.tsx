@@ -45,7 +45,7 @@ export function TestimonialsSection() {
           <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue">
             Client Stories
           </div>
-          <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-cs-dark-blue">
+          <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-cs-text-heading">
             What Clients Say
           </h2>
         </header>
@@ -62,8 +62,8 @@ export function TestimonialsSection() {
                 className={[
                   "group rounded-xl border p-7 text-left transition-all duration-300",
                   isActive
-                    ? "-translate-y-1 border-cs-dark-blue bg-cs-dark-blue shadow-cs-xl"
-                    : "border-cs-border bg-white shadow-cs-sm",
+                    ? "-translate-y-1 border-cs-accent bg-cs-accent shadow-cs-xl"
+                    : "border-cs-border bg-cs-bg-card shadow-cs-sm",
                 ].join(" ")}
               >
                 <QuoteIcon
@@ -89,7 +89,7 @@ export function TestimonialsSection() {
                   <div>
                     <div
                       className={`font-display text-sm font-semibold ${
-                        isActive ? "text-white" : "text-cs-dark-blue"
+                        isActive ? "text-white" : "text-cs-text-heading"
                       }`}
                     >
                       {t.name}

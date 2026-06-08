@@ -21,14 +21,14 @@ export function HireDevelopersCard({
       <Link
         href={href}
         onClick={onClick}
-        className="mb-4 flex flex-col gap-2 rounded-xl border border-cs-border-accent bg-cs-surface-accent p-2.5 transition-colors hover:border-cs-dark-blue/30 hover:bg-cs-surface-tint"
+        className="mb-4 flex flex-col gap-2 rounded-xl border border-cs-border-accent bg-cs-surface-accent p-2.5 transition-colors hover:border-cs-accent/30 hover:bg-cs-surface-tint"
       >
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-cs-dark-blue">
+          <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-cs-accent">
             <UserPlusIcon className="h-4 w-4 text-white" />
           </div>
           <div className="flex items-center gap-1.5">
-            <p className="text-xs font-bold text-cs-dark-blue">
+            <p className="text-xs font-bold text-cs-text-heading">
               Hire Dedicated Developers
             </p>
             <span className="flex-shrink-0 whitespace-nowrap rounded bg-cs-light-blue px-1 py-px text-[9px] font-semibold uppercase tracking-wide text-white">
@@ -50,10 +50,10 @@ export function HireDevelopersCard({
     <div className="rounded-2xl border border-cs-border-accent bg-cs-surface p-4 transition-shadow hover:shadow-cs-md">
       {/* Icon + headline side by side */}
       <div className="mb-3 flex items-start gap-3">
-        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-cs-dark-blue" style={{ marginTop: "2px" }}>
+        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-cs-accent" style={{ marginTop: "2px" }}>
           <UserPlusIcon className="h-4 w-4 text-white" />
         </div>
-        <h3 className="font-display text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-cs-dark-blue">
+        <h3 className="font-display text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-cs-text-heading">
           Augment Your Team or<br />Hire Dedicated Developer
         </h3>
       </div>
@@ -69,7 +69,7 @@ export function HireDevelopersCard({
       {/* Proof stats */}
       <div className="mb-3 flex">
         <div className="flex-1 py-1.5 text-center">
-          <p className="font-display text-lg font-bold leading-none tracking-[-0.02em] text-cs-dark-blue">
+          <p className="font-display text-lg font-bold leading-none tracking-[-0.02em] text-cs-text-heading">
             72h
           </p>
           <p className="mt-0.5 text-[0.5rem] font-medium text-cs-ink-muted">
@@ -78,7 +78,7 @@ export function HireDevelopersCard({
         </div>
         <div className="w-px bg-cs-border" />
         <div className="flex-1 py-1.5 text-center">
-          <p className="font-display text-lg font-bold leading-none tracking-[-0.02em] text-cs-dark-blue">
+          <p className="font-display text-lg font-bold leading-none tracking-[-0.02em] text-cs-text-heading">
             Day 1
           </p>
           <p className="mt-0.5 text-[0.5rem] font-medium text-cs-ink-muted">

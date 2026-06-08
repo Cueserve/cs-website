@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function CTABanner() {
   return (
-    <section className="bg-white px-8 py-20">
+    <section className="bg-cs-bg-card px-8 py-20">
       <div className="mx-auto max-w-[1200px]">
         <div
           className="relative flex flex-col items-start justify-between gap-12 overflow-hidden rounded-[20px] px-10 py-14 lg:flex-row lg:items-center lg:px-20 lg:py-16"

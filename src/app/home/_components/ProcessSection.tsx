@@ -23,10 +23,10 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section className="bg-cs-dark-blue px-8 py-24">
+    <section className="bg-cs-bg-dark px-8 py-24">
       <div className="mx-auto max-w-[1200px]">
         <header className="mb-14 text-center">
-          <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue-soft">
+          <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-text-faint">
             How We Work
           </div>
           <h2 className="font-display text-4xl font-bold tracking-[-0.025em] text-white">
@@ -48,7 +48,7 @@ export function ProcessSection() {
                   "relative z-10 rounded-xl border p-7",
                   tinted
                     ? "border-cs-light-blue/25 bg-cs-light-blue/12"
-                    : "border-white/8 bg-white/5",
+                    : "border-white/8 bg-cs-bg-card/5",
                 ].join(" ")}
                 style={
                   tinted

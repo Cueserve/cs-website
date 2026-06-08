@@ -10,7 +10,7 @@ const STATS = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white px-8 mt-5">
+    <section className="relative overflow-hidden bg-cs-bg-card px-8 mt-5">
       {/* Hero Section Grid */}
       <div className="mx-auto grid max-w-[1200px] items-center gap-16 lg:grid-cols-2">
         {/* Content - Leftside */}
@@ -21,7 +21,7 @@ export function HeroSection() {
             AI-First Technology Partner
           </div>
           {/* Main Headline */}
-          <h1 className="mb-5 font-display font-bold leading-[1.08] tracking-[-0.03em] text-cs-dark-blue" style={{ fontSize: "clamp(2.75rem, 5vw, 3.5rem)" }}>
+          <h1 className="mb-5 font-display font-bold leading-[1.08] tracking-[-0.03em] text-cs-text-heading" style={{ fontSize: "clamp(2.75rem, 5vw, 3.5rem)" }}>
             Deliver Real
             <br />
             <span className="text-cs-light-blue">AI Outcomes</span>
@@ -38,13 +38,13 @@ export function HeroSection() {
           <div className="mb-5 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-md bg-cs-dark-blue px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-cs-dark-blue-hover active:scale-[0.98]"
+              className="rounded-md bg-cs-accent px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-cs-accent-hover active:scale-[0.98]"
             >
               Book a Free Call
             </Link>
             <Link
               href="/services"
-              className="rounded-md border-[1.5px] border-cs-border-accent bg-transparent px-7 py-3.5 text-[15px] font-medium text-cs-dark-blue transition-colors hover:border-cs-light-blue hover:text-cs-light-blue"
+              className="rounded-md border-[1.5px] border-cs-border-accent bg-transparent px-7 py-3.5 text-[15px] font-medium text-cs-text-heading transition-colors hover:border-cs-light-blue hover:text-cs-light-blue"
             >
               See Our Services →
             </Link>
@@ -53,7 +53,7 @@ export function HeroSection() {
           <dl className="mt-5 mb-5 flex flex-wrap gap-y-5 divide-x divide-cs-border border-t border-cs-border pt-5">
             {STATS.map(([value, label]) => (
               <div key={label} className="px-8 first:pl-0">
-                <dt className="font-display text-[28px] font-bold leading-none text-cs-dark-blue">
+                <dt className="font-display text-[28px] font-bold leading-none text-cs-text-heading">
                   {value}
                 </dt>
                 <dd className="mt-1.5 text-[13px] text-cs-ink-faint">{label}</dd>

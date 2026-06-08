@@ -5,6 +5,7 @@ import { Logo } from "@/components/Logo";
 import { useHeaderState } from "./useHeaderState";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Header() {
   const {
@@ -24,8 +25,8 @@ export function Header() {
       className={[
         "sticky top-0 z-50 border-b border-cs-border transition-all duration-200",
         scrolled
-          ? "bg-cs-surface/95 shadow-cs-sm backdrop-blur-md"
-          : "bg-cs-surface",
+          ? "bg-cs-bg-card/95 shadow-cs-sm backdrop-blur-md"
+          : "bg-cs-bg-card",
       ].join(" ")}
     >
       <div className="flex h-14 w-full items-center px-8">
@@ -44,10 +45,15 @@ export function Header() {
           onMenuLeave={closeDesktopMenu}
         />
 
+        {/* Theme Toggle */}
+        <div className="ml-5 flex items-center">
+          <ThemeToggle />
+        </div>
+
         {/* CTA — desktop only, far right */}
         <Link
           href="/contact"
-          className="ml-5 hidden rounded bg-cs-dark-blue px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-cs-dark-blue-hover md:inline-flex"
+          className="ml-5 hidden rounded bg-cs-accent px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-cs-accent-hover md:inline-flex"
         >
           Talk to Us
         </Link>
@@ -58,7 +64,7 @@ export function Header() {
           aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileNavOpen}
           onClick={toggleMobileNav}
-          className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-cs-dark-blue md:hidden"
+          className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-cs-text-heading md:hidden"
         >
           <svg
             width="22"

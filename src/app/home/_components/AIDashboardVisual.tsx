@@ -39,7 +39,7 @@ export function AIDashboardVisual() {
 
       {/* Floating task list (top-left) */}
       <div
-        className="absolute -left-[10px] top-[30px] z-[3] min-w-[200px] rounded-2xl border border-cs-border bg-white p-4 shadow-cs-xl"
+        className="absolute -left-[10px] top-[30px] z-[3] min-w-[200px] rounded-2xl border border-cs-border bg-cs-bg-card p-4 shadow-cs-xl"
         style={{ animation: "var(--animate-cs-float-a)" }}
       >
         <div className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-ink-faint">
@@ -54,12 +54,12 @@ export function AIDashboardVisual() {
 
       {/* Floating chatbot (top-right) */}
       <div
-        className="absolute -right-[10px] top-[50px] z-[3] w-[170px] rounded-2xl border border-cs-border bg-white px-3.5 py-3 shadow-cs-xl"
+        className="absolute -right-[10px] top-[50px] z-[3] w-[170px] rounded-2xl border border-cs-border bg-cs-bg-card px-3.5 py-3 shadow-cs-xl"
         style={{ animation: "var(--animate-cs-float-b)" }}
       >
         <div className="mb-2.5 flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-cs-light-blue" />
-          <span className="font-display text-xs font-semibold text-cs-dark-blue">AI Chatbot</span>
+          <span className="font-display text-xs font-semibold text-cs-text-heading">AI Chatbot</span>
           <div className="ml-auto flex gap-[3px]">
             <div className="h-[3px] w-[3px] rounded-full bg-cs-border-strong" />
             <div className="h-[3px] w-[3px] rounded-full bg-cs-border-strong" />
@@ -79,7 +79,7 @@ export function AIDashboardVisual() {
 
       {/* Floating stat pill (bottom-left) */}
       <div
-        className="absolute bottom-[120px] left-[40px] z-[3] flex items-center gap-2.5 rounded-xl bg-cs-dark-blue px-4 py-2.5 shadow-cs-glow"
+        className="absolute bottom-[120px] left-[40px] z-[3] flex items-center gap-2.5 rounded-xl bg-cs-accent px-4 py-2.5 shadow-cs-glow"
         style={{ animation: "var(--animate-cs-float-slow)" }}
       >
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cs-light-blue/30">
@@ -93,10 +93,10 @@ export function AIDashboardVisual() {
 
       {/* Floating dashboard mini (bottom-right) */}
       <div
-        className="absolute bottom-[100px] left-[325px] z-[3] w-[190px] rounded-2xl border border-cs-border bg-white px-3.5 py-3 shadow-cs-xl"
+        className="absolute bottom-[100px] left-[325px] z-[3] w-[190px] rounded-2xl border border-cs-border bg-cs-bg-card px-3.5 py-3 shadow-cs-xl"
         style={{ animation: "var(--animate-cs-float-c)" }}
       >
-        <div className="mb-2 h-2 w-full rounded bg-cs-dark-blue" />
+        <div className="mb-2 h-2 w-full rounded bg-cs-accent" />
         <div className="mb-1.5 grid grid-cols-2 gap-[5px]">
           {[0, 1, 2, 3].map((i) => (
             <div
@@ -141,7 +141,7 @@ function TaskRow({ task }: { task: { name: string; status: TaskStatus } }) {
     task.status === "done"
       ? "border-cs-border-accent bg-cs-surface-accent"
       : task.status === "active"
-        ? "border-cs-dark-blue bg-cs-dark-blue"
+        ? "border-cs-accent bg-cs-accent"
         : "border-cs-border bg-cs-surface-tint";
   const personColor =
     task.status === "active" ? "text-white" : "text-cs-ink-faint";
@@ -155,7 +155,7 @@ function TaskRow({ task }: { task: { name: string; status: TaskStatus } }) {
       </div>
       <span
         className={`flex-1 text-xs ${
-          task.status === "active" ? "font-semibold text-cs-dark-blue" : "text-cs-ink-subtle"
+          task.status === "active" ? "font-semibold text-cs-text-heading" : "text-cs-ink-subtle"
         }`}
       >
         {task.name}
@@ -167,7 +167,7 @@ function TaskRow({ task }: { task: { name: string; status: TaskStatus } }) {
       )}
       {task.status === "active" && (
         <div className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-cs-light-blue">
-          <div className="h-1.5 w-1.5 rounded-full bg-white" />
+          <div className="h-1.5 w-1.5 rounded-full bg-cs-bg-card" />
         </div>
       )}
       {task.status === "pending" && (

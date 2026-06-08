@@ -92,7 +92,7 @@ export function FeaturesSection() {
           <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue">
             What We Do
           </div>
-          <h2 className="mb-3.5 font-display text-4xl font-bold tracking-[-0.025em] text-cs-dark-blue">
+          <h2 className="mb-3.5 font-display text-4xl font-bold tracking-[-0.025em] text-cs-text-heading">
             One Partner. Every AI Need.
           </h2>
           <p className="mx-auto max-w-[520px] text-[17px] leading-[1.65] text-cs-ink-muted">
@@ -100,7 +100,7 @@ export function FeaturesSection() {
           </p>
         </header>
 
-        <div className="mx-auto mb-10 flex w-fit flex-wrap justify-center gap-1.5 rounded-xl border border-cs-border bg-white p-1.5 shadow-cs-sm">
+        <div className="mx-auto mb-10 flex w-fit flex-wrap justify-center gap-1.5 rounded-xl border border-cs-border bg-cs-bg-card p-1.5 shadow-cs-sm">
           {FEATURES.map((feat, i) => (
             <button
               key={feat.id}
@@ -110,8 +110,8 @@ export function FeaturesSection() {
               className={[
                 "rounded-lg px-5 py-2.5 text-sm font-medium transition-colors",
                 active === i
-                  ? "bg-cs-dark-blue text-white"
-                  : "bg-transparent text-cs-ink-muted hover:text-cs-dark-blue",
+                  ? "bg-cs-accent text-white"
+                  : "bg-transparent text-cs-ink-muted hover:text-cs-text-heading",
               ].join(" ")}
             >
               {feat.tab}
@@ -119,12 +119,12 @@ export function FeaturesSection() {
           ))}
         </div>
 
-        <div className="grid overflow-hidden rounded-2xl border border-cs-border bg-white shadow-cs-lg lg:grid-cols-2">
+        <div className="grid overflow-hidden rounded-2xl border border-cs-border bg-cs-bg-card shadow-cs-lg lg:grid-cols-2">
           <div className="border-b border-cs-border p-10 lg:border-b-0 lg:border-r lg:px-11 lg:py-12">
             <span className="mb-4 inline-block rounded bg-cs-surface-accent px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-cs-light-blue">
               {f.tag}
             </span>
-            <h3 className="mb-4 font-display text-[26px] font-bold leading-[1.25] tracking-[-0.02em] text-cs-dark-blue">
+            <h3 className="mb-4 font-display text-[26px] font-bold leading-[1.25] tracking-[-0.02em] text-cs-text-heading">
               {f.title}
             </h3>
             <p className="mb-7 text-base leading-[1.7] text-cs-ink-muted">
@@ -142,7 +142,7 @@ export function FeaturesSection() {
             </ul>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-1.5 rounded-md bg-cs-dark-blue px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-cs-dark-blue-hover"
+              className="mt-8 inline-flex items-center gap-1.5 rounded-md bg-cs-accent px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-cs-accent-hover"
             >
               Start a Project
               <ArrowRightIcon className="h-3.5 w-3.5" />
@@ -214,8 +214,8 @@ function GenAIVisual() {
               className={[
                 "max-w-[80%] px-3 py-2 text-xs leading-[1.5]",
                 m.role === "user"
-                  ? "rounded-[12px_12px_2px_12px] bg-cs-dark-blue text-white"
-                  : "rounded-[12px_12px_12px_2px] border border-cs-border bg-white text-cs-ink shadow-cs-sm",
+                  ? "rounded-[12px_12px_2px_12px] bg-cs-accent text-white"
+                  : "rounded-[12px_12px_12px_2px] border border-cs-border bg-cs-bg-card text-cs-ink shadow-cs-sm",
               ].join(" ")}
             >
               {m.text}
@@ -224,7 +224,7 @@ function GenAIVisual() {
         ))}
       </div>
       <div className="mt-3 flex gap-2">
-        <div className="flex-1 rounded-lg border border-cs-border-strong bg-white px-3 py-2 text-xs text-cs-ink-trace">
+        <div className="flex-1 rounded-lg border border-cs-border-strong bg-cs-bg-card px-3 py-2 text-xs text-cs-ink-trace">
           Ask anything about your data…
         </div>
         <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-cs-light-blue">
@@ -276,10 +276,10 @@ function AgenticVisual() {
             className={[
               "absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg px-2.5 py-1 text-[11px] font-semibold shadow-cs-sm",
               n.main
-                ? "border-[1.5px] border-cs-dark-blue bg-cs-dark-blue text-white"
+                ? "border-[1.5px] border-cs-accent bg-cs-accent text-white"
                 : n.out
                   ? "border-[1.5px] border-cs-success bg-cs-success text-white"
-                  : "border-[1.5px] border-cs-border-strong bg-white text-cs-ink",
+                  : "border-[1.5px] border-cs-border-strong bg-cs-bg-card text-cs-ink",
             ].join(" ")}
             style={{ left: `${n.x}%`, top: `${n.y}%` }}
           >
@@ -308,7 +308,7 @@ function AutomationVisual() {
             <div className="flex flex-1 flex-col items-center gap-1.5">
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors duration-300 ${
-                  i <= active ? "bg-cs-dark-blue" : "bg-cs-border"
+                  i <= active ? "bg-cs-accent" : "bg-cs-border"
                 }`}
               >
                 {i < active ? (
@@ -324,9 +324,9 @@ function AutomationVisual() {
               <span
                 className={`text-center text-[10px] ${
                   i === active
-                    ? "font-semibold text-cs-dark-blue"
+                    ? "font-semibold text-cs-text-heading"
                     : i < active
-                      ? "text-cs-dark-blue"
+                      ? "text-cs-text-heading"
                       : "text-cs-ink-faint"
                 }`}
               >
@@ -336,14 +336,14 @@ function AutomationVisual() {
             {i < steps.length - 1 && (
               <div
                 className={`mb-5 h-px flex-[0.4] transition-colors duration-300 ${
-                  i < active ? "bg-cs-dark-blue" : "bg-cs-border"
+                  i < active ? "bg-cs-accent" : "bg-cs-border"
                 }`}
               />
             )}
           </div>
         ))}
       </div>
-      <div className="rounded-lg border border-cs-border bg-white px-3.5 py-3">
+      <div className="rounded-lg border border-cs-border bg-cs-bg-card px-3.5 py-3">
         <div className="mb-1 text-xs font-semibold text-cs-light-blue">
           Processing: {steps[active]}
         </div>
@@ -405,16 +405,16 @@ function WebVisual() {
             <div key={c} className="h-2 w-2 rounded-full" style={{ background: c }} />
           ))}
         </div>
-        <div className="flex-1 rounded bg-white px-2 py-0.5 text-[11px] text-cs-ink-trace">
+        <div className="flex-1 rounded bg-cs-bg-card px-2 py-0.5 text-[11px] text-cs-ink-trace">
           https://yourproduct.app
         </div>
       </div>
       <div className="p-4">
-        <div className="mb-2.5 flex items-center justify-between rounded-md bg-cs-dark-blue px-3.5 py-2.5">
-          <div className="h-1.5 w-12 rounded bg-white/40" />
+        <div className="mb-2.5 flex items-center justify-between rounded-md bg-cs-accent px-3.5 py-2.5">
+          <div className="h-1.5 w-12 rounded bg-cs-bg-card/40" />
           <div className="flex gap-1.5">
             {[0, 1, 2].map((i) => (
-              <div key={i} className="h-1.5 w-6 rounded bg-white/25" />
+              <div key={i} className="h-1.5 w-6 rounded bg-cs-bg-card/25" />
             ))}
           </div>
           <div className="rounded bg-cs-light-blue px-2.5 py-1 text-[10px] font-semibold text-white">
@@ -423,7 +423,7 @@ function WebVisual() {
         </div>
         <div className="grid grid-cols-3 gap-2">
           {[0, 1, 2].map((i) => (
-            <div key={i} className="rounded-md border border-cs-border bg-white p-2.5">
+            <div key={i} className="rounded-md border border-cs-border bg-cs-bg-card p-2.5">
               <div className="mb-1.5 h-1 rounded bg-cs-border-strong" style={{ width: "60%" }} />
               <div className="mb-1 h-1 rounded bg-cs-border" style={{ width: "80%" }} />
               <div className="h-1 rounded bg-cs-border" style={{ width: "50%" }} />

@@ -49,13 +49,13 @@ const STATS = [
 
 export function WhySection() {
   return (
-    <section className="bg-white px-8 py-24">
+    <section className="bg-cs-bg-card px-8 py-24">
       <div className="mx-auto grid max-w-[1200px] items-start gap-20 lg:grid-cols-2">
         <div className="lg:sticky lg:top-24">
           <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue">
             Why Cueserve
           </div>
-          <h2 className="mb-5 font-display text-4xl font-bold leading-[1.1] tracking-[-0.025em] text-cs-dark-blue">
+          <h2 className="mb-5 font-display text-4xl font-bold leading-[1.1] tracking-[-0.025em] text-cs-text-heading">
             A team that
             <br />
             delivers, not just
@@ -69,7 +69,7 @@ export function WhySection() {
           <dl className="flex gap-8">
             {STATS.map(([value, label]) => (
               <div key={label}>
-                <dt className="font-display text-[26px] font-bold text-cs-dark-blue">{value}</dt>
+                <dt className="font-display text-[26px] font-bold text-cs-text-heading">{value}</dt>
                 <dd className="mt-1 text-xs text-cs-ink-faint">{label}</dd>
               </div>
             ))}
@@ -80,12 +80,12 @@ export function WhySection() {
           {PILLARS.map((p) => (
             <article
               key={p.title}
-              className="rounded-xl border border-cs-border bg-white p-5 transition-all duration-200 hover:border-cs-border-accent hover:bg-cs-surface-subtle hover:shadow-cs-md"
+              className="rounded-xl border border-cs-border bg-cs-bg-card p-5 transition-all duration-200 hover:border-cs-border-accent hover:bg-cs-surface-subtle hover:shadow-cs-md"
             >
               <div className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-lg bg-cs-surface-accent">
                 {p.icon}
               </div>
-              <h3 className="mb-2 font-display text-[15px] font-semibold text-cs-dark-blue">
+              <h3 className="mb-2 font-display text-[15px] font-semibold text-cs-text-heading">
                 {p.title}
               </h3>
               <p className="text-[13px] leading-[1.6] text-cs-ink-subtle">{p.desc}</p>

@@ -24,7 +24,7 @@ export function MobileMenu({
 
   return (
     <nav
-      className="border-t border-cs-border bg-cs-surface md:hidden"
+      className="border-t border-cs-border bg-cs-bg-card md:hidden"
       aria-label="Mobile primary"
     >
       <ul className="mx-auto flex max-w-[1200px] flex-col gap-1 px-8 py-4">
@@ -41,8 +41,8 @@ export function MobileMenu({
                 className={[
                   "flex w-full items-center justify-between rounded px-2 py-2 text-left text-sm font-medium transition-colors",
                   isOpen
-                    ? "bg-cs-surface-tint text-cs-dark-blue"
-                    : "text-cs-ink-subtle hover:bg-cs-surface-tint hover:text-cs-dark-blue",
+                    ? "bg-cs-bg-page text-cs-text-heading"
+                    : "text-cs-text-muted hover:bg-cs-bg-page hover:text-cs-text-heading",
                 ].join(" ")}
               >
                 {NAV_LABELS[key]}
@@ -54,13 +54,13 @@ export function MobileMenu({
               </button>
 
               {isOpen && (
-                <ul id={`mobile-submenu-${key}`} className="space-y-0.5 rounded-3xl border border-cs-border bg-white p-3">
+                <ul id={`mobile-submenu-${key}`} className="space-y-0.5 rounded-3xl border border-cs-border bg-cs-bg-card p-3">
                   {subMenuLinks.map(({ label, href }) => (
                     <li key={label}>
                       <Link
                         href={href}
                         onClick={onCloseNav}
-                        className="block rounded-2xl px-3 py-2 text-sm text-cs-ink-subtle transition-colors hover:bg-cs-surface-tint hover:text-cs-dark-blue"
+                        className="block rounded-2xl px-3 py-2 text-sm text-cs-text-muted transition-colors hover:bg-cs-bg-page hover:text-cs-text-heading"
                       >
                         {label}
                       </Link>
@@ -76,7 +76,7 @@ export function MobileMenu({
           <Link
             href="/contact"
             onClick={onCloseNav}
-            className="block w-full rounded bg-cs-dark-blue px-4 py-2.5 text-center text-sm font-medium text-white"
+            className="block w-full rounded bg-cs-accent px-4 py-2.5 text-center text-sm font-medium text-white"
           >
             Talk to Us
           </Link>
