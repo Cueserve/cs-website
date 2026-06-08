@@ -5,15 +5,19 @@
 
 > Rebuilding the Cueserve web experience with a fresh/new UI with AI‑Native positioning that reflects our evolution into an innovation-driven technology partner for Next Era of Digital Engineering.
 
+---
+
 ## Table of Contents
 
 - [Objective](#objective)
+- [Documentation](#documentation)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Development](#development)
 - [Build](#build)
 - [Testing](#testing)
-- [Documentation](#documentation)
+
+---
 
 ## Objective
 
@@ -33,6 +37,13 @@ This transformation will go beyond visual refresh—it will redefine how Cueserv
 
 ---
 
+## Documentation
+
+- [TECH-STACK.md](TECH-STACK.md) — Technology choices, tools, and strategic decisions
+- [ARCHITECTURE.md](ARCHITECTURE.md) — Project structure, page routes, data flow, and design system
+
+---
+ 
 ## Prerequisites
 
 - Node.js 18+
@@ -67,10 +78,3 @@ npm test
 ```
 
 Runs the test suite (configure as needed based on testing framework).
-
----
-
-## Documentation
-
-- [TECH-STACK.md](TECH-STACK.md) — Technology choices, tools, and strategic decisions
-- [ARCHITECTURE.md](ARCHITECTURE.md) — Project structure, page routes, data flow, and design system
