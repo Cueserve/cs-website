@@ -2,19 +2,19 @@
 
 @theme {
   /* ── New Light Theme ────────────────────────────────────── */
-  --color-cs-surface:           #FFFFFF;
-  --color-cs-surface-tint:      #F4F6FA;
-  --color-cs-surface-hover:     #E8F0F8;
-  --color-cs-surface-active:    #D6E4F4;
-  --color-cs-surface-subtle:    #FAFCFE;
-  --color-cs-surface-accent:    #EEF4FC;
-  --color-cs-surface-dark:      #0D1525;
-  --color-cs-ink:               #0D1525;
-  --color-cs-ink-body:          #162845;
-  --color-cs-ink-muted:         #3A4D68;
-  --color-cs-ink-subtle:        #5E7A9E;
-  --color-cs-ink-faint:         #8AA4BE;
-  --color-cs-ink-ghost:         #B8CCE0;
+  --color-cs-bg-card:           #FFFFFF;
+  --color-cs-bg-page:      #F4F6FA;
+  --color-cs-bg-hover:     #E8F0F8;
+  --color-cs-bg-active:    #D6E4F4;
+  --color-cs-bg-subtle:    #FAFCFE;
+  --color-cs-bg-accent:    #EEF4FC;
+  --color-cs-bg-dark:      #0D1525;
+  --color-cs-text-heading:               #0D1525;
+  --color-cs-text-body:          #162845;
+  --color-cs-text-secondary:         #3A4D68;
+  --color-cs-text-muted:        #5E7A9E;
+  --color-cs-text-faint:         #8AA4BE;
+  --color-cs-text-ghost:         #B8CCE0;
   --color-cs-accent:            #1661C4;
   --color-cs-accent-hover:      #1254A8;
   --color-cs-accent-active:     #0E4690;
@@ -81,19 +81,19 @@
 }
 
 :root[data-theme="dark"] {
-  --color-cs-surface:           #1A2440;
-  --color-cs-surface-tint:      #181624;
-  --color-cs-surface-hover:     #252E47;
-  --color-cs-surface-active:    #2E3A58;
-  --color-cs-surface-subtle:    #1C2035;
-  --color-cs-surface-accent:    #1E2E50;
-  --color-cs-surface-dark:      #0F1218;
-  --color-cs-ink:               #FFFFFF;
-  --color-cs-ink-body:          #E2E6EF;
-  --color-cs-ink-muted:         #B8BCC8;
-  --color-cs-ink-subtle:        #8694AA;
-  --color-cs-ink-faint:         #637080;
-  --color-cs-ink-ghost:         #445060;
+  --color-cs-bg-card:           #1A2440;
+  --color-cs-bg-page:      #181624;
+  --color-cs-bg-hover:     #252E47;
+  --color-cs-bg-active:    #2E3A58;
+  --color-cs-bg-subtle:    #1C2035;
+  --color-cs-bg-accent:    #1E2E50;
+  --color-cs-bg-dark:      #0F1218;
+  --color-cs-text-heading:               #FFFFFF;
+  --color-cs-text-body:          #E2E6EF;
+  --color-cs-text-secondary:         #B8BCC8;
+  --color-cs-text-muted:        #8694AA;
+  --color-cs-text-faint:         #637080;
+  --color-cs-text-ghost:         #445060;
   --color-cs-accent:            #1661C4;
   --color-cs-accent-hover:      #1A6FD4;
   --color-cs-accent-active:     #2080E8;
@@ -117,19 +117,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-cs-surface:           #1A2440;
-    --color-cs-surface-tint:      #181624;
-    --color-cs-surface-hover:     #252E47;
-    --color-cs-surface-active:    #2E3A58;
-    --color-cs-surface-subtle:    #1C2035;
-    --color-cs-surface-accent:    #1E2E50;
-    --color-cs-surface-dark:      #0F1218;
-    --color-cs-ink:               #FFFFFF;
-    --color-cs-ink-body:          #E2E6EF;
-    --color-cs-ink-muted:         #B8BCC8;
-    --color-cs-ink-subtle:        #8694AA;
-    --color-cs-ink-faint:         #637080;
-    --color-cs-ink-ghost:         #445060;
+    --color-cs-bg-card:           #1A2440;
+    --color-cs-bg-page:      #181624;
+    --color-cs-bg-hover:     #252E47;
+    --color-cs-bg-active:    #2E3A58;
+    --color-cs-bg-subtle:    #1C2035;
+    --color-cs-bg-accent:    #1E2E50;
+    --color-cs-bg-dark:      #0F1218;
+    --color-cs-text-heading:               #FFFFFF;
+    --color-cs-text-body:          #E2E6EF;
+    --color-cs-text-secondary:         #B8BCC8;
+    --color-cs-text-muted:        #8694AA;
+    --color-cs-text-faint:         #637080;
+    --color-cs-text-ghost:         #445060;
     --color-cs-accent:            #1661C4;
     --color-cs-accent-hover:      #1A6FD4;
     --color-cs-accent-active:     #2080E8;
@@ -167,8 +167,8 @@ html {
 
 body {
   font-family: var(--font-primary), system-ui, sans-serif;
-  background-color: var(--color-cs-surface);
-  color: var(--color-cs-ink);
+  background-color: var(--color-cs-bg-card);
+  color: var(--color-cs-text-heading);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -176,7 +176,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-cs-surface-tint);
+  background: var(--color-cs-bg-page);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-cs-border);
