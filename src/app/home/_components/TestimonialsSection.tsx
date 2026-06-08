@@ -39,7 +39,7 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="bg-cs-surface-tint px-8 py-24">
+    <section className="bg-cs-bg-card px-8 py-24">
       <div className="mx-auto max-w-[1200px]">
         <header className="mb-14 text-center">
           <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue">
@@ -73,7 +73,7 @@ export function TestimonialsSection() {
                 />
                 <p
                   className={`mb-5 italic leading-[1.7] ${
-                    isActive ? "text-white/85" : "text-cs-ink"
+                    isActive ? "text-white/85" : "text-cs-text-body"
                   }`}
                 >
                   &ldquo;{t.text}&rdquo;
@@ -81,7 +81,7 @@ export function TestimonialsSection() {
                 <div className="mt-auto flex items-center gap-3">
                   <div
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-[13px] font-bold ${
-                      isActive ? "bg-cs-light-blue/30 text-white" : "bg-cs-surface-accent text-cs-light-blue"
+                      isActive ? "bg-cs-light-blue/30 text-white" : "bg-cs-bg-accent text-cs-light-blue"
                     }`}
                   >
                     {t.initials}
@@ -96,7 +96,7 @@ export function TestimonialsSection() {
                     </div>
                     <div
                       className={`mt-0.5 text-xs ${
-                        isActive ? "text-white/55" : "text-cs-ink-faint"
+                        isActive ? "text-white/55" : "text-cs-text-faint"
                       }`}
                     >
                       {t.role}, {t.company} · {t.location}

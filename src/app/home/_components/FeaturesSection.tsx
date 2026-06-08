@@ -86,7 +86,7 @@ export function FeaturesSection() {
   const f = FEATURES[active];
 
   return (
-    <section className="bg-cs-surface-tint px-8 py-24">
+    <section className="bg-cs-bg-page px-8 py-24">
       <div className="mx-auto max-w-[1200px]">
         <header className="mb-12 text-center">
           <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue">
@@ -95,7 +95,7 @@ export function FeaturesSection() {
           <h2 className="mb-3.5 font-display text-4xl font-bold tracking-[-0.025em] text-cs-text-heading">
             One Partner. Every AI Need.
           </h2>
-          <p className="mx-auto max-w-[520px] text-[17px] leading-[1.65] text-cs-ink-muted">
+          <p className="mx-auto max-w-[520px] text-[17px] leading-[1.65] text-cs-text-secondary">
             From language models to agentic pipelines to the web product people use — we ship it all.
           </p>
         </header>
@@ -111,7 +111,7 @@ export function FeaturesSection() {
                 "rounded-lg px-5 py-2.5 text-sm font-medium transition-colors",
                 active === i
                   ? "bg-cs-accent text-white"
-                  : "bg-transparent text-cs-ink-muted hover:text-cs-text-heading",
+                  : "bg-transparent text-cs-text-secondary hover:text-cs-text-heading",
               ].join(" ")}
             >
               {feat.tab}
@@ -121,22 +121,22 @@ export function FeaturesSection() {
 
         <div className="grid overflow-hidden rounded-2xl border border-cs-border bg-cs-bg-card shadow-cs-lg lg:grid-cols-2">
           <div className="border-b border-cs-border p-10 lg:border-b-0 lg:border-r lg:px-11 lg:py-12">
-            <span className="mb-4 inline-block rounded bg-cs-surface-accent px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-cs-light-blue">
+            <span className="mb-4 inline-block rounded bg-cs-bg-accent px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-cs-light-blue">
               {f.tag}
             </span>
             <h3 className="mb-4 font-display text-[26px] font-bold leading-[1.25] tracking-[-0.02em] text-cs-text-heading">
               {f.title}
             </h3>
-            <p className="mb-7 text-base leading-[1.7] text-cs-ink-muted">
+            <p className="mb-7 text-base leading-[1.7] text-cs-text-secondary">
               {f.desc}
             </p>
             <ul className="flex flex-col gap-3">
               {f.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border border-cs-border-accent bg-cs-surface-accent">
+                  <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border border-cs-border-accent bg-cs-bg-accent">
                     <CheckIcon className="h-2.5 w-2.5 text-cs-light-blue" />
                   </span>
-                  <span className="text-sm leading-[1.55] text-cs-ink">{b}</span>
+                  <span className="text-sm leading-[1.55] text-cs-text-body">{b}</span>
                 </li>
               ))}
             </ul>
@@ -149,7 +149,7 @@ export function FeaturesSection() {
             </Link>
           </div>
 
-          <div className="flex items-center justify-center bg-cs-surface-subtle p-10 lg:px-11 lg:py-12">
+          <div className="flex items-center justify-center bg-cs-bg-subtle p-10 lg:px-11 lg:py-12">
             <div className="w-full max-w-[380px]">
               <FeatureVisual id={f.id} />
             </div>
@@ -179,8 +179,8 @@ function FeatureVisual({ id }: { id: string }) {
 
 function VisualShell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-cs-border bg-cs-surface-tint p-5">
-      <div className="mb-3.5 text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-ink-faint">
+    <div className="rounded-xl border border-cs-border bg-cs-bg-page p-5">
+      <div className="mb-3.5 text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-text-faint">
         {label}
       </div>
       {children}
@@ -215,7 +215,7 @@ function GenAIVisual() {
                 "max-w-[80%] px-3 py-2 text-xs leading-[1.5]",
                 m.role === "user"
                   ? "rounded-[12px_12px_2px_12px] bg-cs-accent text-white"
-                  : "rounded-[12px_12px_12px_2px] border border-cs-border bg-cs-bg-card text-cs-ink shadow-cs-sm",
+                  : "rounded-[12px_12px_12px_2px] border border-cs-border bg-cs-bg-card text-cs-text-body shadow-cs-sm",
               ].join(" ")}
             >
               {m.text}
@@ -224,7 +224,7 @@ function GenAIVisual() {
         ))}
       </div>
       <div className="mt-3 flex gap-2">
-        <div className="flex-1 rounded-lg border border-cs-border-strong bg-cs-bg-card px-3 py-2 text-xs text-cs-ink-trace">
+        <div className="flex-1 rounded-lg border border-cs-border-strong bg-cs-bg-card px-3 py-2 text-xs text-cs-text-muted">
           Ask anything about your data…
         </div>
         <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-cs-light-blue">
@@ -264,7 +264,7 @@ function AgenticVisual() {
               y1={nodes[a].y + 5}
               x2={nodes[b].x}
               y2={nodes[b].y}
-              stroke="#D0DFEC"
+              stroke="var(--color-cs-border-strong)"
               strokeWidth={0.8}
               strokeDasharray="2,2"
             />
@@ -279,7 +279,7 @@ function AgenticVisual() {
                 ? "border-[1.5px] border-cs-accent bg-cs-accent text-white"
                 : n.out
                   ? "border-[1.5px] border-cs-success bg-cs-success text-white"
-                  : "border-[1.5px] border-cs-border-strong bg-cs-bg-card text-cs-ink",
+                  : "border-[1.5px] border-cs-border-strong bg-cs-bg-card text-cs-text-body",
             ].join(" ")}
             style={{ left: `${n.x}%`, top: `${n.y}%` }}
           >
@@ -316,7 +316,7 @@ function AutomationVisual() {
                 ) : (
                   <div
                     className={`h-2 w-2 rounded-full ${
-                      i === active ? "bg-cs-light-blue" : "bg-cs-ink-trace"
+                      i === active ? "bg-cs-light-blue" : "bg-cs-text-ghost"
                     }`}
                   />
                 )}
@@ -327,7 +327,7 @@ function AutomationVisual() {
                     ? "font-semibold text-cs-text-heading"
                     : i < active
                       ? "text-cs-text-heading"
-                      : "text-cs-ink-faint"
+                      : "text-cs-text-faint"
                 }`}
               >
                 {s}
@@ -347,7 +347,7 @@ function AutomationVisual() {
         <div className="mb-1 text-xs font-semibold text-cs-light-blue">
           Processing: {steps[active]}
         </div>
-        <div className="text-xs text-cs-ink-faint">
+        <div className="text-xs text-cs-text-faint">
           12,840 records handled · 0 errors · avg 1.2ms/record
         </div>
       </div>
@@ -361,9 +361,9 @@ function DataVisual() {
   const highlight = 5;
 
   return (
-    <div className="rounded-xl border border-cs-border bg-cs-surface-tint p-5">
+    <div className="rounded-xl border border-cs-border bg-cs-bg-page p-5">
       <div className="mb-3.5 flex items-center justify-between">
-        <div className="text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-ink-faint">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-text-faint">
           Weekly Performance
         </div>
         <div className="text-xs font-semibold text-cs-success">↑ 18.4%</div>
@@ -385,7 +385,7 @@ function DataVisual() {
           <div
             key={l}
             className={`flex-1 text-center text-[10px] ${
-              i === highlight ? "font-semibold text-cs-light-blue" : "text-cs-ink-trace"
+              i === highlight ? "font-semibold text-cs-light-blue" : "text-cs-text-muted"
             }`}
           >
             {l}
@@ -398,14 +398,14 @@ function DataVisual() {
 
 function WebVisual() {
   return (
-    <div className="overflow-hidden rounded-xl border border-cs-border bg-cs-surface-tint">
+    <div className="overflow-hidden rounded-xl border border-cs-border bg-cs-bg-page">
       <div className="flex items-center gap-2 bg-cs-border px-3 py-2">
         <div className="flex gap-1.5">
           {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
             <div key={c} className="h-2 w-2 rounded-full" style={{ background: c }} />
           ))}
         </div>
-        <div className="flex-1 rounded bg-cs-bg-card px-2 py-0.5 text-[11px] text-cs-ink-trace">
+        <div className="flex-1 rounded bg-cs-bg-card px-2 py-0.5 text-[11px] text-cs-text-muted">
           https://yourproduct.app
         </div>
       </div>

@@ -62,7 +62,7 @@ export function WhySection() {
             <br />
             promises.
           </h2>
-          <p className="mb-8 text-[17px] leading-[1.7] text-cs-ink-muted">
+          <p className="mb-8 text-[17px] leading-[1.7] text-cs-text-secondary">
             We&apos;ve built software for clients across South Africa, Australia, the US, and India.
             The same commitment every time.
           </p>
@@ -70,7 +70,7 @@ export function WhySection() {
             {STATS.map(([value, label]) => (
               <div key={label}>
                 <dt className="font-display text-[26px] font-bold text-cs-text-heading">{value}</dt>
-                <dd className="mt-1 text-xs text-cs-ink-faint">{label}</dd>
+                <dd className="mt-1 text-xs text-cs-text-faint">{label}</dd>
               </div>
             ))}
           </dl>
@@ -80,15 +80,15 @@ export function WhySection() {
           {PILLARS.map((p) => (
             <article
               key={p.title}
-              className="rounded-xl border border-cs-border bg-cs-bg-card p-5 transition-all duration-200 hover:border-cs-border-accent hover:bg-cs-surface-subtle hover:shadow-cs-md"
+              className="rounded-xl border border-cs-border bg-cs-bg-card p-5 transition-all duration-200 hover:border-cs-border-accent hover:bg-cs-bg-subtle hover:shadow-cs-md"
             >
-              <div className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-lg bg-cs-surface-accent">
+              <div className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-lg bg-cs-bg-accent">
                 {p.icon}
               </div>
               <h3 className="mb-2 font-display text-[15px] font-semibold text-cs-text-heading">
                 {p.title}
               </h3>
-              <p className="text-[13px] leading-[1.6] text-cs-ink-subtle">{p.desc}</p>
+              <p className="text-[13px] leading-[1.6] text-cs-text-muted">{p.desc}</p>
             </article>
           ))}
         </div>

@@ -24,12 +24,12 @@ const SOCIAL = [
 
 export function Footer() {
   return (
-    <footer className="bg-cs-surface-dark px-8 pb-6 pt-14 text-white/60">
+    <footer className="bg-cs-bg-subtle px-8 pb-6 pt-14 text-cs-text-secondary border-t border-cs-border">
       <div className="mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
-            <Logo className="h-9 w-auto" variant="inverse" />
-            <p className="mt-4 max-w-[280px] text-sm leading-relaxed text-white/50">
+            <Logo className="h-9 w-auto" variant="default" />
+            <p className="mt-4 max-w-[280px] text-sm leading-relaxed text-cs-text-muted">
               Your AI-first technology partner — delivering real outcomes through GenAI,
               Agentic AI, and workflow automation.
             </p>
@@ -38,7 +38,7 @@ export function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
-                  className="text-xs text-white/40 transition-colors hover:text-white"
+                  className="text-xs text-cs-text-faint transition-colors hover:text-cs-text-heading"
                 >
                   {s.label}
                 </a>
@@ -52,7 +52,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-white/55 transition-colors hover:text-white"
+                    className="text-sm text-cs-text-secondary transition-colors hover:text-cs-text-heading"
                   >
                     {l.label}
                   </Link>
@@ -64,7 +64,7 @@ export function Footer() {
           <FooterColumn heading="Services">
             <ul className="flex flex-col gap-2.5">
               {SERVICES.map((s) => (
-                <li key={s} className="text-sm text-white/55">
+                <li key={s} className="text-sm text-cs-text-secondary">
                   {s}
                 </li>
               ))}
@@ -72,7 +72,7 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn heading="Contact Us">
-            <address className="flex flex-col gap-2.5 text-sm not-italic text-white/55">
+            <address className="flex flex-col gap-2.5 text-sm not-italic text-cs-text-secondary">
               <span className="leading-relaxed">
                 5, Punit Colony, Sindhwaimata Road,
                 <br />
@@ -84,16 +84,16 @@ export function Footer() {
               >
                 hello@cueserve.com
               </a>
-              <a href="tel:+918000299993" className="hover:text-white">
+              <a href="tel:+918000299993" className="hover:text-cs-text-heading">
                 +91 80002 99993
               </a>
             </address>
           </FooterColumn>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-cs-border pt-5 text-xs text-cs-text-faint md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Cueserve. All rights reserved.</span>
-          <span className="text-white/25">Privacy Policy · Terms of Service</span>
+          <span className="text-cs-text-faint">Privacy Policy · Terms of Service</span>
         </div>
       </div>
     </footer>
@@ -109,7 +109,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <div className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.08em] text-white">
+      <div className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.08em] text-cs-text-heading">
         {heading}
       </div>
       {children}
