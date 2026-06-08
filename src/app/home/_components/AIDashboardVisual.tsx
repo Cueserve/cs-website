@@ -42,7 +42,7 @@ export function AIDashboardVisual() {
         className="absolute -left-[10px] top-[30px] z-[3] min-w-[200px] rounded-2xl border border-cs-border bg-cs-bg-card p-4 shadow-cs-xl"
         style={{ animation: "var(--animate-cs-float-a)" }}
       >
-        <div className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-ink-faint">
+        <div className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.07em] text-cs-text-faint">
           AI Tasks
         </div>
         <div className="flex flex-col gap-2">
@@ -70,7 +70,7 @@ export function AIDashboardVisual() {
           {[80, 60, 90, 50].map((w, i) => (
             <div
               key={i}
-              className={`h-2 rounded-full ${i % 2 === 0 ? "bg-cs-surface-accent self-start" : "bg-cs-surface-tint self-end"}`}
+              className={`h-2 rounded-full ${i % 2 === 0 ? "bg-cs-bg-accent self-start" : "bg-cs-bg-page self-end"}`}
               style={{ width: `${w}%` }}
             />
           ))}
@@ -103,8 +103,8 @@ export function AIDashboardVisual() {
               key={i}
               className={`rounded p-1.5 ${
                 i === 0
-                  ? "border border-cs-border-accent bg-cs-surface-accent"
-                  : "border border-cs-border bg-cs-surface-tint"
+                  ? "border border-cs-border-accent bg-cs-bg-accent"
+                  : "border border-cs-border bg-cs-bg-page"
               }`}
             >
               <div
@@ -115,7 +115,7 @@ export function AIDashboardVisual() {
             </div>
           ))}
         </div>
-        <div className="flex items-center gap-1.5 rounded bg-cs-surface-tint px-2 py-1.5">
+        <div className="flex items-center gap-1.5 rounded bg-cs-bg-page px-2 py-1.5">
           <div className="flex flex-col gap-[3px]">
             {[0, 1, 2].map((i) => (
               <div
@@ -139,12 +139,12 @@ export function AIDashboardVisual() {
 function TaskRow({ task }: { task: { name: string; status: TaskStatus } }) {
   const ringColor =
     task.status === "done"
-      ? "border-cs-border-accent bg-cs-surface-accent"
+      ? "border-cs-border-accent bg-cs-bg-accent"
       : task.status === "active"
         ? "border-cs-accent bg-cs-accent"
-        : "border-cs-border bg-cs-surface-tint";
+        : "border-cs-border bg-cs-bg-page";
   const personColor =
-    task.status === "active" ? "text-white" : "text-cs-ink-faint";
+    task.status === "active" ? "text-white" : "text-cs-text-faint";
 
   return (
     <div className="flex items-center gap-2.5">
@@ -155,7 +155,7 @@ function TaskRow({ task }: { task: { name: string; status: TaskStatus } }) {
       </div>
       <span
         className={`flex-1 text-xs ${
-          task.status === "active" ? "font-semibold text-cs-text-heading" : "text-cs-ink-subtle"
+          task.status === "active" ? "font-semibold text-cs-text-heading" : "text-cs-text-muted"
         }`}
       >
         {task.name}
@@ -171,8 +171,8 @@ function TaskRow({ task }: { task: { name: string; status: TaskStatus } }) {
         </div>
       )}
       {task.status === "pending" && (
-        <div className="flex h-[18px] w-[18px] items-center justify-center rounded-full border-[1.5px] border-cs-border-strong bg-cs-surface-tint">
-          <div className="h-[5px] w-[5px] rounded-full bg-cs-ink-trace" />
+        <div className="flex h-[18px] w-[18px] items-center justify-center rounded-full border-[1.5px] border-cs-border-strong bg-cs-bg-page">
+          <div className="h-[5px] w-[5px] rounded-full bg-cs-text-ghost" />
         </div>
       )}
     </div>

@@ -29,8 +29,8 @@ export function MegaMenu({ config, menuKey, onClose, onMouseEnter }: Props) {
                 key={title}
                 className="flex cursor-default items-start gap-2.5 rounded-xl p-2 hover:bg-cs-bg-page"
               >
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-cs-brand-2/15">
-                  <Icon className="h-4 w-4 text-cs-brand-2" />
+                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-cs-light-blue/15">
+                  <Icon className="h-4 w-4 text-cs-light-blue" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-cs-text-heading">{title}</p>

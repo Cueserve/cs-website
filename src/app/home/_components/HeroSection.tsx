@@ -16,7 +16,7 @@ export function HeroSection() {
         {/* Content - Leftside */}
         <div>
           {/* Badge */}
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-surface-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cs-border-accent bg-cs-bg-accent px-3.5 py-1.5 text-[13px] font-semibold tracking-[0.04em] text-cs-light-blue">
             <LayersIcon className="h-3.5 w-3.5" />
             AI-First Technology Partner
           </div>
@@ -29,7 +29,7 @@ export function HeroSection() {
             at Enterprise Scale
           </h1>
           {/* Description Text */}
-          <p className="mb-5 max-w-[480px] text-lg leading-[1.7] text-cs-ink-muted">
+          <p className="mb-5 max-w-[480px] text-lg leading-[1.7] text-cs-text-secondary">
             GenAI, Agentic AI, and workflow automation that boosts efficiency
             and significantly reduces operational costs — delivered by a team
             that actually cares.
@@ -56,7 +56,7 @@ export function HeroSection() {
                 <dt className="font-display text-[28px] font-bold leading-none text-cs-text-heading">
                   {value}
                 </dt>
-                <dd className="mt-1.5 text-[13px] text-cs-ink-faint">{label}</dd>
+                <dd className="mt-1.5 text-[13px] text-cs-text-faint">{label}</dd>
               </div>
             ))}
           </dl>
