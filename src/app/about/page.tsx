@@ -1,14 +1,22 @@
 export { metadata } from "./metadata";
+import { AboutHero } from "./_components/AboutHero";
+import { AboutPhilosophy } from "./_components/AboutPhilosophy";
+import { AboutMissionVision } from "./_components/AboutMissionVision";
+import { AboutExpertise } from "./_components/AboutExpertise";
+import { AboutStatsStrip } from "./_components/AboutStatsStrip";
+import { AboutTeam } from "./_components/AboutTeam";
+import { AboutWhereWeWork } from "./_components/AboutWhereWeWork";
 
 export default function AboutPage() {
   return (
-    <main className="flex-1 px-6 py-24">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-display text-6xl tracking-wide text-cs-dark-blue">
-          ABOUT
-        </h1>
-        <p className="mt-4 text-cs-dark-blue/70">Content coming soon.</p>
-      </div>
+    <main className="flex-1 bg-white">
+      <AboutHero />
+      <AboutPhilosophy />
+      <AboutMissionVision />
+      <AboutExpertise />
+      <AboutStatsStrip />
+      <AboutTeam />
+      <AboutWhereWeWork />
     </main>
   );
 }
