@@ -3,7 +3,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-v16+-black.svg)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue.svg)](https://www.typescriptlang.org/)
 
-> Rebuilding the Cueserve web experience with a fresh/new UI with AI‑Native positioning that reflects our evolution into an innovation-driven technology partner for Next Era of Digital Engineering.
+> Rebuilding the Cueserve web experience with a fresh/new UI with AI‑Native positioning that reflects our evolution into an innovation-driven technology partner for next era of Digital Engineering.
 
 ---
 
