@@ -3,7 +3,7 @@ import { PulseIcon, ArrowRightIcon } from "@/components/icons/HeroIcons";
 
 export function AboutWhereWeWork() {
   return (
-    <section className="py-24 bg-cs-surface-tint border-t border-cs-border relative overflow-hidden">
+    <section className="pt-12 pb-16 sm:py-24 bg-cs-surface-tint border-t border-cs-border relative overflow-hidden">
       {/* Subtle Dot Grid Background */}
       <div 
         className="absolute inset-0 pointer-events-none z-0 opacity-[0.09]"
@@ -20,30 +20,28 @@ export function AboutWhereWeWork() {
             <PulseIcon className="h-3.5 w-3.5" />
             GLOBAL PRESENCE
           </div>
-          <h2
-            className="font-display font-bold leading-[1.15] tracking-[-0.02em] text-cs-dark-blue"
-            style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)" }}
-          >
-            Where We Work
+          <h2 className="font-display font-bold leading-[1.15] tracking-[-0.02em] text-cs-dark-blue">
+            <span className="sm:hidden block text-[26px]">Where We Work</span>
+            <span className="hidden sm:block" style={{ fontSize: "clamp(2rem, 3.5vw, 2.75rem)" }}>Where We Work</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-cs-ink leading-relaxed">
+          <p className="mt-4 text-[11.5px] sm:text-lg text-cs-ink leading-relaxed">
             While we operate remote-first across the globe, our core engineering and innovation labs are rooted in India delivering 24/7 AI-native solutions to enterprise partners worldwide.
           </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-12 items-stretch">
 
-          {/* Left Card: Headquarters & Contact Info */}
+          {/* Left Card */}
           <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl border border-cs-border bg-white p-8 sm:p-10 shadow-cs-md relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-cs-light-blue/5 rounded-full blur-3xl pointer-events-none" />
 
             <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-cs-surface-tint text-cs-dark-blue font-bold text-xs uppercase tracking-wider mb-8 border border-cs-border">
+              <span className="inline-block px-3 py-1 rounded-full bg-cs-surface-tint text-cs-dark-blue font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-8 border border-cs-border">
                 Global Headquarters
               </span>
 
               <div className="space-y-6">
-                {/* Address with "Open Maps" icon on hover */}
+                {/* Address */}
                 <Link
                   href="https://maps.google.com/?q=5,+Punit+Colony,+Sindhwaimata+Road,+Pratapnagar,+Vadodara,+390004,+Gujarat,+India"
                   target="_blank"
@@ -58,7 +56,7 @@ export function AboutWhereWeWork() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h4 className="font-display font-bold text-base text-cs-dark-blue group-hover/addr:text-[#2384c6] transition-colors">
+                      <h4 className="font-display font-bold text-[14px] sm:text-base text-cs-dark-blue group-hover/addr:text-[#2384c6] transition-colors">
                         Cueserve INC
                       </h4>
 
@@ -68,7 +66,7 @@ export function AboutWhereWeWork() {
                         </svg>
                       </span>
                     </div>
-                    <p className="mt-1 text-sm text-cs-ink leading-relaxed group-hover/addr:text-cs-dark-blue transition-colors">
+                    <p className="mt-1 text-[11px] sm:text-sm text-cs-ink leading-relaxed group-hover/addr:text-cs-dark-blue transition-colors">
                       5, Punit Colony, Sindhwaimata Road, Pratapnagar, Vadodara — 390004, Gujarat, India
                     </p>
                   </div>
@@ -84,10 +82,10 @@ export function AboutWhereWeWork() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-base text-cs-dark-blue group-hover/email:text-[#2384c6] transition-colors">
+                    <h4 className="font-display font-bold text-[14px] sm:text-base text-cs-dark-blue group-hover/email:text-[#2384c6] transition-colors">
                       Email Us
                     </h4>
-                    <span className="mt-1 block text-sm text-cs-light-blue font-medium group-hover/email:underline group-hover/email:text-[#2384c6] transition-all">
+                    <span className="mt-1 block text-[11px] sm:text-sm text-cs-light-blue font-medium group-hover/email:underline group-hover/email:text-[#2384c6] transition-all">
                       sales@cueserve.com
                     </span>
                   </div>
@@ -101,8 +99,8 @@ export function AboutWhereWeWork() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-base text-cs-dark-blue">Working Hours</h4>
-                    <p className="mt-1 text-sm text-cs-ink">
+                    <h4 className="font-display font-bold text-[14px] sm:text-base text-cs-dark-blue">Working Hours</h4>
+                    <p className="mt-1 text-[11px] sm:text-sm text-cs-ink">
                       Mon - Fri: 9:00 AM - 7:30 PM IST
                     </p>
                   </div>
@@ -122,7 +120,7 @@ export function AboutWhereWeWork() {
             </div>
           </div>
 
-          {/* Right Card: Framed Luxury Google Map Container */}
+          {/* Right Card: Google Map */}
           <div className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-cs-border/80 bg-white shadow-lg shadow-[#0c385a]/5 relative overflow-hidden min-h-[440px]">
             
             {/* Top Header Bar */}
@@ -156,7 +154,7 @@ export function AboutWhereWeWork() {
               />
             </div>
 
-            {/* Bottom Intentional Action Footer */}
+            {/* Bottom Action Footer */}
             <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-4 border-t border-cs-border/60 bg-cs-surface-subtle/50">
               <div className="flex items-center gap-2 text-xs font-medium text-cs-ink-muted">
                 <span>Coordinates: 22.2905° N, 73.2086° E</span>

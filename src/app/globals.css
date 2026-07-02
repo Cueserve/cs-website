@@ -114,3 +114,11 @@ body {
   background: var(--color-cs-border-accent);
   border-radius: 3px;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}

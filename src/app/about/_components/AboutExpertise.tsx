@@ -4,7 +4,7 @@ import { PulseIcon, ArrowRightIcon } from "@/components/icons/HeroIcons";
 
 export function AboutExpertise() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="pt-12 pb-10 sm:py-24 bg-white overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-8">
         <div className="grid items-center gap-16 lg:grid-cols-12">
 
@@ -16,15 +16,17 @@ export function AboutExpertise() {
             </div>
 
             {/* Main Headline */}
-            <h2
-              className="mb-6 font-display font-bold leading-[1.15] tracking-[-0.02em] text-cs-dark-blue"
-              style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)" }}
-            >
-              Experts in <span className="text-cs-light-blue">digital brand innovation</span>
+            <h2 className="mb-6 font-display font-bold leading-[1.15] tracking-[-0.02em] text-cs-dark-blue">
+              <span className="sm:hidden block text-[26px]">
+                Experts in <span className="text-cs-light-blue">digital brand innovation</span>
+              </span>
+              <span className="hidden sm:block" style={{ fontSize: "clamp(2.25rem, 4vw, 3rem)" }}>
+                Experts in <span className="text-cs-light-blue">digital brand innovation</span>
+              </span>
             </h2>
 
             {/* Description Paragraph */}
-            <p className="mb-8 text-base leading-relaxed text-cs-ink-muted">
+            <p className="mb-8 text-[12.5px] sm:text-base leading-relaxed text-cs-ink-muted">
               There are two critical variables of standard enterprise delivery: the technical complexity
               of the problem and the speed of execution by the engineering team. Cueserve has been proven
               to consistently solve mission-critical AI challenges while drastically reducing time-to-market.
@@ -32,15 +34,15 @@ export function AboutExpertise() {
 
             {/* Sleek Feature Pills */}
             <div className="flex flex-wrap gap-2.5 mb-10">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cs-surface-subtle/80 border border-cs-border/60 text-xs font-semibold text-cs-dark-blue shadow-sm shadow-[#2384c6]/5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cs-surface-subtle/80 border border-cs-border/60 text-[11px] sm:text-xs font-semibold text-cs-dark-blue shadow-sm shadow-[#2384c6]/5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#2384c6]" />
                 Mission-Critical AI
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cs-surface-subtle/80 border border-cs-border/60 text-xs font-semibold text-cs-dark-blue shadow-sm shadow-[#2384c6]/5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cs-surface-subtle/80 border border-cs-border/60 text-[11px] sm:text-xs font-semibold text-cs-dark-blue shadow-sm shadow-[#2384c6]/5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#2384c6]" />
                 3x Faster Execution
               </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cs-surface-subtle/80 border border-cs-border/60 text-xs font-semibold text-cs-dark-blue shadow-sm shadow-[#2384c6]/5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cs-surface-subtle/80 border border-cs-border/60 text-[11px] sm:text-xs font-semibold text-cs-dark-blue shadow-sm shadow-[#2384c6]/5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#2384c6]" />
                 Enterprise Reliability
               </div>
@@ -48,26 +50,26 @@ export function AboutExpertise() {
 
             {/* Editorial Founder Quote & Action Block */}
             <div className="relative pl-5 py-2 border-l-4 border-[#2384c6] bg-gradient-to-r from-cs-surface-subtle/40 to-transparent rounded-r-xl">
-              <p className="font-display font-medium text-sm sm:text-base italic text-cs-dark-blue leading-relaxed mb-4">
+              <p className="font-display font-medium text-[11.5px] sm:text-base italic text-cs-dark-blue leading-relaxed mb-4">
                 &ldquo;We don&apos;t just build software; we engineer sustainable competitive advantage.&rdquo;
               </p>
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="relative h-11 w-11 shrink-0 rounded-full overflow-hidden bg-gradient-to-br from-[#0c385a] to-[#2384c6] flex items-center justify-center text-white font-display font-bold text-sm shadow-md">
+                  <div className="relative h-10 w-10 sm:h-11 sm:w-11 shrink-0 rounded-full overflow-hidden bg-gradient-to-br from-[#0c385a] to-[#2384c6] flex items-center justify-center text-white font-display font-bold text-[12px] sm:text-sm shadow-md">
                     VP
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-sm text-cs-dark-blue leading-tight">
+                    <h4 className="font-display font-bold text-[12px] sm:text-sm text-cs-dark-blue leading-tight">
                       Viral Parikh
                     </h4>
-                    <p className="text-[11px] text-cs-ink-muted font-medium mt-0.5">
+                    <p className="text-[10px] sm:text-[11px] text-cs-ink-muted font-medium mt-0.5">
                       CEO & Founder
                     </p>
                   </div>
                 </div>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#0c385a] px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-[#2384c6] active:scale-95 shadow-md shadow-[#0c385a]/10"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#0c385a] px-4 py-2 text-[11px] sm:text-xs font-semibold text-white transition-all hover:bg-[#2384c6] active:scale-95 shadow-md shadow-[#0c385a]/10"
                 >
                   Contact Us
                   <ArrowRightIcon className="h-3.5 w-3.5" />

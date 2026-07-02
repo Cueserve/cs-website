@@ -1,6 +1,6 @@
 import { LayersIcon, PulseIcon, PersonIcon } from "@/components/icons/HeroIcons";
 
-const STATS = [
+export const STATS = [
   {
     value: "50+",
     label: "Projects",
@@ -29,7 +29,7 @@ const STATS = [
 
 export function AboutStatsStrip() {
   return (
-    <div className="mt-4 sm:mt-6 pb-2 px-6 relative z-20">
+    <div className="mt-4 sm:mt-6 pb-2 px-6 relative z-20 hidden sm:block">
 
       <div className="mx-auto max-w-[1080px]">
         
