@@ -3,8 +3,16 @@ import { CheckIcon, PulseIcon, LayersIcon } from "@/components/icons/HeroIcons";
 
 export function AboutMissionVision() {
   return (
-    <section className="py-24 bg-cs-surface-subtle border-y border-cs-border">
-      <div className="mx-auto max-w-[1200px] px-8">
+    <section className="py-24 bg-cs-surface-subtle border-y border-cs-border relative overflow-hidden">
+      {/* Subtle Dot Grid Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 opacity-[0.09]"
+        style={{
+          backgroundImage: `radial-gradient(#0c385a 1.2px, transparent 1.2px)`,
+          backgroundSize: "24px 24px"
+        }}
+      />
+      <div className="mx-auto max-w-[1200px] px-8 relative z-10">
         {/* Section Header */}
         <div className="mb-14 max-w-2xl">
           <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cs-light-blue">
@@ -34,7 +42,10 @@ export function AboutMissionVision() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-cs-dark-blue/80 via-cs-dark-blue/20 to-transparent" />
+
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#0c385a]/25 via-[#2384c6]/10 to-[#63bceb]/10 mix-blend-overlay pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c385a]/35 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-[#bce2ff]/30 rounded-xl pointer-events-none shadow-[inset_0_0_20px_rgba(35,132,198,0.15)]" />
                 
                 {/* Floating Tag over Image */}
                 <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-bold text-cs-dark-blue shadow-cs-sm">
@@ -71,15 +82,20 @@ export function AboutMissionVision() {
             
             {/* Card 1: Our Mission */}
             <div className="flex-1 rounded-2xl border border-cs-border bg-white p-6 sm:p-8 shadow-cs-md hover:border-cs-light-blue/40 hover:shadow-cs-lg transition-all duration-300">
-              <div className="mb-3 inline-block rounded-md bg-cs-surface-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-cs-light-blue border border-cs-border-accent">
-                Our Mission
+              <div className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-cs-surface-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-cs-light-blue border border-cs-border-accent">
+                <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx={12} cy={12} r={10} />
+                  <circle cx={12} cy={12} r={6} />
+                  <circle cx={12} cy={12} r={2} />
+                </svg>
+                <span>OUR MISSION</span>
               </div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-cs-dark-blue mb-4">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-cs-dark-blue mb-4 max-w-[90%]">
                 We aim to be more than a service provider—your trusted AI & technology growth partner.
               </h3>
               
               {/* Mission Bullet Points */}
-              <ul className="grid sm:grid-cols-2 gap-3.5 mt-6">
+              <ul className="grid sm:grid-cols-2 gap-3.5 mt-6 max-w-[92%]">
                 <li className="flex items-start gap-3">
                   <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cs-success-tint text-cs-success">
                     <CheckIcon className="h-3 w-3" />
@@ -117,13 +133,16 @@ export function AboutMissionVision() {
 
             {/* Card 2: Our Vision */}
             <div className="flex-1 rounded-2xl border border-cs-border bg-white p-6 sm:p-8 shadow-cs-md hover:border-cs-light-blue/40 hover:shadow-cs-lg transition-all duration-300">
-              <div className="mb-3 inline-block rounded-md bg-cs-surface-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-cs-light-blue border border-cs-border-accent">
-                Our Vision
+              <div className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-cs-surface-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-cs-light-blue border border-cs-border-accent">
+                <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5Z" />
+                </svg>
+                <span>OUR VISION</span>
               </div>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-cs-dark-blue mb-3">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-cs-dark-blue mb-3 max-w-[90%]">
                 We strive to be more than a vendor—we aim to lead long-term digital innovation.
               </h3>
-              <p className="text-sm leading-relaxed text-cs-ink-muted mt-2">
+              <p className="text-sm leading-relaxed text-cs-ink-muted mt-2 max-w-[90%]">
                 At Cueserve, our vision is a modern technology landscape where ambitious enterprises operate 
                 at peak efficiency without technical friction. We envision a future where custom AI systems 
                 and human ingenuity work seamlessly together enabling organizations to innovate faster, 
