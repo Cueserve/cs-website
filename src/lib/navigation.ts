@@ -21,6 +21,7 @@ export interface ShowcaseItem {
   Icon: (props: SVGProps<SVGSVGElement>) => ReactNode;
   title: string;
   description: string;
+  href?: string;
 }
 
 export interface SubMenuItem {
@@ -85,51 +86,54 @@ export const MEGA_MENU_MAP: Record<MenuKey, MegaMenuConfig> = {
         title: "AI-Native from Day Zero",
         description:
           "AI shapes how we architect, automate, and deliver every solution.",
+        href: "/about#philosophy",
       },
       {
         Icon: UsersIcon,
         title: "Senior-Heavy Delivery",
         description:
           "No layers. No handoffs. The people who scope it are the ones who build it.",
+        href: "/about#team",
       },
       {
         Icon: TargetIcon,
         title: "Outcome Accountability",
         description:
           "We measure success by business impact, not hours or tickets.",
+        href: "/about#mission",
       },
     ],
     centerTitle: "Our Background",
     subMenuLinks: [
-      { label: "Our Story", href: "/about" },
-      { label: "Mission & Values", href: "/about" },
-      { label: "The Team", href: "/about" },
-      { label: "Where We Work", href: "/about" },
-      { label: "Careers", href: "/about" },
+      { label: "Our Story", href: "/about#story" },
+      { label: "Mission & Values", href: "/about#mission" },
+      { label: "The Team", href: "/about#team" },
+      { label: "Where We Work", href: "/about#where-we-work" },
+      { label: "Careers", href: "/contact" },
     ],
     rightTitle: "Quick Facts",
     staticInfoCards: [
       {
         heading: "Founded 2010",
         body: "India · Remote-first, globally distributed",
-        href: "/about",
+        href: "/about#story",
       },
       {
         heading: "50+ Projects Delivered",
         body: "AI-native solutions · 10+ yrs avg experience",
-        href: "/about",
+        href: "/about#expertise",
       },
       {
         heading: "SMBs & Mid-market",
         body: "ISO-aligned · Cloud & AI certified",
-        href: "/about",
+        href: "/about#mission",
       },
     ],
     footer: {
       punchline: "Built by people who care, for teams who expect more.",
       description: "Come see what we've shipped.",
       ctaLabel: "See Our Team →",
-      ctaHref: "/about",
+      ctaHref: "/about#team",
     },
   },
 

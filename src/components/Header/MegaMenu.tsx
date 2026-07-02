@@ -28,22 +28,36 @@ export function MegaMenu({ config, menuKey, onClose, onMouseEnter }: Props) {
         <div className={`border-r border-cs-border p-5 ${menuKey === "services" ? "flex-[0_0_44%]" : "flex-[0_0_38%]"}`}>
           <PanelTitle>{config.leftTitle}</PanelTitle>
           <ul className="space-y-1">
-            {config.showcaseItems.map(({ Icon, title, description }) => (
-              <li
-                key={title}
-                className="flex cursor-default items-start gap-2.5 rounded-xl p-2 hover:bg-cs-surface-tint"
-              >
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#EBF4FB]">
-                  <Icon className="h-4 w-4 text-cs-light-blue" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-cs-dark-blue">{title}</p>
-                  <p className="text-[10px] leading-snug text-cs-ink-muted">
-                    {description}
-                  </p>
-                </div>
-              </li>
-            ))}
+            {config.showcaseItems.map(({ Icon, title, description, href }) => {
+              const itemContent = (
+                <>
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#EBF4FB]">
+                    <Icon className="h-4 w-4 text-cs-light-blue" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-cs-dark-blue">{title}</p>
+                    <p className="text-[10px] leading-snug text-cs-ink-muted">
+                      {description}
+                    </p>
+                  </div>
+                </>
+              );
+              const cardClass =
+                "flex items-start gap-2.5 rounded-xl p-2 transition-colors hover:bg-cs-surface-tint" +
+                (href ? " cursor-pointer" : " cursor-default");
+
+              return (
+                <li key={title}>
+                  {href ? (
+                    <Link href={href} onClick={onClose} className={cardClass}>
+                      {itemContent}
+                    </Link>
+                  ) : (
+                    <div className={cardClass}>{itemContent}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
           {menuKey === "services" && (
             <div className="mt-4">
