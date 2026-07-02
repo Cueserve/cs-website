@@ -32,7 +32,7 @@ const MOBILE_STATS = [
 
 export function AboutHero() {
   return (
-    <section className="relative overflow-hidden pt-6 pb-8 sm:pt-12 sm:pb-12 border-b border-cs-border">
+    <section id="story" className="scroll-mt-20 relative overflow-hidden pt-6 pb-8 sm:pt-12 sm:pb-12 border-b border-cs-border">
       {/* Desktop Background Illustration */}
       <div className="absolute inset-x-0 -top-[100px] -bottom-[40px] overflow-hidden pointer-events-none z-0 hidden sm:block">
         <Image

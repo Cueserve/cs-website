@@ -3,7 +3,7 @@ import { CheckIcon, PulseIcon } from "@/components/icons/HeroIcons";
 
 export function AboutPhilosophy() {
   return (
-    <section className="pt-12 pb-10 sm:py-24 bg-white overflow-hidden">
+    <section id="philosophy" className="scroll-mt-20 pt-12 pb-10 sm:py-24 bg-white overflow-hidden">
 
       <style>{`
         @keyframes floatSlow {

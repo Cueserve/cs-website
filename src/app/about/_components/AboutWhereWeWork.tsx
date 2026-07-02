@@ -3,9 +3,9 @@ import { PulseIcon, ArrowRightIcon } from "@/components/icons/HeroIcons";
 
 export function AboutWhereWeWork() {
   return (
-    <section className="pt-12 pb-16 sm:py-24 bg-cs-surface-tint border-t border-cs-border relative overflow-hidden">
+    <section id="where-we-work" className="scroll-mt-20 pt-12 pb-16 sm:py-24 bg-cs-surface-tint border-t border-cs-border relative overflow-hidden">
       {/* Subtle Dot Grid Background */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none z-0 opacity-[0.09]"
         style={{
           backgroundImage: `radial-gradient(#0c385a 1.2px, transparent 1.2px)`,
@@ -122,7 +122,7 @@ export function AboutWhereWeWork() {
 
           {/* Right Card: Google Map */}
           <div className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-cs-border/80 bg-white shadow-lg shadow-[#0c385a]/5 relative overflow-hidden min-h-[440px]">
-            
+
             {/* Top Header Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-b border-cs-border/60 bg-cs-surface-subtle/50">
               <div className="flex items-center gap-2.5">

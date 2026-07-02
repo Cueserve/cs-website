@@ -3,7 +3,7 @@ import { CheckIcon, PulseIcon, LayersIcon } from "@/components/icons/HeroIcons";
 
 export function AboutMissionVision() {
   return (
-    <section className="pt-12 pb-10 sm:py-24 bg-cs-surface-subtle border-y border-cs-border relative overflow-hidden">
+    <section id="mission" className="scroll-mt-20 pt-12 pb-10 sm:py-24 bg-cs-surface-subtle border-y border-cs-border relative overflow-hidden">
       {/* Subtle Dot Grid Background */}
       <div 
         className="absolute inset-0 pointer-events-none z-0 opacity-[0.09]"

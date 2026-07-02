@@ -4,7 +4,7 @@ import { PulseIcon, ArrowRightIcon } from "@/components/icons/HeroIcons";
 
 export function AboutExpertise() {
   return (
-    <section className="pt-12 pb-10 sm:py-24 bg-white overflow-hidden">
+    <section id="expertise" className="scroll-mt-20 pt-12 pb-10 sm:py-24 bg-white overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-8">
         <div className="grid items-center gap-16 lg:grid-cols-12">
 

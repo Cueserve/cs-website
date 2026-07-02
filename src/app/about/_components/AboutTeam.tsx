@@ -94,7 +94,7 @@ export function AboutTeam() {
   const visibleMembers = TEAM_MEMBERS.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <section className="pt-12 pb-10 sm:py-24 bg-white relative">
+    <section id="team" className="scroll-mt-20 pt-12 pb-10 sm:py-24 bg-white relative">
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] bg-gradient-to-tr from-[#f0f8ff]/60 via-transparent to-[#f4fafc]/60 rounded-full blur-3xl -z-10 pointer-events-none" />
 
