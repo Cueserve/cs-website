@@ -1,14 +1,15 @@
+import { ServicesHero } from "./_components/ServicesHero";
+import { ServicesNav } from "./_components/ServicesNav";
+import { ServicesList } from "./_components/ServicesList";
+
 export { metadata } from "./metadata";
 
 export default function ServicesPage() {
   return (
-    <main className="flex-1 px-6 py-24">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-display text-6xl tracking-wide text-cs-dark-blue">
-          SERVICES
-        </h1>
-        <p className="mt-4 text-cs-dark-blue/70">Content coming soon.</p>
-      </div>
-    </main>
+    <div className="flex-1 bg-white">
+      <ServicesHero />
+      <ServicesNav />
+      <ServicesList />
+    </div>
   );
 }
