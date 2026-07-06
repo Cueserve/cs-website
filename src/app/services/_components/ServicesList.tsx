@@ -95,7 +95,7 @@ const SERVICES_DATA = [
 
 export function ServicesList() {
   return (
-    <div className="bg-white py-12 sm:py-20">
+    <div className="bg-white pt-16 sm:pt-26 pb-12 sm:pb-20">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-8 space-y-16 sm:space-y-28">
         {SERVICES_DATA.map((service, index) => {
           const isEven = index % 2 === 1;
@@ -115,7 +115,6 @@ export function ServicesList() {
               />
 
               <div className="grid lg:grid-cols-12 min-h-[500px] relative z-10">
-                
                 {/* Text Column - gets generous padding */}
                 <div className={`lg:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-center space-y-5 sm:space-y-6 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                   
@@ -159,7 +158,6 @@ export function ServicesList() {
                       </div>
                     ))}
                   </div>
-
                 </div>
 
                 {/* Full-Height Image Column - edge to edge! */}
