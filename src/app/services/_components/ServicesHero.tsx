@@ -92,9 +92,8 @@ function SystemConstellation({ isLoaded }: { isLoaded: boolean }) {
               stroke="#12619c"
               strokeWidth="0.65"
               strokeDasharray="3 5"
-              className={`transition-all duration-1000 delay-[350ms] ${
-                isLoaded ? "opacity-[0.11] scale-100" : "opacity-0 scale-90"
-              }`}
+              className={`transition-all duration-1000 delay-[350ms] ${isLoaded ? "opacity-[0.11] scale-100" : "opacity-0 scale-90"
+                }`}
             />
             {/* Extremely subtle data pulse traveling along the orthogonal routing path */}
             {activeIdx === i && isPulsing && (
@@ -114,9 +113,8 @@ function SystemConstellation({ isLoaded }: { isLoaded: boolean }) {
         return (
           <div
             key={i}
-            className={`absolute ${posClass} pointer-events-auto flex items-center gap-2.5 rounded-xl border border-dashed border-[#12619c]/25 bg-white/[0.93] backdrop-blur-[4px] px-3.5 py-2.5 transition-all duration-[900ms] cubic-bezier(0.16,1,0.3,1) hover:bg-white hover:border-cs-light-blue/40 cursor-pointer group hover:opacity-100 shadow-[0_4px_16px_rgba(18,97,156,0.05)] ${
-              isLoaded ? "translate-x-0 translate-y-0 scale-100 opacity-95" : startOffset
-            }`}
+            className={`absolute ${posClass} pointer-events-auto flex items-center gap-2.5 rounded-xl border border-dashed border-[#12619c]/25 bg-white/[0.93] backdrop-blur-[4px] px-3.5 py-2.5 transition-all duration-[900ms] cubic-bezier(0.16,1,0.3,1) hover:bg-white hover:border-cs-light-blue/40 cursor-pointer group hover:opacity-100 shadow-[0_4px_16px_rgba(18,97,156,0.05)] ${isLoaded ? "translate-x-0 translate-y-0 scale-100 opacity-95" : startOffset
+              }`}
           >
             <div
               className={`flex h-7 w-7 items-center justify-center rounded-lg border border-dotted bg-white/80 transition-transform duration-300 group-hover:scale-105 shrink-0 shadow-sm ${iconStyle}`}
@@ -191,9 +189,8 @@ export function ServicesHero() {
 
         {/* Top Frosted Glass Chip with Refined Engineering Accent Underneath */}
         <div
-          className={`mb-6 sm:mb-7 flex flex-col items-center transition-all duration-700 delay-[550ms] ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
+          className={`mb-6 sm:mb-7 flex flex-col items-center transition-all duration-700 delay-[550ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
         >
           <div className="inline-flex items-center gap-2.5 rounded-full border border-dashed border-[#12619c]/30 bg-white/60 backdrop-blur-md px-4 py-1.5 shadow-none hover:bg-white transition-all duration-300">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-[#12619c] to-[#63bceb] text-white shadow-sm">
@@ -213,9 +210,8 @@ export function ServicesHero() {
 
         {/* Main Headline */}
         <h1
-          className={`text-[36px] sm:text-[54px] md:text-[60px] lg:text-[66px] font-display font-bold text-cs-dark-blue leading-[1.06] tracking-[-0.025em] max-w-[860px] transition-all duration-700 delay-[700ms] ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-[36px] sm:text-[54px] md:text-[60px] lg:text-[66px] font-display font-bold text-cs-dark-blue leading-[1.06] tracking-[-0.025em] max-w-[860px] transition-all duration-700 delay-[700ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <span>Engineering AI Solutions</span>
           <br />
@@ -227,9 +223,8 @@ export function ServicesHero() {
 
         {/* Subtitle Paragraph */}
         <p
-          className={`mt-6 sm:mt-8 text-[15px] sm:text-[19px] text-cs-ink-muted leading-[1.7] max-w-[640px] sm:max-w-[700px] transition-all duration-700 delay-[850ms] ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`mt-6 sm:mt-8 text-[15px] sm:text-[19px] text-cs-ink-muted leading-[1.7] max-w-[640px] sm:max-w-[700px] transition-all duration-700 delay-[850ms] ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           We combine AI, cloud, data, and modern software engineering to build intelligent digital solutions that streamline operations, enhance customer experiences, and accelerate growth.
         </p>
