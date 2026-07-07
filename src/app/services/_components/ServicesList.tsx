@@ -225,12 +225,12 @@ export function ServicesList() {
           {/* Vertical spine background track */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-16 top-0 bottom-0 hidden w-[1px] bg-[#E6EDF5] md:block"
+            className="pointer-events-none absolute left-16 top-0 bottom-0 hidden w-[1px] bg-cs-border-subtle md:block"
           />
           {/* Active growing blue line */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-16 top-0 hidden w-[1px] bg-gradient-to-b from-[#63bceb] via-[#2384c6] to-[#63bceb] opacity-80 shadow-[0_0_8px_rgba(99,188,235,0.4)] transition-[height] duration-500 ease-in-out md:block"
+            className="pointer-events-none absolute left-16 top-0 hidden w-[1px] bg-gradient-to-b from-cs-blue-tint via-cs-light-blue to-cs-blue-tint opacity-80 shadow-[0_0_8px_rgba(99,188,235,0.4)] transition-[height] duration-500 ease-in-out md:block"
             style={{ height: `${lineProgress}%` }}
           />
 
@@ -248,7 +248,7 @@ export function ServicesList() {
                   {/* Minimal Enterprise Spine node (desktop) */}
                   <div className="pointer-events-none absolute left-0 top-0 hidden items-center justify-end gap-3.5 w-16 md:flex">
                     <span
-                      className={`font-display text-lg sm:text-xl font-[600] text-[#123B63] transition-all duration-500 ease-in-out ${isActive
+                      className={`font-display text-lg sm:text-xl font-[600] text-cs-navy transition-all duration-500 ease-in-out ${isActive
                           ? "opacity-100 scale-100"
                           : isCompleted
                             ? "opacity-85 scale-100"
@@ -259,8 +259,8 @@ export function ServicesList() {
                     </span>
                     <span
                       className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ease-in-out translate-x-[4.5px] mt-0.5 z-10 shrink-0 ${isActive
-                          ? "bg-[#1E73E8] scale-110"
-                          : "bg-[#E6EDF5] border border-[#cbd5e1]"
+                          ? "bg-cs-blue-active scale-110"
+                          : "bg-cs-border-subtle border border-cs-border-strong"
                         }`}
                     />
                   </div>
@@ -294,7 +294,7 @@ export function ServicesList() {
                             {service.title}
                           </h3>
                         </div>
-                        <p className="font-sans text-xs sm:text-sm font-[600] tracking-normal text-[#476382]">
+                        <p className="font-sans text-xs sm:text-sm font-[600] tracking-normal text-cs-ink-medium">
                           {service.tagline}
                         </p>
                         <p className="text-base leading-relaxed text-cs-ink-muted">

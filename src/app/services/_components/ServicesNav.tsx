@@ -150,13 +150,13 @@ export function ServicesNav() {
                 onClick={() => scrollToSection(id)}
                 className={`flex items-center justify-center gap-1.5 rounded-xl px-2 sm:px-2.5 h-10 sm:h-11 text-[10.5px] xl:text-[11px] font-bold tracking-tight transition-all duration-300 cubic-bezier(0.16,1,0.3,1) shrink-0 lg:shrink w-auto lg:w-full cursor-pointer ${
                   isActive
-                    ? "bg-[#12619c]/12 text-cs-dark-blue border border-[#12619c]/30 shadow-[0_4px_16px_rgba(18,97,156,0.08)] scale-[1.01]"
+                    ? "bg-cs-blue-accent/12 text-cs-dark-blue border border-cs-blue-accent/30 shadow-[0_4px_16px_rgba(18,97,156,0.08)] scale-[1.01]"
                     : "bg-transparent border border-transparent text-cs-dark-blue/80 hover:bg-cs-surface-tint hover:text-cs-light-blue"
                 }`}
               >
                 <span
                   className={`flex h-5 w-5 items-center justify-center rounded-md transition-all duration-300 shrink-0 ${
-                    isActive ? "bg-[#12619c] text-white shadow-sm" : "bg-[#EBF4FB] text-cs-light-blue"
+                    isActive ? "bg-cs-blue-accent text-white shadow-sm" : "bg-cs-surface-blue text-cs-light-blue"
                   }`}
                 >
                   <Icon className="h-3.5 w-3.5" />
