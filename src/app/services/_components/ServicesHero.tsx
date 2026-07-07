@@ -30,6 +30,11 @@ const HERO_KEYFRAMES = `
   0%, 100% { opacity: 0.07; }
   50% { opacity: 0.16; }
 }
+@keyframes cardLightSweep {
+  0%, 88%, 100% { transform: translateX(-150%) skewX(-25deg); opacity: 0; }
+  90% { opacity: 0.045; }
+  96% { transform: translateX(250%) skewX(-25deg); opacity: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-animate { animation: none !important; }
 }
@@ -144,14 +149,31 @@ function SystemConstellation({ isLoaded }: { isLoaded: boolean }) {
             >
               {/* Inner: visual card + hover state */}
               <div
-                className="flex items-center gap-2.5 rounded-xl border border-dashed border-[#12619c]/25 bg-white/[0.94] backdrop-blur-[6px] px-4 py-3 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:border-cs-light-blue/45 cursor-pointer group hover:opacity-100 shadow-[0_6px_22px_rgba(15,45,90,0.06)] hover:shadow-[0_12px_32px_rgba(18,97,156,0.15)]"
+                className="relative overflow-hidden flex items-center gap-2.5 rounded-2xl border border-[#DCE7F2] bg-white/[0.97] px-4 py-3 transition-all duration-300 ease-out hover:-translate-y-[2.5px] hover:scale-[1.015] hover:bg-white hover:border-[#cbdde8] cursor-pointer group shadow-[0_1px_2px_rgba(15,23,42,0.05),0_12px_32px_rgba(15,23,42,0.08)] hover:shadow-[0_2px_4px_rgba(15,23,42,0.06),0_14px_36px_rgba(15,23,42,0.10)]"
               >
+                {/* 3. Subtle Top Highlight (20% opacity white highlight across top edge) */}
                 <div
-                  className={`flex h-7 w-7 items-center justify-center rounded-lg border border-dotted bg-white/80 transition-transform duration-300 group-hover:scale-105 shrink-0 shadow-sm ${iconStyle}`}
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+                />
+
+                {/* 8. Optional Premium Detail (subtle faint diagonal light sweep every 9s) */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white to-transparent"
+                  style={{
+                    animation: "cardLightSweep 9s ease-in-out infinite",
+                    animationDelay: `${i * 2.2}s`,
+                  }}
+                />
+
+                {/* 7. Refined Icon Area (soft blue #EFF6FF background, no borders/gradients/glass) */}
+                <div
+                  className={`flex h-7 w-7 items-center justify-center rounded-lg bg-[#EFF6FF] transition-transform duration-300 group-hover:scale-105 shrink-0 ${iconStyle.split(" ")[0]}`}
                 >
                   <Icon className="h-3.5 w-3.5" />
                 </div>
-                <div className="text-left pr-1 overflow-hidden">
+                <div className="text-left pr-1 overflow-hidden relative z-10">
                   <div className="font-mono text-[11.5px] font-semibold text-cs-dark-blue/85 leading-tight group-hover:text-cs-dark-blue tracking-tight truncate">
                     {title}
                   </div>
@@ -271,7 +293,6 @@ export function ServicesHero() {
             <span className="bg-gradient-to-r from-[#12619c] via-[#2384c6] via-[#63bceb] to-[#0c385a] bg-clip-text text-transparent">
               That Scale Businesses
             </span>
-            <span className="text-[#2384c6] inline-block">.</span>
           </h1>
 
           {/* Subtitle Paragraph */}

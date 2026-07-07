@@ -248,29 +248,27 @@ export function ServicesList() {
                   {/* Minimal Enterprise Spine node (desktop) */}
                   <div className="pointer-events-none absolute left-0 top-0 hidden items-center justify-end gap-3.5 w-16 md:flex">
                     <span
-                      className={`font-display text-lg sm:text-xl font-[600] text-[#123B63] transition-all duration-500 ease-in-out ${
-                        isActive
+                      className={`font-display text-lg sm:text-xl font-[600] text-[#123B63] transition-all duration-500 ease-in-out ${isActive
                           ? "opacity-100 scale-100"
                           : isCompleted
-                          ? "opacity-85 scale-100"
-                          : "opacity-45 scale-100"
-                      }`}
+                            ? "opacity-85 scale-100"
+                            : "opacity-45 scale-100"
+                        }`}
                     >
                       {num}
                     </span>
                     <span
-                      className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ease-in-out translate-x-[4.5px] mt-0.5 z-10 shrink-0 ${
-                        isActive
+                      className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ease-in-out translate-x-[4.5px] mt-0.5 z-10 shrink-0 ${isActive
                           ? "bg-[#1E73E8] scale-110"
                           : "bg-[#E6EDF5] border border-[#cbd5e1]"
-                      }`}
+                        }`}
                     />
                   </div>
 
                   <article
                     className={`group relative transition-all duration-700 cubic-bezier(0.16,1,0.3,1) ${isActive
-                        ? "opacity-100 scale-100"
-                        : "opacity-50 hover:opacity-90 scale-[0.985] blur-[0.3px]"
+                      ? "opacity-100 scale-100"
+                      : "opacity-50 hover:opacity-90 scale-[0.985] blur-[0.3px]"
                       }`}
                   >
                     <div
@@ -279,7 +277,7 @@ export function ServicesList() {
                     >
                       {/* Content */}
                       <div
-                        className={`flex flex-col gap-6 py-0 max-w-[560px] transition-all duration-700 delay-75 ${isEven ? "md:order-2 md:pl-4 pr-2 md:pr-0" : "md:order-1 pr-2 md:pr-6"
+                        className={`flex flex-col gap-6 py-0 max-w-[560px] transition-all duration-700 delay-75 ${isEven ? "md:order-2 md:ml-auto md:pl-4 pr-2 md:pr-0" : "md:order-1 pr-2 md:pr-6"
                           } ${isActive ? "opacity-100 translate-y-0" : "opacity-80 translate-y-2"}`}
                       >
                         <div>
@@ -296,7 +294,7 @@ export function ServicesList() {
                             {service.title}
                           </h3>
                         </div>
-                        <p className="font-mono text-xs tracking-wider text-cs-light-blue font-semibold">
+                        <p className="font-sans text-xs sm:text-sm font-[600] tracking-normal text-[#476382]">
                           {service.tagline}
                         </p>
                         <p className="text-base leading-relaxed text-cs-ink-muted">
@@ -308,8 +306,8 @@ export function ServicesList() {
                             <li
                               key={i}
                               className={`flex items-center gap-2.5 text-sm font-medium transition-all duration-500 ${isActive
-                                  ? "opacity-100 translate-y-0 text-cs-ink"
-                                  : "opacity-70 translate-y-1.5 text-cs-ink/80"
+                                ? "opacity-100 translate-y-0 text-cs-ink"
+                                : "opacity-70 translate-y-1.5 text-cs-ink/80"
                                 }`}
                               style={{ transitionDelay: isActive ? `${i * 80 + 150}ms` : "0ms" }}
                             >
@@ -348,7 +346,7 @@ export function ServicesList() {
                               }`}
                           />
                         </div>
-  
+
                         <div
                           aria-hidden
                           className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-500"
