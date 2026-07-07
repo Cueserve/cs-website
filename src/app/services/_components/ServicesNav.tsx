@@ -108,9 +108,9 @@ export function ServicesNav() {
           : "opacity-100 translate-y-0"
       }`}
     >
-      <div className="rounded-2xl border border-cs-border/80 bg-white/80 backdrop-blur-md p-2 sm:p-2.5 shadow-[0_10px_35px_rgba(12,56,90,0.14)] transition-all duration-300 hover:bg-white/95 hover:shadow-[0_14px_40px_rgba(12,56,90,0.2)]">
+      <div className="rounded-2xl border border-cs-border/80 bg-white/60 backdrop-blur-lg p-2 sm:p-2.5 shadow-[0_10px_35px_rgba(12,56,90,0.14)] transition-all duration-300 hover:bg-white/80 hover:shadow-[0_14px_40px_rgba(12,56,90,0.2)]">
         <div
-          className="flex items-center justify-start lg:justify-between gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x"
+          className="flex lg:grid lg:grid-cols-7 items-center justify-start gap-1 sm:gap-1.5 overflow-x-auto lg:overflow-visible no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x py-0.5"
           style={{
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
@@ -124,18 +124,20 @@ export function ServicesNav() {
                 key={id}
                 type="button"
                 onClick={() => scrollToSection(id)}
-                className={`inline-flex items-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-3.5 py-2.5 sm:py-3 text-[11px] lg:text-[11.5px] xl:text-[12px] font-bold tracking-tight transition-all duration-300 shrink-0 cursor-pointer ${isActive
-                  ? "bg-gradient-to-r from-[#0c385a] via-[#12619c] to-[#2384c6] text-white shadow-[0_4px_14px_rgba(18,97,156,0.35)] scale-[1.02]"
-                  : "bg-transparent text-cs-dark-blue hover:bg-cs-surface-tint hover:text-cs-light-blue"
-                  }`}
+                className={`flex items-center justify-center gap-1.5 rounded-xl px-2 sm:px-2.5 h-10 sm:h-11 text-[10.5px] xl:text-[11px] font-bold tracking-tight transition-all duration-300 cubic-bezier(0.16,1,0.3,1) shrink-0 lg:shrink w-auto lg:w-full cursor-pointer ${
+                  isActive
+                    ? "bg-[#12619c]/12 text-cs-dark-blue border border-[#12619c]/30 shadow-[0_4px_16px_rgba(18,97,156,0.08)] scale-[1.01]"
+                    : "bg-transparent border border-transparent text-cs-dark-blue/80 hover:bg-cs-surface-tint hover:text-cs-light-blue"
+                }`}
               >
                 <span
-                  className={`flex h-5 w-5 items-center justify-center rounded-md transition-colors shrink-0 ${isActive ? "bg-white/20 text-white" : "bg-[#EBF4FB] text-cs-light-blue"
-                    }`}
+                  className={`flex h-5 w-5 items-center justify-center rounded-md transition-all duration-300 shrink-0 ${
+                    isActive ? "bg-[#12619c] text-white shadow-sm" : "bg-[#EBF4FB] text-cs-light-blue"
+                  }`}
                 >
                   <Icon className="h-3.5 w-3.5" />
                 </span>
-                <span>{label}</span>
+                <span className="leading-[1.15] text-left lg:text-center whitespace-nowrap lg:whitespace-normal">{label}</span>
               </button>
             );
           })}

@@ -234,52 +234,68 @@ export function ServicesList() {
             style={{ height: `${lineProgress}%` }}
           />
 
-          <ol className="flex flex-col gap-24 md:gap-36">
+          <ol className="flex flex-col gap-32 md:gap-44">
             {SERVICES_DATA.map((service, index) => {
               const Icon = service.icon;
               const num = String(index + 1).padStart(2, "0");
               const isLast = index === SERVICES_DATA.length - 1;
               const isActive = activeId === service.id;
               const isCompleted = index < activeIndex;
+              const isEven = index % 2 === 1;
 
               return (
                 <li id={service.id} key={service.id} className="scroll-mt-44 relative md:pl-24">
                   {/* Spine node (desktop) */}
                   <div className="pointer-events-none absolute left-0 top-0 hidden items-center justify-between w-16 md:flex">
                     <span
-                      className={`font-display tracking-tight transition-all duration-500 ${isActive
-                        ? "text-3xl font-extrabold text-cs-light-blue scale-105"
-                        : isCompleted
+                      className={`font-display tracking-tight transition-all duration-500 ${
+                        isActive
+                          ? "text-3xl font-extrabold text-cs-light-blue scale-105"
+                          : isCompleted
                           ? "text-2xl font-bold text-cs-dark-blue scale-100"
-                          : "text-2xl font-bold text-cs-border/70 scale-100"
-                        }`}
+                          : "text-2xl font-bold text-cs-border/60 scale-100"
+                      }`}
                     >
                       {num}
                     </span>
                     <span
-                      className={`h-3 w-3 rounded-full transition-all duration-500 translate-x-[7px] mt-1.5 z-10 ${isActive
-                        ? "bg-cs-light-blue border-2 border-white scale-125 shadow-[0_0_12px_rgba(18,97,156,0.9)]"
-                        : isCompleted
-                          ? "bg-cs-dark-blue border-2 border-cs-dark-blue scale-100 shadow-sm"
-                          : "bg-white border-2 border-cs-border/80 scale-100"
-                        }`}
+                      className={`h-3 w-3 rounded-full transition-all duration-500 translate-x-[7px] mt-1.5 z-10 ${
+                        isActive
+                          ? "bg-cs-light-blue border-2 border-white scale-125 shadow-[0_0_14px_rgba(18,97,156,0.95)]"
+                          : isCompleted
+                          ? "bg-[#0c385a] border-2 border-[#0c385a] scale-100 shadow-sm"
+                          : "bg-white border-2 border-cs-border/60 scale-100"
+                      }`}
                     />
                   </div>
 
                   <article
-                    className={`group relative transition-all duration-500 ${isActive
-                      ? "opacity-100 scale-100"
-                      : "opacity-45 hover:opacity-90 scale-[0.985] blur-[0.2px]"
-                      }`}
+                    className={`group relative transition-all duration-700 cubic-bezier(0.16,1,0.3,1) ${
+                      isActive
+                        ? "opacity-100 scale-100"
+                        : "opacity-50 hover:opacity-90 scale-[0.985] blur-[0.3px]"
+                    }`}
                   >
-                    <div className="grid gap-8 md:grid-cols-[1fr_340px] items-start">
+                    <div
+                      className={`grid gap-8 lg:gap-12 items-start ${
+                        isEven ? "md:grid-cols-[380px_1fr]" : "md:grid-cols-[1fr_380px]"
+                      }`}
+                    >
                       {/* Content */}
-                      <div className="flex flex-col gap-6 py-0 pr-2 md:pr-6 max-w-[560px]">
+                      <div
+                        className={`flex flex-col gap-6 py-0 max-w-[560px] transition-all duration-700 delay-75 ${
+                          isEven ? "md:order-2 md:pl-4 pr-2 md:pr-0" : "md:order-1 pr-2 md:pr-6"
+                        } ${isActive ? "opacity-100 translate-y-0" : "opacity-80 translate-y-2"}`}
+                      >
                         <div>
                           <span className="font-mono text-xl font-bold text-cs-light-blue md:hidden block mb-1">
                             {num} //
                           </span>
-                          <h3 className="font-display text-2xl font-bold leading-snug text-cs-dark-blue sm:text-3xl">
+                          <h3
+                            className={`font-display text-2xl sm:text-3xl transition-all duration-500 leading-snug ${
+                              isActive ? "font-extrabold text-cs-dark-blue" : "font-bold text-cs-dark-blue/80"
+                            }`}
+                          >
                             {service.title}
                           </h3>
                         </div>
@@ -294,7 +310,12 @@ export function ServicesList() {
                           {service.capabilities.map((cap, i) => (
                             <li
                               key={i}
-                              className="flex items-center gap-2.5 text-sm font-medium text-cs-ink"
+                              className={`flex items-center gap-2.5 text-sm font-medium transition-all duration-500 ${
+                                isActive
+                                  ? "opacity-100 translate-y-0 text-cs-ink"
+                                  : "opacity-70 translate-y-1.5 text-cs-ink/80"
+                              }`}
+                              style={{ transitionDelay: isActive ? `${i * 80 + 150}ms` : "0ms" }}
                             >
                               <span className="flex h-4 w-4 shrink-0 items-center justify-center text-cs-light-blue">
                                 <CheckIcon className="h-3 w-3" />
@@ -309,13 +330,16 @@ export function ServicesList() {
 
                       {/* Visual */}
                       <div
-                        className={`relative min-h-[240px] overflow-hidden rounded-2xl transition-all duration-500 md:min-h-full ${isActive
-                          ? "shadow-cs-xl bg-cs-surface-dark"
-                          : "shadow-cs-md bg-cs-surface-dark"
-                          } group-hover:-translate-y-1 group-hover:shadow-cs-xl`}
+                        className={`relative min-h-[260px] overflow-hidden rounded-2xl border border-cs-border/40 transition-all duration-700 cubic-bezier(0.16,1,0.3,1) md:min-h-full ${
+                          isEven ? "md:order-1" : "md:order-2"
+                        } ${
+                          isActive
+                            ? "shadow-[0_16px_40px_rgba(12,56,90,0.18)] bg-cs-surface-dark scale-100"
+                            : "shadow-cs-md bg-cs-surface-dark scale-[0.98]"
+                        } group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_48px_rgba(12,56,90,0.22)]`}
                       >
                         <div
-                          className="absolute inset-0 h-full w-full transition-transform duration-300 ease-out group-hover:scale-105"
+                          className="absolute inset-0 h-full w-full transition-transform duration-500 ease-out group-hover:scale-105"
                           style={{
                             transform: `translateY(${parallaxOffsets[service.id] || 0}px) scale(1.15)`,
                           }}
@@ -324,21 +348,32 @@ export function ServicesList() {
                             src={service.image}
                             alt={service.title}
                             fill
-                            sizes="(min-width: 768px) 340px, 100vw"
-                            className="object-cover opacity-90"
+                            sizes="(min-width: 768px) 380px, 100vw"
+                            className={`object-cover transition-opacity duration-700 ${
+                              isActive ? "opacity-95 brightness-105" : "opacity-85 brightness-100"
+                            }`}
                           />
                         </div>
+                        {/* Consistent cool blue color grading overlay */}
                         <div
                           aria-hidden
-                          className="absolute inset-0"
+                          className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-500"
                           style={{
                             background:
-                              "linear-gradient(150deg, color-mix(in oklab, var(--color-cs-dark-blue) 60%, transparent) 0%, transparent 55%)",
+                              "linear-gradient(140deg, rgba(18,97,156,0.18) 0%, rgba(35,132,198,0.06) 50%, transparent 80%)",
+                          }}
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 z-10"
+                          style={{
+                            background:
+                              "linear-gradient(150deg, color-mix(in oklab, var(--color-cs-dark-blue) 65%, transparent) 0%, transparent 60%)",
                           }}
                         />
 
                         {/* Floating label */}
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 px-2 py-1">
+                        <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 px-2 py-1 z-20">
                           <span className="flex h-6 w-6 items-center justify-center text-cs-light-blue-soft">
                             <Icon className="h-3.5 w-3.5" />
                           </span>
