@@ -351,6 +351,7 @@ export function ServicesList() {
                             src={service.image}
                             alt={service.title}
                             fill
+                            priority={index < 2}
                             sizes="(min-width: 768px) 380px, 100vw"
                             className={`object-cover transition-opacity duration-700 ${
                               isActive ? "opacity-95 brightness-105" : "opacity-85 brightness-100"
