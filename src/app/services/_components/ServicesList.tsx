@@ -225,12 +225,12 @@ export function ServicesList() {
           {/* Vertical spine background track */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-16 top-0 bottom-0 hidden w-[2px] bg-cs-border/30 md:block"
+            className="pointer-events-none absolute left-16 top-0 bottom-0 hidden w-[1px] bg-[#E6EDF5] md:block"
           />
           {/* Active growing blue line */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-16 top-0 hidden w-[2px] bg-gradient-to-b from-cs-dark-blue via-cs-light-blue to-[#2384c6] shadow-[0_0_10px_rgba(18,97,156,0.5)] transition-[height] duration-200 ease-out md:block"
+            className="pointer-events-none absolute left-16 top-0 hidden w-[1px] bg-gradient-to-b from-[#63bceb] via-[#2384c6] to-[#63bceb] opacity-80 shadow-[0_0_8px_rgba(99,188,235,0.4)] transition-[height] duration-500 ease-in-out md:block"
             style={{ height: `${lineProgress}%` }}
           />
 
@@ -245,47 +245,42 @@ export function ServicesList() {
 
               return (
                 <li id={service.id} key={service.id} className="scroll-mt-44 relative md:pl-24">
-                  {/* Spine node (desktop) */}
-                  <div className="pointer-events-none absolute left-0 top-0 hidden items-center justify-between w-16 md:flex">
+                  {/* Minimal Enterprise Spine node (desktop) */}
+                  <div className="pointer-events-none absolute left-0 top-0 hidden items-center justify-end gap-3.5 w-16 md:flex">
                     <span
-                      className={`font-display tracking-tight transition-all duration-500 ${
+                      className={`font-display text-lg sm:text-xl font-[600] text-[#123B63] transition-all duration-500 ease-in-out ${
                         isActive
-                          ? "text-3xl font-extrabold text-cs-light-blue scale-105"
+                          ? "opacity-100 scale-100"
                           : isCompleted
-                          ? "text-2xl font-bold text-cs-dark-blue scale-100"
-                          : "text-2xl font-bold text-cs-border/60 scale-100"
+                          ? "opacity-85 scale-100"
+                          : "opacity-45 scale-100"
                       }`}
                     >
                       {num}
                     </span>
                     <span
-                      className={`h-3 w-3 rounded-full transition-all duration-500 translate-x-[7px] mt-1.5 z-10 ${
+                      className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ease-in-out translate-x-[4.5px] mt-0.5 z-10 shrink-0 ${
                         isActive
-                          ? "bg-cs-light-blue border-2 border-white scale-125 shadow-[0_0_14px_rgba(18,97,156,0.95)]"
-                          : isCompleted
-                          ? "bg-[#0c385a] border-2 border-[#0c385a] scale-100 shadow-sm"
-                          : "bg-white border-2 border-cs-border/60 scale-100"
+                          ? "bg-[#1E73E8] scale-110"
+                          : "bg-[#E6EDF5] border border-[#cbd5e1]"
                       }`}
                     />
                   </div>
 
                   <article
-                    className={`group relative transition-all duration-700 cubic-bezier(0.16,1,0.3,1) ${
-                      isActive
+                    className={`group relative transition-all duration-700 cubic-bezier(0.16,1,0.3,1) ${isActive
                         ? "opacity-100 scale-100"
                         : "opacity-50 hover:opacity-90 scale-[0.985] blur-[0.3px]"
-                    }`}
+                      }`}
                   >
                     <div
-                      className={`grid gap-8 lg:gap-12 items-start ${
-                        isEven ? "md:grid-cols-[380px_1fr]" : "md:grid-cols-[1fr_380px]"
-                      }`}
+                      className={`grid gap-8 lg:gap-12 items-start ${isEven ? "md:grid-cols-[380px_1fr]" : "md:grid-cols-[1fr_380px]"
+                        }`}
                     >
                       {/* Content */}
                       <div
-                        className={`flex flex-col gap-6 py-0 max-w-[560px] transition-all duration-700 delay-75 ${
-                          isEven ? "md:order-2 md:pl-4 pr-2 md:pr-0" : "md:order-1 pr-2 md:pr-6"
-                        } ${isActive ? "opacity-100 translate-y-0" : "opacity-80 translate-y-2"}`}
+                        className={`flex flex-col gap-6 py-0 max-w-[560px] transition-all duration-700 delay-75 ${isEven ? "md:order-2 md:pl-4 pr-2 md:pr-0" : "md:order-1 pr-2 md:pr-6"
+                          } ${isActive ? "opacity-100 translate-y-0" : "opacity-80 translate-y-2"}`}
                       >
                         <div>
                           <div className="flex items-center md:hidden mb-2.5">
@@ -295,9 +290,8 @@ export function ServicesList() {
                             </div>
                           </div>
                           <h3
-                            className={`font-display text-2xl sm:text-3xl transition-all duration-500 leading-snug ${
-                              isActive ? "font-extrabold text-cs-dark-blue" : "font-bold text-cs-dark-blue/80"
-                            }`}
+                            className={`font-display text-2xl sm:text-3xl transition-all duration-500 leading-snug ${isActive ? "font-extrabold text-cs-dark-blue" : "font-bold text-cs-dark-blue/80"
+                              }`}
                           >
                             {service.title}
                           </h3>
@@ -313,11 +307,10 @@ export function ServicesList() {
                           {service.capabilities.map((cap, i) => (
                             <li
                               key={i}
-                              className={`flex items-center gap-2.5 text-sm font-medium transition-all duration-500 ${
-                                isActive
+                              className={`flex items-center gap-2.5 text-sm font-medium transition-all duration-500 ${isActive
                                   ? "opacity-100 translate-y-0 text-cs-ink"
                                   : "opacity-70 translate-y-1.5 text-cs-ink/80"
-                              }`}
+                                }`}
                               style={{ transitionDelay: isActive ? `${i * 80 + 150}ms` : "0ms" }}
                             >
                               <span className="flex h-4 w-4 shrink-0 items-center justify-center text-cs-light-blue">
@@ -333,13 +326,11 @@ export function ServicesList() {
 
                       {/* Visual */}
                       <div
-                        className={`relative min-h-[260px] overflow-hidden rounded-2xl border border-cs-border/40 transition-all duration-700 cubic-bezier(0.16,1,0.3,1) md:min-h-full ${
-                          isEven ? "md:order-1" : "md:order-2"
-                        } ${
-                          isActive
+                        className={`relative min-h-[260px] overflow-hidden rounded-2xl border border-cs-border/40 transition-all duration-700 cubic-bezier(0.16,1,0.3,1) md:min-h-full ${isEven ? "md:order-1" : "md:order-2"
+                          } ${isActive
                             ? "shadow-[0_16px_40px_rgba(12,56,90,0.18)] bg-cs-surface-dark scale-100"
                             : "shadow-cs-md bg-cs-surface-dark scale-[0.98]"
-                        } group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_48px_rgba(12,56,90,0.22)]`}
+                          } group-hover:-translate-y-1.5 group-hover:shadow-[0_22px_48px_rgba(12,56,90,0.22)]`}
                       >
                         <div
                           className="absolute inset-0 h-full w-full transition-transform duration-500 ease-out group-hover:scale-105"
@@ -353,12 +344,11 @@ export function ServicesList() {
                             fill
                             priority={index < 2}
                             sizes="(min-width: 768px) 380px, 100vw"
-                            className={`object-cover transition-opacity duration-700 ${
-                              isActive ? "opacity-95 brightness-105" : "opacity-85 brightness-100"
-                            }`}
+                            className={`object-cover transition-opacity duration-700 ${isActive ? "opacity-95 brightness-105" : "opacity-85 brightness-100"
+                              }`}
                           />
                         </div>
-                        {/* Consistent cool blue color grading overlay */}
+  
                         <div
                           aria-hidden
                           className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-500"
