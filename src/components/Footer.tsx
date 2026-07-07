@@ -24,21 +24,21 @@ const SOCIAL = [
 
 export function Footer() {
   return (
-    <footer className="bg-cs-surface-dark px-8 pb-6 pt-14 text-white/60">
+    <footer className="bg-cs-surface-dark px-8 pb-12 pt-20 sm:pt-24 sm:pb-14 text-white/60">
       <div className="mx-auto max-w-[1200px]">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-12 lg:gap-16 md:grid-cols-[2.2fr_1fr_1fr_1.2fr]">
           <div>
             <Logo className="h-9 w-auto" variant="inverse" />
-            <p className="mt-4 max-w-[280px] text-sm leading-relaxed text-white/50">
+            <p className="mt-4 max-w-[290px] text-sm leading-relaxed text-white/55 font-normal">
               Your AI-first technology partner — delivering real outcomes through GenAI,
               Agentic AI, and workflow automation.
             </p>
-            <div className="mt-5 flex gap-4">
+            <div className="mt-6 flex gap-5">
               {SOCIAL.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="text-xs text-white/40 transition-colors hover:text-white"
+                  className="text-xs font-medium text-white/50 transition-all duration-200 hover:text-cs-light-blue hover:translate-x-0.5 inline-block"
                 >
                   {s.label}
                 </a>
@@ -47,12 +47,12 @@ export function Footer() {
           </div>
 
           <FooterColumn heading="Quick Links">
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-3">
               {QUICK_LINKS.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-white/55 transition-colors hover:text-white"
+                    className="inline-block text-sm text-white/60 transition-all duration-200 hover:text-cs-light-blue hover:translate-x-0.5"
                   >
                     {l.label}
                   </Link>
@@ -62,9 +62,9 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn heading="Services">
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-3">
               {SERVICES.map((s) => (
-                <li key={s} className="text-sm text-white/55">
+                <li key={s} className="text-sm text-white/60 transition-all duration-200 hover:text-white/80 hover:translate-x-0.5 cursor-default inline-block">
                   {s}
                 </li>
               ))}
@@ -72,28 +72,32 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn heading="Contact Us">
-            <address className="flex flex-col gap-2.5 text-sm not-italic text-white/55">
+            <address className="flex flex-col gap-3 text-sm not-italic text-white/60">
               <span className="leading-relaxed">
                 5, Punit Colony, Sindhwaimata Road,
                 <br />
                 Pratapnagar, Vadodara — Gujarat
               </span>
-              <a
-                href="mailto:hello@cueserve.com"
-                className="text-cs-light-blue hover:underline"
-              >
-                hello@cueserve.com
-              </a>
-              <a href="tel:+918000299993" className="hover:text-white">
-                +91 80002 99993
-              </a>
+              <div>
+                <a
+                  href="mailto:hello@cueserve.com"
+                  className="inline-block text-cs-light-blue transition-all duration-200 hover:text-white hover:translate-x-0.5"
+                >
+                  hello@cueserve.com
+                </a>
+              </div>
+              <div>
+                <a href="tel:+918000299993" className="inline-block text-white/60 transition-all duration-200 hover:text-white hover:translate-x-0.5">
+                  +91 80002 99993
+                </a>
+              </div>
             </address>
           </FooterColumn>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/30 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Cueserve. All rights reserved.</span>
-          <span className="text-white/25">Privacy Policy · Terms of Service</span>
+          <span className="text-white/30">Privacy Policy · Terms of Service</span>
         </div>
       </div>
     </footer>
@@ -109,7 +113,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <div className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.08em] text-white">
+      <div className="mb-4 font-display text-xs font-bold uppercase tracking-[0.1em] text-white">
         {heading}
       </div>
       {children}

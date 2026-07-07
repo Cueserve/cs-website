@@ -8,6 +8,9 @@
   --color-cs-light-blue: #2384c6;
   --color-cs-light-blue-hover: #3991cd;
   --color-cs-light-blue-soft: #7db8d8;
+  --color-cs-blue-active: #1e73e8;
+  --color-cs-blue-accent: #12619c;
+  --color-cs-blue-tint: #63bceb;
 
   /* ── Surfaces ───────────────────────────────────────────── */
   --color-cs-surface: #ffffff;
@@ -15,11 +18,14 @@
   --color-cs-surface-subtle: #fafcfe;
   --color-cs-surface-accent: #eef6fc;
   --color-cs-surface-dark: #0f1920;
+  --color-cs-surface-blue: #ebf4fb;
 
   /* ── Borders ────────────────────────────────────────────── */
   --color-cs-border: #e8eff5;
   --color-cs-border-strong: #d0dfec;
   --color-cs-border-accent: #c8dff0;
+  --color-cs-border-subtle: #e6edf5;
+  --color-cs-border-card: #dce7f2;
 
   /* ── Text ───────────────────────────────────────────────── */
   --color-cs-ink: #1e2e3d;
@@ -28,6 +34,8 @@
   --color-cs-ink-faint: #8ba4b8;
   --color-cs-ink-trace: #b0c8db;
   --color-cs-ink-ghost: #c0d5e6;
+  --color-cs-ink-medium: #476382;
+  --color-cs-navy: #123b63;
 
   /* ── Semantic ───────────────────────────────────────────── */
   --color-cs-success: #1a9b5c;
