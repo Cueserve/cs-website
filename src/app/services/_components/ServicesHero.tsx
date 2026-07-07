@@ -10,7 +10,7 @@ import {
   MonitorIcon,
 } from "@/components/icons/HeroIcons";
 
-/* ── Injected keyframes for quietly premium B2B enterprise animations ── */
+/* Injected keyframes for animations */
 const HERO_KEYFRAMES = `
 @keyframes cardLightFloat {
   0%, 100% { transform: translateY(-5px); }
@@ -98,7 +98,7 @@ function SystemConstellation({ isLoaded }: { isLoaded: boolean }) {
 
         {boxes.map((box, i) => (
           <g key={i}>
-            {/* 1. Softer neutral gray/blue connector lines with reduced opacity (~11%) */}
+            {/* 1. Softer neutral gray/blue connector lines with reduced opacity */}
             <path
               d={box.path}
               fill="none"
@@ -123,7 +123,7 @@ function SystemConstellation({ isLoaded }: { isLoaded: boolean }) {
         ))}
       </svg>
 
-      {/* 3. Floating badge cards (~8% larger, enhanced shadow, hover lift & border glow) */}
+      {/* 3. Floating badge cards */}
       {boxes.map(({ title, sub, Icon, posClass, iconStyle, startOffset, floatDuration, floatDelay }, i) => {
         return (
           /* Outer: entrance positioning */
@@ -133,7 +133,7 @@ function SystemConstellation({ isLoaded }: { isLoaded: boolean }) {
               isLoaded ? "translate-x-0 translate-y-0 scale-100 opacity-95" : startOffset
             }`}
           >
-            {/* Middle: gentle 10px floating range on 5-7s loop with staggered delay */}
+        
             <div
               className="hero-animate"
               style={{
@@ -190,7 +190,7 @@ export function ServicesHero() {
           `,
         }}
       >
-        {/* 2. Drifting background glow (10-20% opacity ambient light blobs on 15-20s loop) */}
+        {/* 2. Drifting background glow */}
         <div
           className="pointer-events-none absolute top-[15%] left-[10%] w-[600px] h-[450px] rounded-full bg-[#2384c6] opacity-[0.14] blur-[130px] z-0 hero-animate"
           style={{ animation: "driftBlob1 18s ease-in-out infinite" }}
@@ -200,7 +200,7 @@ export function ServicesHero() {
           style={{ animation: "driftBlob2 20s ease-in-out -5s infinite" }}
         />
 
-        {/* 1 & 3. Subtle Engineering Grid (Breathing on 7s loop) */}
+        {/* Subtle Engineering Grid  */}
         <div
           className="pointer-events-none absolute inset-0 z-0 hero-animate"
           style={{
@@ -214,13 +214,13 @@ export function ServicesHero() {
           }}
         />
 
-        {/* Clean Blueprint Construction Lines & Strategically Placed Nodes */}
+        {/* Clean lines & strategically placed nodes */}
         <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.03] z-0" viewBox="0 0 1200 600" preserveAspectRatio="none">
           <line x1="0" y1="150" x2="1200" y2="450" stroke="#12619c" strokeWidth="1" strokeDasharray="16 16" />
           <line x1="0" y1="450" x2="1200" y2="150" stroke="#63bceb" strokeWidth="1" strokeDasharray="16 16" />
           <line x1="600" y1="0" x2="600" y2="600" stroke="#12619c" strokeWidth="1" strokeDasharray="10 10" />
         </svg>
-        {/* Asymmetrical, intentional blueprint nodes & slow floating particles */}
+        {/* blueprint nodes & particles */}
         <div className="pointer-events-none absolute top-[25%] left-[18%] w-1 h-1 rounded-full bg-[#12619c] opacity-25" />
         <div className="pointer-events-none absolute top-[68%] left-[26%] w-1.5 h-1.5 rounded-full border border-[#63bceb] opacity-20" />
         <div className="pointer-events-none absolute top-[32%] right-[22%] w-1.5 h-1.5 rounded-full bg-[#2384c6] opacity-25" />
@@ -234,29 +234,24 @@ export function ServicesHero() {
 
         {/* Centered Authority Typography Hierarchy */}
         <div className="relative z-10 mx-auto max-w-[940px] px-5 sm:px-8 text-center flex flex-col items-center">
-          {/* Top Frosted Glass Chip with Refined Engineering Accent Underneath */}
+          {/* Top Frosted Glass Chip - Styled exactly as the About Us capsule */}
           <div
-            className={`mb-6 sm:mb-7 flex flex-col items-center transition-all duration-700 delay-[550ms] ${
+            className={`mb-5 sm:mb-6 flex flex-col items-center transition-all duration-700 delay-[550ms] ${
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-dashed border-[#12619c]/30 bg-white/60 backdrop-blur-md px-4 py-1.5 shadow-none hover:bg-white transition-all duration-300">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-[#12619c] to-[#63bceb] text-white shadow-sm">
-                <PulseIcon className="h-2.5 w-2.5 animate-pulse" />
+            <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full border border-white/90 bg-gradient-to-r from-white/85 via-[#f0f8ff]/80 to-white/85 px-4.5 sm:px-5 py-2 text-[11px] sm:text-xs font-bold tracking-widest uppercase shadow-[0_8px_30px_-4px_rgba(35,132,198,0.25)] backdrop-blur-xl ring-1 ring-[#bce2ff]/60 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:shadow-[0_12px_36px_-4px_rgba(35,132,198,0.35)] hover:bg-white/95 active:scale-95">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cs-light-blue opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cs-light-blue"></span>
               </span>
-              <span className="text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-cs-dark-blue/80">
+              <span className="bg-gradient-to-r from-[#0c385a] via-[#12619c] to-[#186499] bg-clip-text text-transparent font-extrabold tracking-widest">
                 HOW WE ENGAGE • OUR SERVICES
               </span>
             </div>
-            <div className="mt-2.5 flex items-center gap-1.5 opacity-30">
-              <div className="h-[1px] w-6 bg-gradient-to-r from-transparent to-[#12619c]" />
-              <div className="h-1.5 w-1.5 rounded-full border border-[#12619c]" />
-              <div className="h-[1px] w-10 bg-gradient-to-r from-[#12619c] to-transparent" />
-              <div className="h-[3px] w-[1px] bg-[#12619c]" />
-            </div>
           </div>
 
-          {/* Soft Radial Blue Glow Behind Main Heading (Low opacity ~7%, soft edges) */}
+          {/* Soft Radial Blue Glow */}
           <div
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] rounded-full blur-[130px] -z-10"

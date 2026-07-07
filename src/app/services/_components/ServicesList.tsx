@@ -288,9 +288,12 @@ export function ServicesList() {
                         } ${isActive ? "opacity-100 translate-y-0" : "opacity-80 translate-y-2"}`}
                       >
                         <div>
-                          <span className="font-mono text-xl font-bold text-cs-light-blue md:hidden block mb-1">
-                            {num} //
-                          </span>
+                          <div className="flex items-center md:hidden mb-2.5">
+                            <div className="inline-flex items-center gap-1.5 rounded-full border border-cs-light-blue/25 bg-gradient-to-r from-cs-light-blue/12 via-cs-light-blue/5 to-transparent py-1 px-3 text-xs font-bold tracking-tight text-cs-light-blue shadow-sm backdrop-blur-sm">
+                              <Icon className="h-3.5 w-3.5 shrink-0" />
+                              <span>{service.label}</span>
+                            </div>
+                          </div>
                           <h3
                             className={`font-display text-2xl sm:text-3xl transition-all duration-500 leading-snug ${
                               isActive ? "font-extrabold text-cs-dark-blue" : "font-bold text-cs-dark-blue/80"

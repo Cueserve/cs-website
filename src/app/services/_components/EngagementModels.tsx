@@ -28,7 +28,7 @@ export function EngagementModels() {
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-cs-light-blue-soft/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-[1200px]">
-        {/* ── Section Header ── */}
+        {/* Section Header */}
         <header className="text-center max-w-3xl mx-auto mb-14">
           <div className="mb-3 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue-soft">
             <PulseIcon className="w-3.5 h-3.5 animate-pulse text-cs-light-blue-soft" />
@@ -45,7 +45,7 @@ export function EngagementModels() {
           </p>
         </header>
 
-        {/* ── 3 Engagement Model Cards (Horizontal on desktop, stacked on mobile) ── */}
+        {/* 3 Engagement Model Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
           {ENGAGEMENT_MODELS.map((model, i) => {
             const Icon = model.icon;
@@ -70,7 +70,7 @@ export function EngagementModels() {
           })}
         </div>
 
-        {/* ── Subtle CTA Button ── */}
+        {/* Subtle CTA Button */}
         <div className="text-center">
           <a
             href="/contact"

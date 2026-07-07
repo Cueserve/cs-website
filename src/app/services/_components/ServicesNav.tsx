@@ -26,11 +26,32 @@ export function ServicesNav() {
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const isScrollingRef = useRef<boolean>(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const container = navContainerRef.current;
+    const activeBtn = itemRefs.current[activeId];
+    if (container && activeBtn) {
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      const scrollLeft =
+        container.scrollLeft +
+        (btnRect.left - containerRect.left) -
+        containerRect.width / 2 +
+        btnRect.width / 2;
+
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth",
+      });
+    }
+  }, [activeId]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +106,6 @@ export function ServicesNav() {
     setActiveId(id);
     const element = document.getElementById(id);
     if (element) {
-      // Offset by ~165px (main header + floating glass nav + extra breathing distance)
       const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 165;
       window.scrollTo({
         top: offsetTop,
@@ -110,6 +130,7 @@ export function ServicesNav() {
     >
       <div className="rounded-2xl border border-cs-border/80 bg-white/60 backdrop-blur-lg p-2 sm:p-2.5 shadow-[0_10px_35px_rgba(12,56,90,0.14)] transition-all duration-300 hover:bg-white/80 hover:shadow-[0_14px_40px_rgba(12,56,90,0.2)]">
         <div
+          ref={navContainerRef}
           className="flex lg:grid lg:grid-cols-7 items-center justify-start gap-1 sm:gap-1.5 overflow-x-auto lg:overflow-visible no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x py-0.5"
           style={{
             WebkitOverflowScrolling: "touch",
@@ -122,6 +143,9 @@ export function ServicesNav() {
             return (
               <button
                 key={id}
+                ref={(el) => {
+                  itemRefs.current[id] = el;
+                }}
                 type="button"
                 onClick={() => scrollToSection(id)}
                 className={`flex items-center justify-center gap-1.5 rounded-xl px-2 sm:px-2.5 h-10 sm:h-11 text-[10.5px] xl:text-[11px] font-bold tracking-tight transition-all duration-300 cubic-bezier(0.16,1,0.3,1) shrink-0 lg:shrink w-auto lg:w-full cursor-pointer ${
