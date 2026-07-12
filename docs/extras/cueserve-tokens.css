@@ -1,0 +1,321 @@
+/* ═══════════════════════════════════════════════════════════════
+   Cueserve Design Tokens — v2.0
+   Source of truth for all --cs-* custom properties.
+   Drop into app/globals.css (Next.js) or styles.css.
+   Updated: June 2026 — Palette v2 (Foundry / Warm-Contrast)
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── BRAND COLORS ─────────────────────────────────────────── */
+
+  --cs-dark-blue:  #0C385A;   /* Primary — hero, footer, nav, primary CTA bg  */
+  --cs-light-blue: #2384C6;   /* Secondary — links, highlights, secondary CTA  */
+  --cs-cocoa:      #6E5645;   /* Warm dark — alternate dark section surfaces    */
+  --cs-sand:       #EDE4D2;   /* Warm neutral — warm section backgrounds        */
+  --cs-accent:     #A8462C;   /* Accent — CTA buttons, badges, warm highlights  */
+
+  /* Dark blue opacity scale */
+  --cs-dark-blue-90: rgba(12, 56, 90, 0.90);
+  --cs-dark-blue-70: rgba(12, 56, 90, 0.70);
+  --cs-dark-blue-50: rgba(12, 56, 90, 0.50);
+  --cs-dark-blue-30: rgba(12, 56, 90, 0.30);
+  --cs-dark-blue-15: rgba(12, 56, 90, 0.15);
+  --cs-dark-blue-08: rgba(12, 56, 90, 0.08);
+  --cs-dark-blue-04: rgba(12, 56, 90, 0.04);
+
+  /* Light blue opacity scale */
+  --cs-light-blue-90: rgba(35, 132, 198, 0.90);
+  --cs-light-blue-70: rgba(35, 132, 198, 0.70);
+  --cs-light-blue-50: rgba(35, 132, 198, 0.50);
+  --cs-light-blue-30: rgba(35, 132, 198, 0.30);
+  --cs-light-blue-15: rgba(35, 132, 198, 0.15);
+  --cs-light-blue-08: rgba(35, 132, 198, 0.08);
+  --cs-light-blue-04: rgba(35, 132, 198, 0.04);
+
+  /* Cocoa opacity scale */
+  --cs-cocoa-70: rgba(110, 86, 69, 0.70);
+  --cs-cocoa-50: rgba(110, 86, 69, 0.50);
+  --cs-cocoa-30: rgba(110, 86, 69, 0.30);
+  --cs-cocoa-15: rgba(110, 86, 69, 0.15);
+  --cs-cocoa-08: rgba(110, 86, 69, 0.08);
+
+  /* Sand opacity scale */
+  --cs-sand-70: rgba(237, 228, 210, 0.70);
+  --cs-sand-50: rgba(237, 228, 210, 0.50);
+  --cs-sand-30: rgba(237, 228, 210, 0.30);
+  --cs-sand-15: rgba(237, 228, 210, 0.15);
+  --cs-sand-08: rgba(237, 228, 210, 0.08);
+
+  /* Accent opacity scale */
+  --cs-accent-70: rgba(168, 70, 44, 0.70);
+  --cs-accent-50: rgba(168, 70, 44, 0.50);
+  --cs-accent-30: rgba(168, 70, 44, 0.30);
+  --cs-accent-15: rgba(168, 70, 44, 0.15);
+  --cs-accent-08: rgba(168, 70, 44, 0.08);
+
+
+  /* ── NEUTRALS ─────────────────────────────────────────────── */
+
+  --cs-neutral-50:  #F8F9FA;
+  --cs-neutral-100: #F1F3F5;
+  --cs-neutral-200: #E9ECEF;
+  --cs-neutral-300: #DEE2E6;
+  --cs-neutral-400: #C4CBD1;
+  --cs-neutral-500: #ADB5BD;
+  --cs-neutral-600: #6C757D;
+  --cs-neutral-700: #495057;
+  --cs-neutral-800: #343A40;
+  --cs-neutral-900: #1A1D21;
+  --cs-white:       #FFFFFF;
+
+
+   /* ── SEMANTIC COLORS (UTILITY ONLY, NOT BRAND PALETTE) ───── */
+
+  --cs-success:    #1A8754;
+  --cs-success-bg: #E8F5EE;
+  --cs-warning:    #C47F17;
+  --cs-warning-bg: #FEF3E0;
+  --cs-danger:     #C13A3A;
+  --cs-danger-bg:  #FDECEC;
+  --cs-info:       #2384C6;
+  --cs-info-bg:    #E6F2FA;
+
+
+  /* ── SURFACE ROLES ────────────────────────────────────────── */
+  /*
+   * Use these semantic tokens in components — not raw hex.
+   * Changing a surface-role token here updates every component
+   * that references it without touching component code.
+   */
+
+  --cs-surface-page:      #FFFFFF;                   /* Default page background    */
+  --cs-surface-subtle:    var(--cs-neutral-50);       /* Cards, zebra rows, inputs  */
+  --cs-surface-raised:    #FFFFFF;                   /* Cards on subtle bg         */
+  --cs-surface-warm:      var(--cs-sand);             /* Warm section alternates    */
+  --cs-surface-dark:      var(--cs-dark-blue);        /* Dark hero / footer         */
+  --cs-surface-warm-dark: var(--cs-cocoa);            /* Warm dark section alternate*/
+  --cs-surface-overlay:   var(--cs-dark-blue-70);     /* Modal backdrops            */
+
+
+  /* ── TEXT ROLES ───────────────────────────────────────────── */
+
+  --cs-text-primary:    #1A1D21;                     /* Body copy, headings on light */
+  --cs-text-secondary:  #495057;                     /* Supporting body, subheads    */
+  --cs-text-muted:      #6C757D;                     /* Captions, metadata, hints    */
+  --cs-text-disabled:   #ADB5BD;                     /* Disabled state text          */
+  --cs-text-on-dark:    #FFFFFF;                     /* Any text on --cs-dark-blue   */
+  --cs-text-on-cocoa:   #FFFFFF;                     /* Any text on --cs-cocoa (~7:1)*/
+  --cs-text-on-sand:    var(--cs-dark-blue);          /* Body text on sand bg         */
+  --cs-text-on-accent:  #FFFFFF;                     /* Text/icon on accent fills    */
+  --cs-text-accent:     var(--cs-accent);             /* Accent-colored text          */
+  --cs-text-brand:      var(--cs-dark-blue);          /* Brand-tinted headings        */
+  --cs-text-link:       var(--cs-light-blue);         /* Inline links                 */
+  --cs-text-link-hover: #1B76B5;                     /* Inline link hover            */
+
+
+  /* ── BORDER ROLES ─────────────────────────────────────────── */
+
+  --cs-border-default:  var(--cs-neutral-200);        /* Cards, inputs, dividers      */
+  --cs-border-strong:   var(--cs-neutral-300);        /* Emphasis borders             */
+  --cs-border-focus:    var(--cs-light-blue);         /* Input focus ring color       */
+  --cs-border-accent:   var(--cs-accent-30);          /* Accent-tinted borders        */
+
+
+  /* ── INTERACTIVE STATES ───────────────────────────────────── */
+
+  /* Primary (dark blue) button */
+  --cs-btn-primary-bg:     var(--cs-dark-blue);
+  --cs-btn-primary-hover:  #0A3251;
+  --cs-btn-primary-active: #082540;
+
+  /* Accent (terracotta) button */
+  --cs-btn-accent-bg:     var(--cs-accent);
+  --cs-btn-accent-hover:  #963C27;
+  --cs-btn-accent-active: #6E2D1A;
+
+  /* Secondary (light blue) button */
+  --cs-btn-secondary-bg:    var(--cs-light-blue);
+  --cs-btn-secondary-hover: #1F76B2;
+
+  /* Focus rings */
+  --cs-focus-ring-blue:   0 0 0 3px rgba(35, 132, 198, 0.25);
+  --cs-focus-ring-accent: 0 0 0 3px rgba(168, 70, 44, 0.25);
+
+
+  /* ── TYPOGRAPHY ───────────────────────────────────────────── */
+
+  /* Font families */
+  --cs-font-display: 'Bebas Neue', sans-serif;    /* Display headings — all-caps only */
+  --cs-font-primary: 'Outfit', sans-serif;        /* Body, UI, headings — 300–700     */
+  --cs-font-mono:    'JetBrains Mono', monospace; /* Code, labels, badges — 400–500   */
+
+  /* Font size scale (16px base = 1rem)
+   *
+   *  2xs  →  11px  mono badge labels
+   *  xs   →  12px  caption, overline
+   *  sm   →  14px  body sm, label
+   *  base →  16px  body, H4
+   *  lg   →  18px  body lg, quote
+   *  xl   →  20px  H3
+   *  2xl  →  24px  H2
+   *  3xl  →  32px  H1
+   *  4xl  →  40px  Display L (Bebas)
+   *  5xl  →  56px  Display XL (Bebas)
+   *  code →  13px  code blocks (JetBrains Mono only)
+   */
+  --cs-text-2xs:  0.6875rem;   /* 11px */
+  --cs-text-xs:   0.75rem;     /* 12px */
+  --cs-text-sm:   0.875rem;    /* 14px */
+  --cs-text-base: 1rem;        /* 16px */
+  --cs-text-lg:   1.125rem;    /* 18px */
+  --cs-text-xl:   1.25rem;     /* 20px */
+  --cs-text-2xl:  1.5rem;      /* 24px */
+  --cs-text-3xl:  2rem;        /* 32px */
+  --cs-text-4xl:  2.5rem;      /* 40px */
+  --cs-text-5xl:  3.5rem;      /* 56px */
+  --cs-text-code: 0.8125rem;   /* 13px — JetBrains Mono only */
+  --cs-text-body-sm-optional: 0.9375rem; /* 15px — optional, use only if design calls for it */
+
+  /* Line heights (unitless — scales correctly with rem font sizes)
+   *
+   *  none   →  1.0   Bebas display headings
+   *  tight  →  1.2   H1, H2
+   *  snug   →  1.3   H3, H4, overline, mono labels
+   *  ui     →  1.4   labels, captions
+   *  normal →  1.55  body sm, quote
+   *  body   →  1.65  body, body lg
+   *  code   →  1.7   code blocks
+   */
+  --cs-leading-none:   1;
+  --cs-leading-tight:  1.2;
+  --cs-leading-snug:   1.3;
+  --cs-leading-ui:     1.4;
+  --cs-leading-normal: 1.55;
+  --cs-leading-body:   1.65;
+  --cs-leading-code:   1.7;
+
+  /* Letter spacing (em — scales with font size)
+   *
+   *  tight    →  -0.01em  H1, H2 — large Outfit headings benefit from negative tracking
+   *  normal   →   0       body, H3, H4
+   *  wide     →  +0.01em  labels
+   *  display  →  +0.04em  Bebas display, mono badge labels
+   *  caps     →  +0.08em  overline — uppercase small text always needs tracking
+   */
+  --cs-tracking-tight:   -0.01em;
+  --cs-tracking-normal:   0em;
+  --cs-tracking-wide:     0.01em;
+  --cs-tracking-display:  0.04em;
+  --cs-tracking-caps:     0.08em;
+
+  /* Font weights */
+  --cs-font-weight-light:    300;   /* Outfit — hero intro paragraphs       */
+  --cs-font-weight-regular:  400;   /* Outfit — body copy; JetBrains — code */
+  --cs-font-weight-medium:   500;   /* Outfit — labels, UI; JetBrains — tags*/
+  --cs-font-weight-semibold: 600;   /* Outfit — overline, H3–H4             */
+  --cs-font-weight-bold:     700;   /* Outfit — strong emphasis only        */
+
+   /* Semantic typography aliases (map roles to primitives) */
+   --cs-type-h1-size:      var(--cs-text-3xl);
+   --cs-type-h1-leading:   var(--cs-leading-tight);
+   --cs-type-h1-tracking:  var(--cs-tracking-tight);
+   --cs-type-h1-weight:    var(--cs-font-weight-semibold);
+
+   --cs-type-h2-size:      var(--cs-text-2xl);
+   --cs-type-h2-leading:   var(--cs-leading-tight);
+   --cs-type-h2-tracking:  var(--cs-tracking-tight);
+   --cs-type-h2-weight:    var(--cs-font-weight-semibold);
+
+   --cs-type-body-size:    var(--cs-text-base);
+   --cs-type-body-leading: var(--cs-leading-body);
+   --cs-type-body-tracking: var(--cs-tracking-normal);
+   --cs-type-body-weight:  var(--cs-font-weight-regular);
+
+   --cs-type-caption-size: var(--cs-text-xs);
+   --cs-type-caption-leading: var(--cs-leading-ui);
+   --cs-type-caption-tracking: var(--cs-tracking-wide);
+   --cs-type-caption-weight: var(--cs-font-weight-regular);
+
+   --cs-type-heading-display-xl-size: var(--cs-text-5xl);
+   --cs-type-heading-display-xl-leading: var(--cs-leading-none);
+   --cs-type-heading-display-xl-tracking: var(--cs-tracking-display);
+   --cs-type-heading-display-xl-weight: var(--cs-font-weight-regular);
+
+   --cs-type-overline-size: var(--cs-text-xs);
+   --cs-type-overline-leading: var(--cs-leading-snug);
+   --cs-type-overline-tracking: var(--cs-tracking-caps);
+   --cs-type-overline-weight: var(--cs-font-weight-semibold);
+
+  
+
+
+  /* ── SPACING (8px grid) ───────────────────────────────────── */
+
+  --cs-space-xs:  4px;    /* Inline icon gaps               */
+  --cs-space-sm:  8px;    /* Tight component padding        */
+  --cs-space-md:  16px;   /* Default padding, card gaps     */
+  --cs-space-lg:  24px;   /* Section inner padding          */
+  --cs-space-xl:  32px;   /* Card body padding              */
+  --cs-space-2xl: 48px;   /* Section separators             */
+  --cs-space-3xl: 64px;   /* Page section padding           */
+  --cs-space-4xl: 96px;   /* Hero / footer padding          */
+
+   /* ── LAYOUT ROLES ─────────────────────────────────────────── */
+
+   --cs-container-page: 1200px;      /* Main section content width */
+   --cs-container-prose: 48rem;      /* Long-form pages (matches max-w-3xl) */
+   --cs-panel-services: 1040px;      /* Services mega menu panel width */
+   --cs-panel-default: 920px;        /* Default mega menu panel width */
+
+
+  /* ── BORDER RADIUS ────────────────────────────────────────── */
+
+  --cs-radius-sm:  4px;
+  --cs-radius-md:  8px;    /* Components — inputs, buttons, badges */
+  --cs-radius-lg:  12px;   /* Cards, panels                        */
+  --cs-radius-xl:  16px;   /* Large cards, featured blocks         */
+  --cs-radius-2xl: 24px;   /* Modal dialogs, large callouts        */
+  --cs-radius-full: 9999px; /* Pills, avatars                      */
+
+
+  /* ── SHADOWS (dark-blue-tinted) ───────────────────────────── */
+  /*
+   * Shadow hue matches --cs-dark-blue, not black.
+   * Creates warmer, more cohesive depth.
+   */
+
+  --cs-shadow-sm: 0 1px 2px rgba(12, 56, 90, 0.06);
+  --cs-shadow-md: 0 4px 12px rgba(12, 56, 90, 0.08);
+  --cs-shadow-lg: 0 8px 32px rgba(12, 56, 90, 0.10);
+  --cs-shadow-xl: 0 16px 48px rgba(12, 56, 90, 0.12);
+
+
+  /* ── TRANSITIONS ──────────────────────────────────────────── */
+
+  --cs-transition-fast:   150ms ease;
+  --cs-transition-base:   200ms ease;
+  --cs-transition-slow:   300ms ease;
+  --cs-transition-layout: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+   /* Motion semantic aliases (map usage roles to transition primitives) */
+   --cs-motion-interactive: var(--cs-transition-base);
+   --cs-motion-emphasis: var(--cs-transition-slow);
+   --cs-motion-layout: var(--cs-transition-layout);
+
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   USAGE RULES — read before using the warm palette
+═══════════════════════════════════════════════════════════════
+
+   ✓  Accent (#A8462C) on white      → 5.9:1  — passes AA
+   ✓  White on cocoa (#6E5645)        → ~7:1   — passes AA
+   ✓  Accent on sand (#EDE4D2)        → 4.6:1  — passes AA (barely — prefer larger text)
+   ✗  Accent on cocoa                 → ~1.4:1 — FAIL — never place these together
+   ✗  Cocoa text on sand              → ~2.1:1 — FAIL — use --cs-dark-blue on sand instead
+
+   RULE: Accent and cocoa must always be separated by sand, white, or a blue.
+
+═══════════════════════════════════════════════════════════════ */
