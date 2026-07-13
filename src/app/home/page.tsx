@@ -12,7 +12,7 @@ import { CTABanner } from "./_components/CTABanner";
 export default function HomePage() {
   return (
     <>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <HeroSection />
       <ClientsStrip />
       <FeaturesSection />
