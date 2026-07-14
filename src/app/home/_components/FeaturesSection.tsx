@@ -86,7 +86,7 @@ export function FeaturesSection() {
   const f = FEATURES[active];
 
   return (
-    <section className="bg-cs-surface-tint px-8 py-24">
+    <section className="relative z-10 bg-cs-surface-tint px-8 py-24">
       <div className="mx-auto max-w-[1200px]">
         <header className="mb-12 text-center">
           <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cs-light-blue">
@@ -307,37 +307,33 @@ function AutomationVisual() {
           <div key={s} className="flex flex-1 items-center">
             <div className="flex flex-1 flex-col items-center gap-1.5">
               <div
-                className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors duration-300 ${
-                  i <= active ? "bg-cs-dark-blue" : "bg-cs-border"
-                }`}
+                className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors duration-300 ${i <= active ? "bg-cs-dark-blue" : "bg-cs-border"
+                  }`}
               >
                 {i < active ? (
                   <CheckIcon className="h-3.5 w-3.5 text-white" />
                 ) : (
                   <div
-                    className={`h-2 w-2 rounded-full ${
-                      i === active ? "bg-cs-light-blue" : "bg-cs-ink-trace"
-                    }`}
+                    className={`h-2 w-2 rounded-full ${i === active ? "bg-cs-light-blue" : "bg-cs-ink-trace"
+                      }`}
                   />
                 )}
               </div>
               <span
-                className={`text-center text-[10px] ${
-                  i === active
+                className={`text-center text-[10px] ${i === active
                     ? "font-semibold text-cs-dark-blue"
                     : i < active
                       ? "text-cs-dark-blue"
                       : "text-cs-ink-faint"
-                }`}
+                  }`}
               >
                 {s}
               </span>
             </div>
             {i < steps.length - 1 && (
               <div
-                className={`mb-5 h-px flex-[0.4] transition-colors duration-300 ${
-                  i < active ? "bg-cs-dark-blue" : "bg-cs-border"
-                }`}
+                className={`mb-5 h-px flex-[0.4] transition-colors duration-300 ${i < active ? "bg-cs-dark-blue" : "bg-cs-border"
+                  }`}
               />
             )}
           </div>
@@ -372,9 +368,8 @@ function DataVisual() {
         {bars.map((h, i) => (
           <div key={i} className="flex h-full flex-1 flex-col items-center justify-end">
             <div
-              className={`w-full rounded-t-[3px] transition-[height] duration-500 ${
-                i === highlight ? "bg-cs-light-blue" : "bg-cs-border-strong"
-              }`}
+              className={`w-full rounded-t-[3px] transition-[height] duration-500 ${i === highlight ? "bg-cs-light-blue" : "bg-cs-border-strong"
+                }`}
               style={{ height: `${h}%` }}
             />
           </div>
@@ -384,9 +379,8 @@ function DataVisual() {
         {labels.map((l, i) => (
           <div
             key={l}
-            className={`flex-1 text-center text-[10px] ${
-              i === highlight ? "font-semibold text-cs-light-blue" : "text-cs-ink-trace"
-            }`}
+            className={`flex-1 text-center text-[10px] ${i === highlight ? "font-semibold text-cs-light-blue" : "text-cs-ink-trace"
+              }`}
           >
             {l}
           </div>

@@ -5,7 +5,7 @@ import { VisionHeroWrapper } from "@/components/vision-hero";
 
 export function HeroSection() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full z-30 bg-white">
       <VisionHeroWrapper />
     </div>
   );

@@ -5,7 +5,6 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { useLenis } from "@/hooks/useLenis";
 import { VisionTypographyIntro } from "./VisionTypographyIntro";
 import { VisionHeroMedia } from "./VisionHeroMedia";
-import { VisionHeroContent } from "./VisionHeroContent";
 
 export interface VisionHeroWrapperProps {
   mediaUrl?: string;
@@ -22,7 +21,6 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
   const stickyViewportRef = useRef<HTMLDivElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -30,21 +28,21 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
 
       const mediaEl = mediaRef.current;
       const introEl = introRef.current;
-      const contentEl = contentRef.current;
 
       const textLeft = introEl?.querySelector("[data-text-left]");
       const textRight = introEl?.querySelector("[data-text-right]");
       const introFooter = introEl?.querySelector("[data-intro-footer]");
-      const mediaOverlay = mediaEl?.querySelector("[data-media-overlay]");
       const mediaBorder = mediaEl?.querySelector("[data-media-border]");
 
       const introLines = introEl?.querySelectorAll(
         "[data-intro-fade]:not([data-text-left]):not([data-text-right]):not([data-intro-footer])"
       );
 
-      const heroTitle = contentEl?.querySelector("[data-hero-title]");
-      const heroDesc = contentEl?.querySelector("[data-hero-desc]");
-      const heroCta = contentEl?.querySelectorAll("[data-hero-cta]");
+      const heroContent = mediaEl?.querySelector("[data-hero-content]");
+      const heroTitle = mediaEl?.querySelector("[data-hero-title]");
+      const heroDesc = mediaEl?.querySelector("[data-hero-desc]");
+      const heroCta = mediaEl?.querySelectorAll("[data-hero-cta]");
+      const heroTicker = mediaEl?.querySelector("[data-hero-ticker]");
 
       // Calculate exact offset to move the pill to viewport center, and the scale needed to fill the viewport from there
       const mediaRect = mediaEl.getBoundingClientRect();
@@ -66,7 +64,9 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
           start: "top top",
           end: `+=${scrollDurationVh}vh`,
           pin: true,
-          scrub: 0.6,
+          scrub: true,
+          anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true,
         },
       });
@@ -128,14 +128,25 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       if (mediaBorder) {
         tl.fromTo(
           mediaBorder,
-          { borderRadius: "150px" },
+          { borderRadius: "150px", opacity: 1 },
           {
-            borderWidth: "10px",
+            borderWidth: "4px",
             borderRadius: "40px",
             duration: 0.45,
             ease: "none",
           },
           0
+        );
+
+        // Completely hide the blue border right right as the O finishes centering and begins expanding across the screen (progress 0.45 to 0.58)
+        tl.to(
+          mediaBorder,
+          {
+            opacity: 0,
+            duration: 0.13,
+            ease: "power2.out",
+          },
+          0.45
         );
       }
 
@@ -195,61 +206,88 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         );
       }
 
-      // 4. Smoothly fade in cinematic dark overlay inside the expanding pill so text will be legible when fullscreen is reached
-      if (mediaOverlay) {
-        tl.to(
-          mediaOverlay,
-          {
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.inOut",
-          },
-          0.5
-        );
-      }
-
-      // 5. Only AFTER fullscreen is reached (progress 0.92), reveal Hero Content inside the fullscreen portal
-      if (contentEl) {
-        gsap.set(contentEl, { opacity: 0, pointerEvents: "none" });
-
-        // Enable pointer events right when content reveals inside the fullscreen portal
-        tl.set(contentEl, { pointerEvents: "auto" }, 0.92);
-
+      // 4. Start loading Hero Content text slightly delayed (`progress 0.62`), when the portal window is ~90% expanded across the screen, and have all text 100% visible right as full screen is reached (`progress 0.72`).
+      if (heroContent) {
+        gsap.set(heroContent, { opacity: 0, pointerEvents: "none" });
+        tl.set(heroContent, { pointerEvents: "auto" }, 0.62);
         tl.fromTo(
-          contentEl,
+          heroContent,
           { opacity: 0 },
-          { opacity: 1, duration: 0.08, ease: "power2.out" },
-          0.92
+          { opacity: 1, duration: 0.10, ease: "power2.out" },
+          0.62
         );
       }
 
       if (heroTitle) {
+        gsap.set(heroTitle, { opacity: 0 });
         tl.fromTo(
           heroTitle,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.06, ease: "power2.out" },
-          0.93
+          { opacity: 0, y: 25 },
+          { opacity: 1, y: 0, duration: 0.07, ease: "power2.out" },
+          0.64
         );
       }
 
       if (heroDesc) {
+        gsap.set(heroDesc, { opacity: 0 });
         tl.fromTo(
           heroDesc,
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.05, ease: "power2.out" },
-          0.94
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.06, ease: "power2.out" },
+          0.66
         );
       }
 
       if (heroCta && heroCta.length > 0) {
         heroCta.forEach((el, idx) => {
+          gsap.set(el, { opacity: 0 });
           tl.fromTo(
             el,
             { opacity: 0, y: 15 },
-            { opacity: 1, y: 0, duration: 0.04, ease: "power2.out" },
-            0.95 + idx * 0.01
+            { opacity: 1, y: 0, duration: 0.05, ease: "power2.out" },
+            0.68 + idx * 0.01
           );
         });
+      }
+
+      if (heroTicker) {
+        gsap.set(heroTicker, { opacity: 0, y: 30 });
+        tl.fromTo(
+          heroTicker,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.05, ease: "power2.out" },
+          0.69
+        );
+      }
+
+      // 5. Inverse-transform portalInner so the Hero Section inside the expanding O stays 100% stationary and 1:1 unscaled relative to the viewport right from progress 0.
+      const portalInner = mediaEl.querySelector("[data-portal-inner]") as HTMLElement | null;
+      if (portalInner) {
+        gsap.set(portalInner, { pointerEvents: "none" });
+        // Enable pointer events right right as the text begins loading (progress 0.62)
+        tl.set(portalInner, { pointerEvents: "auto" }, 0.62);
+
+        const updatePortalInner = () => {
+          if (!portalInner || !mediaEl || !stickyViewportRef.current) return;
+          const parentRect = stickyViewportRef.current.getBoundingClientRect();
+          const rect = mediaEl.getBoundingClientRect();
+          const s = gsap.getProperty(mediaEl, "scaleX") || 1;
+          const scaleVal = Number(s) || 1;
+          const relLeft = rect.left - parentRect.left;
+          const relTop = rect.top - parentRect.top;
+          gsap.set(portalInner, {
+            scale: 1 / scaleVal,
+            x: -relLeft / scaleVal,
+            y: -relTop / scaleVal,
+            force3D: false,
+          });
+        };
+
+        tl.eventCallback("onUpdate", updatePortalInner);
+        updatePortalInner();
+        ScrollTrigger.refresh();
+        window.addEventListener("resize", updatePortalInner);
+        return () => window.removeEventListener("resize", updatePortalInner);
       }
     },
     { scope: containerRef }
@@ -260,10 +298,10 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       ref={containerRef}
       className="relative w-full h-screen overflow-hidden"
     >
-      {/* Layer 1: Pure White Base */}
+      {/* Layer 1: Pure White Base outside the O portal */}
       <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
 
-      {/* Layer 2: Hero Background Image (/hero.png) – shifted slightly lower down */}
+      {/* Layer 2: Hero Background Image (/hero.png) – shifted slightly lower down so background is visible behind VISI and N */}
       <div
         className="absolute top-0 left-0 right-0 h-[115vh] pointer-events-none z-0 bg-cover bg-no-repeat"
         style={{
@@ -293,14 +331,11 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         ref={stickyViewportRef}
         className="relative w-full h-full overflow-hidden flex items-center justify-center z-10"
       >
-        {/* Layer 1: Massive VISION Intro Typography with Flexible Architectural Box */}
+        {/* Massive VISION Intro Typography with Flexible Architectural Box acting as the portal window */}
         <VisionTypographyIntro
           ref={introRef}
           mediaSlot={<VisionHeroMedia ref={mediaRef} mediaUrl={mediaUrl} />}
         />
-
-        {/* Layer 2: Revealed Hero Content */}
-        <VisionHeroContent ref={contentRef} />
       </div>
     </section>
   );

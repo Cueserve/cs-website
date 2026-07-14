@@ -15,6 +15,11 @@ export function useLenis({ enabled = true, duration = 1.2 }: UseLenisOptions = {
   useEffect(() => {
     if (!enabled || typeof window === "undefined") return;
 
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    ScrollTrigger.clearScrollMemory("manual");
+
     const lenis = new Lenis({
       duration,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

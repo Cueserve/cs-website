@@ -2,101 +2,135 @@
 
 import React, { forwardRef } from "react";
 import Link from "next/link";
-import { LayersIcon } from "@/components/icons/HeroIcons";
 
 export interface VisionHeroContentProps {
   className?: string;
 }
-
-const STATS = [
-  ["50+", "Projects Delivered"],
-  ["100%", "Client Satisfaction"],
-  ["24×7", "Support"],
-] as const;
 
 export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentProps>(
   ({ className = "" }, ref) => {
     return (
       <div
         ref={ref}
-        className={`absolute inset-0 z-30 flex flex-col justify-between p-6 sm:p-10 md:p-16 lg:p-20 pointer-events-none opacity-0 ${className}`}
+        data-hero-content
+        className={`absolute inset-0 z-30 flex flex-col justify-center pointer-events-none opacity-0 ${className}`}
       >
-        {/* Top spacing where navbar was removed */}
-        <div className="w-full h-8" />
-
-        {/* Main Hero Reveal Content with CueServe Brand Tokens */}
-        <div className="max-w-3xl my-auto text-left">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cs-light-blue/40 bg-cs-dark-blue/60 backdrop-blur-md px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wider text-cs-light-blue-soft uppercase shadow-lg">
-            <LayersIcon className="h-4 w-4 text-cs-light-blue" />
-            AI-First Technology Partner
-          </div>
-
-          {/* Main Headline */}
+        {/* Container matching exact Header width (w-[90%] xl:w-[82%] max-w-[1260px] mx-auto) so text aligns perfectly to navbar right edge */}
+        <div className="mx-auto w-[90%] xl:w-[82%] max-w-[1260px] flex justify-end">
+          {/* Right-Aligned Hero Content aligned precisely to the navbar right bound */}
+          <div className="w-full max-w-xl xl:max-w-2xl text-left mt-8 sm:mt-12">
+          {/* Main Headline with exact Arooth horizontal rule accent line */}
           <h1
             data-hero-title
-            className="font-display font-bold leading-[1.08] tracking-[-0.03em] text-white mb-6 drop-shadow-sm"
-            style={{ fontSize: "clamp(2.75rem, 5.5vw, 4.5rem)" }}
+            className="font-display font-normal leading-[1.12] tracking-[-0.03em] text-cs-dark-blue mb-6 drop-shadow-sm"
+            style={{ fontSize: "clamp(2.75rem, 5vw, 4.5rem)" }}
           >
-            Deliver Real <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cs-light-blue-soft via-white to-cs-light-blue">
-              AI Outcomes
+            Crafting Modern <br />
+            <span className="inline-flex items-center gap-3 md:gap-4 text-cs-light-blue my-1.5">
+              <span className="h-[3px] w-12 sm:w-16 md:w-24 bg-cs-light-blue rounded-full inline-block shrink-0" />
+              <span>AI Vision For the</span>
             </span>{" "}
             <br />
-            at Enterprise Scale
+            <span className="text-cs-ink">Ambitious Brands</span>
           </h1>
 
-          {/* Description Text */}
+          {/* Subheadline / Description Text */}
           <p
             data-hero-desc
-            className="mb-8 max-w-xl text-base sm:text-lg leading-relaxed text-blue-100/90 font-normal"
+            className="mb-8 max-w-lg text-base sm:text-lg leading-relaxed text-cs-ink-muted font-normal"
           >
-            GenAI, Agentic AI, and workflow automation that boosts efficiency and significantly
-            reduces operational costs — delivered by a team at CueServe that actually cares.
+            We blend engineering precision with agentic AI to build digital platforms that move
+            enterprises forward. From crafting intelligent workflows to standout digital experiences.
           </p>
 
-          {/* CTA Buttons */}
-          <div data-hero-cta className="mb-10 flex flex-wrap items-center gap-4">
-            {/* Book a Free Call — commented out
+          {/* CTA Button matching Arooth Get Started Now with circle arrow */}
+          <div data-hero-cta className="flex items-center">
             <Link
               href="/contact"
-              className="rounded-full bg-cs-light-blue hover:bg-cs-light-blue-hover px-8 py-4 text-base font-bold text-white transition-all shadow-xl shadow-cs-light-blue/30 flex items-center gap-2 group"
+              className="group rounded-full bg-white border border-cs-border shadow-md hover:shadow-xl hover:border-cs-border-strong px-2 sm:px-2.5 py-2 sm:py-2 pl-6 sm:pl-8 text-base font-semibold text-cs-ink transition-all inline-flex items-center gap-4 pointer-events-auto"
             >
-              Book a Free Call
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-            */}
-            <Link
-              href="/services"
-              className="rounded-full border border-white/25 bg-white/10 hover:bg-white/20 backdrop-blur-md px-8 py-4 text-base font-semibold text-white transition-all"
-            >
-              See Our Services
+              <span>Get Started Now</span>
+              <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cs-dark-blue text-white flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-cs-light-blue shadow-sm shrink-0">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
             </Link>
           </div>
-
-          {/* Stats Section */}
-          <dl
-            data-hero-cta
-            className="flex flex-wrap gap-y-4 divide-x divide-white/20 border-t border-white/20 pt-6"
-          >
-            {STATS.map(([value, label]) => (
-              <div key={label} className="px-8 first:pl-0">
-                <dt className="font-display text-2xl sm:text-3xl font-bold leading-none text-white">
-                  {value}
-                </dt>
-                <dd className="mt-1.5 text-xs sm:text-sm text-blue-200/80">{label}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Bottom Metadata Strip */}
-        <div className="w-full flex items-center justify-between text-xs text-white/70 border-t border-white/15 pt-6">
-          <span className="font-mono tracking-widest">CUESERVE // AI INNOVATION</span>
-          <span>SCROLL TO EXPLORE ↓</span>
         </div>
       </div>
-    );
+
+      {/* Continuous Infinite Motion Marquee Ticker right at the bottom of the Hero Section with Faded White Gradient */}
+      <div
+        data-hero-ticker
+        className="absolute bottom-0 left-0 right-0 w-full pt-12 sm:pt-16 md:pt-20 pb-2 sm:pb-3 overflow-hidden z-40 pointer-events-auto"
+        style={{
+          background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 40%, rgba(255, 255, 255, 0.88) 75%, #ffffff 100%)",
+        }}
+      >
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes heroTickerScroll {
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
+            }
+          `
+        }} />
+        <div
+          className="flex w-max items-center whitespace-nowrap select-none"
+          style={{
+            animation: "heroTickerScroll 130s linear infinite",
+          }}
+        >
+          {/* Render two identical tracks side-by-side for seamless infinite looping */}
+          {[0, 1].map((loopIdx) => (
+            <div key={loopIdx} className="flex items-center shrink-0">
+              {[
+                "ENTERPRISE AI ARCHITECTURE",
+                "AGENTIC WORKFLOWS",
+                "PRECISION ENGINEERING",
+                "INTELLIGENT AUTOMATION",
+                "STANDOUT DIGITAL PLATFORMS",
+                "STRATEGIC ACCELERATION",
+                "NEXT-GEN VISUAL SYSTEMS",
+                "FUTURE-READY SCALE",
+              ].map((item, idx) => (
+                <React.Fragment key={`${loopIdx}-${idx}`}>
+                  <span
+                    className={`font-display leading-none uppercase tracking-[-0.03em] font-normal ${
+                      idx % 2 === 0
+                        ? "italic text-cs-ink"
+                        : "text-cs-dark-blue"
+                    }`}
+                    style={{ fontSize: "clamp(2.75rem, 5vw, 5rem)" }}
+                  >
+                    {item}
+                  </span>
+                  <span
+                    className="text-cs-light-blue font-normal leading-none px-6 sm:px-8 md:px-10"
+                    style={{ fontSize: "clamp(2.75rem, 5vw, 5rem)" }}
+                  >
+                    *
+                  </span>
+                </React.Fragment>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
   }
 );
 

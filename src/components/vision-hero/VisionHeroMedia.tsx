@@ -1,6 +1,7 @@
 "use client";
 
 import React, { forwardRef } from "react";
+import { VisionHeroContent } from "./VisionHeroContent";
 
 export interface VisionHeroMediaProps {
   mediaUrl?: string;
@@ -10,7 +11,6 @@ export interface VisionHeroMediaProps {
 export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
   (
     {
-      mediaUrl = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
       className = "",
     },
     ref
@@ -31,18 +31,35 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
           transform: "translateZ(0)",
         }}
       >
-        {/* Sleek Brand Blue Atmospheric Pill Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#dce7f2] via-[#eef6fc] to-[#c8dff0] z-0" />
-
-        {/* Media Image / Visual Layer */}
+        {/* Live Portal Window into the Hero Section underneath right from progress 0 */}
         <div
-          className="absolute inset-0 bg-cover bg-center z-10 transition-transform duration-700 ease-out opacity-90 mix-blend-multiply"
+          data-portal-inner
+          className="absolute left-0 top-0 origin-top-left pointer-events-none z-10"
           style={{
-            backgroundImage: `url(${mediaUrl})`,
+            width: "100vw",
+            height: "100vh",
           }}
-        />
+        >
+          {/* Hero Section Content & Full Background Image */}
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            {/* Layer 1: Pure White Base for Hero */}
+            <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
 
-        {/* Crisp Dark Blue Border Ring ON TOP (z-30) so rainbow never covers or bleeds into the O border */}
+            {/* Layer 2: Full Hero Background Image where the helmet girl is part of the bg – shifted left for breathing room */}
+            <div
+              className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat"
+              style={{
+                backgroundImage: `url('/hero_bg2.jpg')`,
+                backgroundPosition: "15% center",
+              }}
+            />
+
+            {/* Layer 3: Right-Aligned Hero Content – initially hidden, revealed by timeline right when portal reaches fullscreen */}
+            <VisionHeroContent />
+          </div>
+        </div>
+
+        {/* Crisp Dark Blue Border Ring ON TOP */}
         <div
           data-media-border
           className="absolute inset-0 pointer-events-none z-30"
@@ -53,12 +70,6 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
             WebkitBackfaceVisibility: "hidden",
             transform: "translateZ(0)",
           }}
-        />
-
-        {/* Cinematic Dark Gradient Overlay for legibility when scaled up to full viewport */}
-        <div
-          data-media-overlay
-          className="absolute inset-0 bg-gradient-to-r from-[#09355E]/95 via-[#09355E]/80 to-[#0f1920]/90 opacity-0 z-20 pointer-events-none transition-opacity"
         />
       </div>
     );
