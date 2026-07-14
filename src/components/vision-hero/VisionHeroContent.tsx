@@ -25,7 +25,7 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
         <div className="w-full h-8" />
 
         {/* Main Hero Reveal Content with CueServe Brand Tokens */}
-        <div className="max-w-3xl my-auto text-left pointer-events-auto">
+        <div className="max-w-3xl my-auto text-left">
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cs-light-blue/40 bg-cs-dark-blue/60 backdrop-blur-md px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wider text-cs-light-blue-soft uppercase shadow-lg">
             <LayersIcon className="h-4 w-4 text-cs-light-blue" />
@@ -91,7 +91,7 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
         </div>
 
         {/* Bottom Metadata Strip */}
-        <div className="w-full flex items-center justify-between text-xs text-white/70 border-t border-white/15 pt-6 pointer-events-auto">
+        <div className="w-full flex items-center justify-between text-xs text-white/70 border-t border-white/15 pt-6">
           <span className="font-mono tracking-widest">CUESERVE // AI INNOVATION</span>
           <span>SCROLL TO EXPLORE ↓</span>
         </div>

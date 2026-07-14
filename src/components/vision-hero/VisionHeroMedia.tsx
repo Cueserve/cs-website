@@ -18,13 +18,17 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
     return (
       <div
         ref={ref}
-        className={`relative overflow-hidden will-change-transform shadow-xl ${className}`}
+        className={`relative overflow-hidden shadow-xl ${className}`}
         style={{
           width: "clamp(320px, 32.5vw, 510px)",
           height: "clamp(142px, 15.5vw, 246px)",
           borderRadius: "9999px",
           backgroundColor: "#09355E",
           boxShadow: "0 20px 50px -10px rgba(9, 53, 94, 0.25)",
+          WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+          transform: "translateZ(0)",
         }}
       >
         {/* Sleek Brand Blue Atmospheric Pill Background */}
@@ -40,9 +44,14 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
 
         {/* Crisp Dark Blue Border Ring ON TOP (z-30) so rainbow never covers or bleeds into the O border */}
         <div
-          className="absolute inset-0 rounded-full pointer-events-none z-30"
+          data-media-border
+          className="absolute inset-0 pointer-events-none z-30"
           style={{
-            border: "clamp(15px, 1.7vw, 23px) solid #09355E",
+            border: "clamp(22px, 2.4vw, 32px) solid #09355E",
+            borderRadius: "9999px",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "translateZ(0)",
           }}
         />
 
