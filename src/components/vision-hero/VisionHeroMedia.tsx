@@ -20,17 +20,17 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
         ref={ref}
         className={`relative overflow-hidden will-change-transform shadow-xl ${className}`}
         style={{
-          width: "clamp(330px, 34vw, 540px)",
-          height: "clamp(140px, 14.5vw, 235px)",
+          width: "clamp(320px, 32.5vw, 510px)",
+          height: "clamp(142px, 15.5vw, 246px)",
           borderRadius: "9999px",
-          border: "14px solid var(--color-cs-light-blue, #2384c6)",
-          boxShadow: "0 20px 50px -10px rgba(35, 132, 198, 0.25)",
+          backgroundColor: "#09355E",
+          boxShadow: "0 20px 50px -10px rgba(9, 53, 94, 0.25)",
         }}
       >
-        {/* Sleek Brand Blue Atmospheric Pill Background (matching reference monochrome blue aesthetic) */}
+        {/* Sleek Brand Blue Atmospheric Pill Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#dce7f2] via-[#eef6fc] to-[#c8dff0] z-0" />
 
-        {/* Media Image / Visual Layer (fades/scales cleanly during zoom) */}
+        {/* Media Image / Visual Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center z-10 transition-transform duration-700 ease-out opacity-90 mix-blend-multiply"
           style={{
@@ -38,10 +38,18 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
           }}
         />
 
+        {/* Crisp Dark Blue Border Ring ON TOP (z-30) so rainbow never covers or bleeds into the O border */}
+        <div
+          className="absolute inset-0 rounded-full pointer-events-none z-30"
+          style={{
+            border: "clamp(15px, 1.7vw, 23px) solid #09355E",
+          }}
+        />
+
         {/* Cinematic Dark Gradient Overlay for legibility when scaled up to full viewport */}
         <div
           data-media-overlay
-          className="absolute inset-0 bg-gradient-to-r from-[#0c385a]/95 via-[#0c385a]/80 to-[#0f1920]/90 opacity-0 z-20 pointer-events-none transition-opacity"
+          className="absolute inset-0 bg-gradient-to-r from-[#09355E]/95 via-[#09355E]/80 to-[#0f1920]/90 opacity-0 z-20 pointer-events-none transition-opacity"
         />
       </div>
     );

@@ -186,49 +186,25 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       {/* Layer 1: Pure White Base */}
       <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
 
-      {/* Layer 2: Brand Blue Atmospheric Layering – top corners & illumination blending naturally into white */}
+      {/* Layer 2: Hero Background Image (/hero_bg.jpg) – shifted slightly lower down */}
       <div
-        className="absolute inset-0 pointer-events-none z-0"
+        className="absolute top-0 left-0 right-0 h-[115vh] pointer-events-none z-0 bg-cover bg-no-repeat"
         style={{
-          background: `
-            radial-gradient(130% 90% at 50% 0%, rgba(35, 132, 198, 0.22) 0%, rgba(35, 132, 198, 0.12) 35%, rgba(125, 184, 216, 0.05) 65%, transparent 90%),
-            linear-gradient(180deg, rgba(238, 246, 252, 0.9) 0%, rgba(245, 249, 253, 0.6) 50%, #ffffff 88%, #ffffff 100%)
-          `,
+          backgroundImage: `url('/hero.png')`,
+          backgroundPosition: "center -15vh",
         }}
       />
 
-      {/* Layer 3: Atmospheric Center Illumination Behind Typography */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: `
-            radial-gradient(ellipse 55% 45% at 50% 45%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.3) 50%, transparent 80%)
-          `,
-        }}
-      />
-
-      {/* Layer 4: Precise Reference Grid – 1px lines rendering underneath typography and fading naturally into white */}
+      {/* Layer 3: Natural White Transition downward when scrolling past hero */}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(35, 132, 198, 0.075) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(35, 132, 198, 0.065) 1px, transparent 1px)
-          `,
-          backgroundSize: "76px 76px",
-        }}
-      />
-
-      {/* Layer 5: Natural White Transition – no hard separation, dissolving into white */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[2]"
         style={{
           background: `
             linear-gradient(180deg,
               transparent 0%,
-              transparent 60%,
-              rgba(255, 255, 255, 0.45) 75%,
-              rgba(255, 255, 255, 0.85) 88%,
+              transparent 45%,
+              rgba(255, 255, 255, 0.6) 70%,
+              #ffffff 88%,
               #ffffff 100%
             )
           `,
@@ -238,50 +214,9 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       {/* Sticky Viewport Container */}
       <div
         ref={stickyViewportRef}
-        className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center"
+        className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center z-10"
       >
-        {/* Bento Box Architectural Guide Lines (z-[5]) */}
-        <div className="absolute inset-0 pointer-events-none z-[5]">
-          {/* Outer Left Vertical Line (full height 0 to 100%, near V) */}
-          <div
-            className="absolute top-0 bottom-0"
-            style={{ left: "15%", width: "1px", background: "rgba(255, 255, 255, 0.85)" }}
-          />
-          {/* Outer Right Vertical Line (full height 0 to 100%, near N) */}
-          <div
-            className="absolute top-0 bottom-0"
-            style={{ right: "15%", width: "1px", background: "rgba(255, 255, 255, 0.85)" }}
-          />
-
-          {/* Top horizontal divider line (ends at outer vertical lines) */}
-          <div
-            className="absolute"
-            style={{ top: "136px", left: "15%", right: "15%", height: "1px", background: "rgba(255, 255, 255, 0.85)" }}
-          />
-          {/* Bottom horizontal divider line (ends at outer vertical lines) */}
-          <div
-            className="absolute"
-            style={{ bottom: "370px", left: "15%", right: "15%", height: "1px", background: "rgba(255, 255, 255, 0.85)" }}
-          />
-
-          {/* Left inner vertical guide line (strictly between 136px and 370px) */}
-          <div
-            className="absolute"
-            style={{ top: "136px", bottom: "370px", left: "32.5%", width: "1px", background: "rgba(255, 255, 255, 0.75)" }}
-          />
-          {/* Center inner vertical guide line (strictly between 136px and 370px) */}
-          <div
-            className="absolute"
-            style={{ top: "136px", bottom: "370px", left: "50%", width: "1px", background: "rgba(255, 255, 255, 0.65)" }}
-          />
-          {/* Right inner vertical guide line (strictly between 136px and 370px) */}
-          <div
-            className="absolute"
-            style={{ top: "136px", bottom: "370px", left: "67.5%", width: "1px", background: "rgba(255, 255, 255, 0.75)" }}
-          />
-        </div>
-
-        {/* Layer 1: Massive VISION Intro Typography */}
+        {/* Layer 1: Massive VISION Intro Typography with Flexible Architectural Box */}
         <VisionTypographyIntro
           ref={introRef}
           mediaSlot={<VisionHeroMedia ref={mediaRef} mediaUrl={mediaUrl} />}
