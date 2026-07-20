@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { useLenis } from "@/hooks/useLenis";
-import { VisionTypographyIntro } from "./VisionTypographyIntro";
+import { VisionTypographyIntro, VisionTypographyGridLines } from "./VisionTypographyIntro";
 import { VisionHeroMedia } from "./VisionHeroMedia";
 import { VisionHeroContent } from "./VisionHeroContent";
 
@@ -22,14 +22,16 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
   const stickyViewportRef = useRef<HTMLDivElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
+  const clipRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!containerRef.current || !stickyViewportRef.current || !mediaRef.current) return;
+      if (!containerRef.current || !stickyViewportRef.current || !mediaRef.current || !clipRef.current) return;
       if (typeof window !== "undefined" && window.innerWidth < 1280) return;
 
       const mediaEl = mediaRef.current;
       const introEl = introRef.current;
+      const clipEl = clipRef.current;
 
       const textLeft = introEl?.querySelector("[data-text-left]");
       const textRight = introEl?.querySelector("[data-text-right]");
@@ -40,25 +42,60 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         "[data-intro-fade]:not([data-text-left]):not([data-text-right]):not([data-intro-footer])"
       );
 
-      const heroContent = mediaEl?.querySelector("[data-hero-content]");
-      const heroTitle = mediaEl?.querySelector("[data-hero-title]");
-      const heroDesc = mediaEl?.querySelector("[data-hero-desc]");
-      const heroCta = mediaEl?.querySelectorAll("[data-hero-cta]");
-      const heroTicker = mediaEl?.querySelector("[data-hero-ticker]");
+      const heroContent = clipEl.querySelector("[data-hero-content]");
+      const heroTitle = clipEl.querySelector("[data-hero-title]");
+      const heroDesc = clipEl.querySelector("[data-hero-desc]");
+      const heroCta = clipEl.querySelectorAll("[data-hero-cta]");
+      const heroTicker = clipEl.querySelector("[data-hero-ticker]");
 
       // Calculate exact offset to move the pill to viewport center, and the scale needed to fill the viewport from there
       const mediaRect = mediaEl.getBoundingClientRect();
+      const parentRect = stickyViewportRef.current.getBoundingClientRect();
+      const baseL0 = mediaRect.left - parentRect.left;
+      const baseT0 = mediaRect.top - parentRect.top;
+      const baseW0 = mediaRect.width;
+      const baseH0 = mediaRect.height;
+      const baseCx0 = baseL0 + baseW0 / 2;
+      const baseCy0 = baseT0 + baseH0 / 2;
+
       const viewportCenterX = window.innerWidth / 2;
       const viewportCenterY = window.innerHeight / 2;
-      const mediaCenterX = mediaRect.left + mediaRect.width / 2;
-      const mediaCenterY = mediaRect.top + mediaRect.height / 2;
-      const offsetX = viewportCenterX - mediaCenterX;
-      const offsetY = viewportCenterY - mediaCenterY;
+      const offsetX = viewportCenterX - baseCx0;
+      const offsetY = viewportCenterY - baseCy0;
 
       // When scaling from viewport center, the max distance to any corner is the diagonal / 2
       const halfDiagonal = Math.hypot(window.innerWidth / 2, window.innerHeight / 2);
-      const initialRadius = Math.max(Math.min(mediaRect.width, mediaRect.height) / 2, 40);
+      const initialRadius = Math.max(Math.min(baseW0, baseH0) / 2, 40);
       const targetScale = Math.max((halfDiagonal * 1.2) / initialRadius, 16);
+
+      // Shared proxy for clip-path that tracks both the initial page-load animation and the scroll animation
+      const clipProxy = {
+        s: 1,
+        x: 0,
+        y: 65, // Starts at 65 because mediaSlotEl is shifted down by 65 during intro load
+        r: 150,
+      };
+
+      const updateClipPath = () => {
+        if (!clipEl || !stickyViewportRef.current) return;
+        const s = clipProxy.s;
+        const x = clipProxy.x;
+        const y = clipProxy.y;
+        const r = clipProxy.r;
+        const containerW = stickyViewportRef.current.clientWidth;
+        const containerH = stickyViewportRef.current.clientHeight;
+        const top = (baseCy0 + y) - (baseH0 * s) / 2;
+        const left = (baseCx0 + x) - (baseW0 * s) / 2;
+        const right = containerW - ((baseCx0 + x) + (baseW0 * s) / 2);
+        const bottom = containerH - ((baseCy0 + y) + (baseH0 * s) / 2);
+        const r_scaled = r * s;
+        clipEl.style.clipPath = `inset(${top}px ${right}px ${bottom}px ${left}px round ${r_scaled}px)`;
+      };
+
+      if (clipEl) {
+        gsap.set(clipEl, { pointerEvents: "none", opacity: 0 });
+        updateClipPath();
+      }
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -306,7 +343,7 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         );
       }
 
-      // Load O (mediaSlot) from bottom to up right along with middle characters
+      // Load O (mediaSlot) and clip-path mask from bottom to up right along with middle characters
       if (mediaSlotEl) {
         introTl.to(
           mediaSlotEl,
@@ -318,6 +355,27 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
           },
           0.35
         );
+        if (clipEl) {
+          introTl.to(
+            clipEl,
+            {
+              opacity: 1,
+              duration: 0.85,
+              ease: "power3.out",
+            },
+            0.35
+          );
+          introTl.to(
+            clipProxy,
+            {
+              y: 0,
+              duration: 0.85,
+              ease: "power3.out",
+              onUpdate: updateClipPath,
+            },
+            0.35
+          );
+        }
       }
 
       // Bottom container enters from left and right side
@@ -347,47 +405,28 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       }
       // --- END INITIAL PAGE LOADING ANIMATION ---
 
-      // 5. Inverse-transform portalInner so the Hero Section inside the expanding O stays 100% stationary and 1:1 unscaled relative to the viewport right from progress 0.
-      const portalInner = mediaEl.querySelector("[data-portal-inner]") as HTMLElement | null;
-      if (portalInner) {
-        gsap.set(portalInner, { pointerEvents: "none" });
-        // Enable pointer events right right as the text begins loading (progress 0.62)
-        tl.set(portalInner, { pointerEvents: "auto" }, 0.62);
+      // 5. Reveal fullscreen hero content using only a clip-path mask animated along the exact same timeline ticks as mediaEl
+      if (clipEl) {
+        // Enable pointer events right as the text begins loading (progress 0.62)
+        tl.set(clipEl, { pointerEvents: "auto" }, 0.62);
 
-        // Add a no-op padding tween so the timeline has genuine dead time after t=0.92,
-        // where mediaEl truly stops moving before the section unpins.
-        tl.to({}, { duration: 0.35 }, 0.92);
+        // Mirror tween 1a: scale to 3 (same timing/ease as mediaEl's scale tween at t=0)
+        tl.to(clipProxy, { s: 3, duration: 0.45, ease: "power2.inOut", onUpdate: updateClipPath }, 0);
 
-        let settled = false;
+        // Mirror tween 1b: horizontal centering x: offsetX (same timing/ease as mediaEl's x tween at t=0.20)
+        tl.to(clipProxy, { x: offsetX, duration: 0.35, ease: "power2.inOut", onUpdate: updateClipPath }, 0.20);
 
-        const updatePortalInner = (force = false) => {
-          if (!portalInner || !mediaEl || !stickyViewportRef.current) return;
-          if (tl.time() < 0.92) settled = false;
-          if (settled && !force) return;
+        // Mirror tween 1c: drift y: offsetY + scale to targetScale (same timing/ease as mediaEl's y & scale tween at t=0.45)
+        tl.to(clipProxy, { s: targetScale, y: offsetY, duration: 0.47, ease: "power3.in", onUpdate: updateClipPath }, 0.45);
 
-          const parentRect = stickyViewportRef.current.getBoundingClientRect();
-          const rect = mediaEl.getBoundingClientRect();
-          const s = gsap.getProperty(mediaEl, "scaleX") || 1;
-          const scaleVal = Number(s) || 1;
-          const relLeft = rect.left - parentRect.left;
-          const relTop = rect.top - parentRect.top;
-          gsap.set(portalInner, {
-            scale: 1 / scaleVal,
-            x: -relLeft / scaleVal,
-            y: -relTop / scaleVal,
-            force3D: false,
-          });
+        // Mirror tween 1d: borderRadius morph 150 -> 40 (same timing/ease as mediaEl's borderRadius at t=0)
+        tl.to(clipProxy, { r: 40, duration: 0.45, ease: "none", onUpdate: updateClipPath }, 0);
 
-          if (tl.time() >= 0.92) settled = true;
-        };
-
-        tl.eventCallback("onUpdate", () => updatePortalInner(false));
-        updatePortalInner(true);
-        ScrollTrigger.refresh();
+        // At targetScale, round can tween to 0 down as it covers fullscreen
+        tl.to(clipProxy, { r: 0, duration: 0.47, ease: "power3.in", onUpdate: updateClipPath }, 0.45);
 
         const handleResize = () => {
-          settled = false;
-          updatePortalInner(true);
+          ScrollTrigger.refresh();
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -452,11 +491,37 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
           ref={stickyViewportRef}
           className="relative w-full h-full overflow-hidden flex items-center justify-center z-10"
         >
-          {/* Massive VISION Intro Typography with Flexible Architectural Box acting as the portal window */}
-          <VisionTypographyIntro
-            ref={introRef}
-            mediaSlot={<VisionHeroMedia ref={mediaRef} mediaUrl={mediaUrl} />}
-          />
+          {/* Layered container wrapped by introRef so GSAP queries find [data-intro-fade], letters, and mediaSlot across all layers */}
+          <div ref={introRef} className="absolute inset-0 w-full h-full pointer-events-none z-10">
+            {/* Layer 1 (z-0): Background Architectural Grid Lines sitting underneath clipRef/O window */}
+            <VisionTypographyGridLines />
+
+            {/* Layer 2 (z-10): Fullscreen Fixed/Absolute Hero Content (`clip-path` mask reveals it over grid lines) */}
+            <div
+              ref={clipRef}
+              data-hero-clip
+              className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-hidden opacity-0"
+            >
+              {/* Layer 1: Pure White Base for Hero */}
+              <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
+
+              {/* Layer 2: Full Hero Background Image where the helmet girl is part of the bg */}
+              <div
+                className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-[position:82%_center] lg:bg-[position:76%_center] xl:bg-[position:68%_center] 2xl:bg-[position:15%_center]"
+                style={{
+                  backgroundImage: `url('/hero_bg2.jpg')`,
+                }}
+              />
+
+              {/* Layer 3: Right-Aligned Hero Content – initially hidden, revealed by timeline right when portal reaches fullscreen */}
+              <VisionHeroContent />
+            </div>
+
+            {/* Layer 3 (z-20): VISION Intro Typography (with letters, mediaSlot, and footer) sitting in front of clipRef */}
+            <VisionTypographyIntro
+              mediaSlot={<VisionHeroMedia ref={mediaRef} mediaUrl={mediaUrl} />}
+            />
+          </div>
         </div>
       </section>
     </>
