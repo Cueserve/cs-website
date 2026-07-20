@@ -39,7 +39,7 @@ export function Header() {
         </Link>
 
         {/* Center Nav Links inside white navbar */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden xl:flex items-center">
           <DesktopNav
             openMenu={openMenu}
             onMenuEnter={openDesktopMenu}
@@ -51,18 +51,18 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden rounded-full bg-cs-dark-blue px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#09355E] hover:shadow-md md:inline-flex items-center shrink-0"
+            className="hidden rounded-full bg-cs-dark-blue px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#09355E] hover:shadow-md xl:inline-flex items-center shrink-0"
           >
             Talk to Us
           </Link>
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger — mobile and tablet (< 1280px) */}
           <button
             type="button"
             aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileNavOpen}
             onClick={toggleMobileNav}
-            className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-cs-dark-blue md:hidden"
+            className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-cs-dark-blue xl:hidden"
           >
             <svg
               width="22"

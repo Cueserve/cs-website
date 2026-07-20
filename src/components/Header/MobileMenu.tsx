@@ -24,7 +24,7 @@ export function MobileMenu({
 
   return (
     <nav
-      className="border-t border-cs-border bg-cs-surface md:hidden"
+      className="border-t border-cs-border bg-cs-surface xl:hidden"
       aria-label="Mobile primary"
     >
       <ul className="mx-auto flex max-w-[1200px] flex-col gap-1 px-8 py-4">

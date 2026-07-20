@@ -5,6 +5,7 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { useLenis } from "@/hooks/useLenis";
 import { VisionTypographyIntro } from "./VisionTypographyIntro";
 import { VisionHeroMedia } from "./VisionHeroMedia";
+import { VisionHeroContent } from "./VisionHeroContent";
 
 export interface VisionHeroWrapperProps {
   mediaUrl?: string;
@@ -25,6 +26,7 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
   useGSAP(
     () => {
       if (!containerRef.current || !stickyViewportRef.current || !mediaRef.current) return;
+      if (typeof window !== "undefined" && window.innerWidth < 1280) return;
 
       const mediaEl = mediaRef.current;
       const introEl = introRef.current;
@@ -352,8 +354,17 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         // Enable pointer events right right as the text begins loading (progress 0.62)
         tl.set(portalInner, { pointerEvents: "auto" }, 0.62);
 
-        const updatePortalInner = () => {
+        // Add a no-op padding tween so the timeline has genuine dead time after t=0.92,
+        // where mediaEl truly stops moving before the section unpins.
+        tl.to({}, { duration: 0.35 }, 0.92);
+
+        let settled = false;
+
+        const updatePortalInner = (force = false) => {
           if (!portalInner || !mediaEl || !stickyViewportRef.current) return;
+          if (tl.time() < 0.92) settled = false;
+          if (settled && !force) return;
+
           const parentRect = stickyViewportRef.current.getBoundingClientRect();
           const rect = mediaEl.getBoundingClientRect();
           const s = gsap.getProperty(mediaEl, "scaleX") || 1;
@@ -366,62 +377,88 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
             y: -relTop / scaleVal,
             force3D: false,
           });
+
+          if (tl.time() >= 0.92) settled = true;
         };
 
-        tl.eventCallback("onUpdate", updatePortalInner);
-        updatePortalInner();
+        tl.eventCallback("onUpdate", () => updatePortalInner(false));
+        updatePortalInner(true);
         ScrollTrigger.refresh();
-        window.addEventListener("resize", updatePortalInner);
-        return () => window.removeEventListener("resize", updatePortalInner);
+
+        const handleResize = () => {
+          settled = false;
+          updatePortalInner(true);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
       }
     },
     { scope: containerRef }
   );
 
   return (
-    <section
-      ref={containerRef}
-      className="relative w-full h-screen overflow-hidden"
-    >
-      {/* Layer 1: Pure White Base outside the O portal */}
-      <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
-
-      {/* Layer 2: Hero Background Image (/hero.png) – shifted slightly lower down so background is visible behind VISI and N */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[115vh] pointer-events-none z-0 bg-cover bg-no-repeat"
-        style={{
-          backgroundImage: `url('/hero.png')`,
-          backgroundPosition: "center -15vh",
-        }}
-      />
-
-      {/* Layer 3: Natural White Transition downward when scrolling past hero */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[1]"
-        style={{
-          background: `
-            linear-gradient(180deg,
-              transparent 0%,
-              transparent 45%,
-              rgba(255, 255, 255, 0.6) 70%,
-              #ffffff 88%,
-              #ffffff 100%
-            )
-          `,
-        }}
-      />
-
-      {/* Sticky/Pinned Viewport Container */}
-      <div
-        ref={stickyViewportRef}
-        className="relative w-full h-full overflow-hidden flex items-center justify-center z-10"
-      >
-        {/* Massive VISION Intro Typography with Flexible Architectural Box acting as the portal window */}
-        <VisionTypographyIntro
-          ref={introRef}
-          mediaSlot={<VisionHeroMedia ref={mediaRef} mediaUrl={mediaUrl} />}
+    <>
+      {/* Mobile & Tablet (< 1280px): Directly load the main hero theme right away without the VISION scrolling intro overlay */}
+      <section className="relative w-full h-auto xl:hidden overflow-hidden flex flex-col justify-start bg-white pt-24 sm:pt-28 pb-0">
+        {/* Full Hero Background Image with responsive positioning so girl stays visible along with right text */}
+        <div
+          className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-[position:65%_center] md:bg-[position:75%_center]"
+          style={{
+            backgroundImage: `url('/hero_bg2.jpg')`,
+          }}
         />
-      </div>
-    </section>
+        {/* Subtle readable overlay for mobile/tablet so text pops crisply against the background */}
+        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-white/95 via-white/88 to-white/40 md:from-transparent md:via-white/60 md:to-white/95" />
+
+        {/* Direct Hero Content: compact auto-height with minimal breathing spaces */}
+        <VisionHeroContent className="relative !inset-auto !opacity-100 !pointer-events-auto z-10 w-full flex flex-col justify-start" />
+      </section>
+
+      {/* Laptop & Desktop (>= 1280px): Full VISION Typography Intro with O Portal & Scroll Animation */}
+      <section
+        ref={containerRef}
+        className="hidden xl:block relative w-full h-screen overflow-hidden"
+      >
+        {/* Layer 1: Pure White Base outside the O portal */}
+        <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
+
+        {/* Layer 2: Hero Background Image (/hero.png) – shifted slightly lower down so background is visible behind VISI and N */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[115vh] pointer-events-none z-0 bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: `url('/hero.png')`,
+            backgroundPosition: "center -15vh",
+          }}
+        />
+
+        {/* Layer 3: Natural White Transition downward when scrolling past hero */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background: `
+              linear-gradient(180deg,
+                transparent 0%,
+                transparent 45%,
+                rgba(255, 255, 255, 0.6) 70%,
+                #ffffff 88%,
+                #ffffff 100%
+              )
+            `,
+          }}
+        />
+
+        {/* Sticky/Pinned Viewport Container */}
+        <div
+          ref={stickyViewportRef}
+          className="relative w-full h-full overflow-hidden flex items-center justify-center z-10"
+        >
+          {/* Massive VISION Intro Typography with Flexible Architectural Box acting as the portal window */}
+          <VisionTypographyIntro
+            ref={introRef}
+            mediaSlot={<VisionHeroMedia ref={mediaRef} mediaUrl={mediaUrl} />}
+          />
+        </div>
+      </section>
+    </>
   );
 };

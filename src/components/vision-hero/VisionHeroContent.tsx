@@ -15,36 +15,36 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
         data-hero-content
         className={`absolute inset-0 z-30 flex flex-col justify-center pointer-events-auto opacity-100 ${className}`}
       >
-        {/* Container matching exact Header width (w-[90%] xl:w-[82%] max-w-[1260px] mx-auto) so text aligns perfectly to navbar right edge */}
-        <div className="mx-auto w-[90%] xl:w-[82%] max-w-[1260px] flex justify-end">
-          {/* Right-Aligned Hero Content aligned precisely to the navbar right bound with responsive widths for laptops and full width for desktops */}
-          <div className="w-full max-w-[420px] lg:max-w-[450px] xl:max-w-[500px] 2xl:max-w-[680px] 3xl:max-w-[760px] text-left mt-6 sm:mt-8 md:mt-12 shrink-0">
-            {/* Main Headline with exact Arooth horizontal rule accent line */}
+        {/* Container matching exact Header width (w-[90%] xl:w-[82%] max-w-[1260px] mx-auto) so text aligns perfectly to navbar right edge on desktop, centered on mobile */}
+        <div className="mx-auto w-[96%] sm:w-[90%] xl:w-[82%] max-w-[1260px] flex justify-center xl:justify-end">
+          {/* Hero Content: wide width spread and clean top margin on mobile (< 1280px), right-aligned on laptop/desktop */}
+          <div className="w-full max-w-[480px] sm:max-w-[540px] xl:max-w-[500px] 2xl:max-w-[680px] 3xl:max-w-[760px] text-center xl:text-left mt-6 sm:mt-8 md:mt-10 xl:mt-12 shrink-0">
+            {/* Main Headline with exact Arooth horizontal rule accent line on desktop, compact centered on mobile */}
             <h1
               data-hero-title
-              className="font-display font-normal leading-[1.12] tracking-[-0.03em] text-cs-dark-blue mb-6 drop-shadow-sm"
-              style={{ fontSize: "clamp(2.1rem, 3.4vw, 4.5rem)" }}
+              className="font-display font-normal leading-[1.18] xl:leading-[1.12] tracking-[-0.03em] text-cs-dark-blue mb-3 sm:mb-4 xl:mb-6 text-[clamp(2.1rem,9vw,3.4rem)] xl:text-[clamp(2.1rem,3.4vw,4.5rem)]"
             >
-              Crafting Modern <br />
-              <span className="inline-flex items-center gap-3 md:gap-4 text-cs-light-blue my-1.5 whitespace-nowrap">
-                <span className="h-[3px] w-12 sm:w-16 md:w-24 bg-cs-light-blue rounded-full inline-block shrink-0" />
+              Crafting Modern{" "}
+              <br className="hidden xl:inline" />
+              <span className="inline xl:inline-flex items-center justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 text-cs-light-blue my-1 sm:my-1.5 whitespace-normal xl:whitespace-nowrap">
+                <span className="hidden xl:inline-block h-[2.5px] sm:h-[3px] w-8 sm:w-12 md:w-24 bg-cs-light-blue rounded-full shrink-0" />
                 <span>AI Vision For the</span>
               </span>{" "}
-              <br />
+              <br className="hidden xl:inline" />
               <span className="text-cs-ink">Ambitious Brands</span>
             </h1>
 
-            {/* Subheadline / Description Text */}
+            {/* Subheadline / Description Text: expanded comfortable width while staying slightly narrower than heading */}
             <p
               data-hero-desc
-              className="mb-8 max-w-lg text-base sm:text-lg leading-relaxed text-cs-ink-muted font-normal"
+              className="mb-5 sm:mb-6 xl:mb-8 mx-auto xl:mx-0 max-w-[340px] sm:max-w-[420px] xl:max-w-lg text-sm sm:text-base xl:text-lg leading-relaxed text-cs-ink-muted font-normal text-center xl:text-left"
             >
               We blend engineering precision with agentic AI to build digital platforms that move
               enterprises forward. From crafting intelligent workflows to standout digital experiences.
             </p>
 
             {/* CTA Button matching Arooth Get Started Now with circle arrow */}
-            <div data-hero-cta className="flex items-center">
+            <div data-hero-cta className="flex items-center justify-center xl:justify-start">
               <Link
                 href="/contact"
                 className="group rounded-full bg-white border border-cs-border shadow-md hover:shadow-xl hover:border-cs-border-strong px-2 sm:px-2.5 py-2 sm:py-2 pl-6 sm:pl-8 text-base font-semibold text-cs-ink transition-all inline-flex items-center gap-4 pointer-events-auto"
@@ -71,10 +71,10 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
           </div>
         </div>
 
-        {/* Continuous Infinite Motion Marquee Ticker right at the bottom of the Hero Section with Faded White Gradient */}
+        {/* Continuous Infinite Motion Marquee Ticker: relative underneath CTA on mobile with generous spacing, absolute bottom-0 on desktop */}
         <div
           data-hero-ticker
-          className="absolute bottom-0 left-0 right-0 w-full pt-12 sm:pt-16 md:pt-20 pb-2 sm:pb-3 overflow-hidden z-40 pointer-events-auto"
+          className="relative mt-8 sm:mt-12 xl:mt-0 xl:absolute xl:bottom-0 left-0 right-0 w-full pt-6 sm:pt-8 xl:pt-20 pb-2 sm:pb-3 overflow-hidden z-40 pointer-events-auto shrink-0"
           style={{
             background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 40%, rgba(255, 255, 255, 0.88) 75%, #ffffff 100%)",
           }}

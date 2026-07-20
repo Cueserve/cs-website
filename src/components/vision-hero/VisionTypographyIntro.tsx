@@ -33,11 +33,11 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
               background: "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 50%, rgba(166,200,224,0.75) 85%, rgba(166,200,224,0.75) 100%)",
             }}
           />
-          {/* Small Top Container above VISION box – shifted VISION down */}
-          <div className="w-full shrink-0 h-20 sm:h-24 md:h-28 xl:h-32" />
+          {/* Small Top Container above VISION box – shifted VISION down so border sits cleanly below navbar */}
+          <div className="w-full shrink-0 h-16 sm:h-20 md:h-24 xl:h-32 2xl:h-32" />
 
           {/* Middle Flexible Box containing VISION Typography + Media Pill */}
-          <div className="w-full pt-20 sm:pt-24 md:pt-28 xl:pt-36 pb-4 sm:pb-6 md:pb-8 xl:pb-10 flex items-center justify-center relative">
+          <div className="w-full pt-16 sm:pt-20 md:pt-24 xl:pt-20 2xl:pt-36 pb-4 sm:pb-6 md:pb-6 xl:pb-6 2xl:pb-10 flex items-center justify-center relative">
             {/* Top & Bottom Borders on separate div so they can smoothly fade out */}
             <div
               data-intro-fade
@@ -129,7 +129,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
           <div
             data-intro-fade
             data-intro-footer
-            className="w-full pt-6 sm:pt-8 md:pt-10 xl:pt-12 px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 pointer-events-auto shrink-0 z-20"
+            className="w-full pt-6 sm:pt-8 md:pt-8 xl:pt-10 2xl:pt-12 px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 pointer-events-auto shrink-0 z-20"
           >
             <div data-footer-left className="max-w-xl">
               <p className="text-cs-ink text-base sm:text-lg md:text-[18px] leading-relaxed font-normal">

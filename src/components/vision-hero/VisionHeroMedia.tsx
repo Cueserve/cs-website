@@ -25,10 +25,6 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
           borderRadius: "9999px",
           backgroundColor: "#09355E",
           boxShadow: "0 20px 50px -10px rgba(9, 53, 94, 0.25)",
-          WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-          backfaceVisibility: "hidden",
-          WebkitBackfaceVisibility: "hidden",
-          transform: "translateZ(0)",
         }}
       >
         {/* Live Portal Window into the Hero Section underneath right from progress 0 */}
@@ -65,9 +61,6 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
           style={{
             border: "clamp(22px, 2.4vw, 32px) solid #09355E",
             borderRadius: "9999px",
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "translateZ(0)",
           }}
         />
       </div>
