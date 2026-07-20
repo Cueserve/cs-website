@@ -45,12 +45,11 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
             {/* Layer 1: Pure White Base for Hero */}
             <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
 
-            {/* Layer 2: Full Hero Background Image where the helmet girl is part of the bg – shifted left for breathing room */}
+            {/* Layer 2: Full Hero Background Image where the helmet girl is part of the bg – shifted left on laptops so text never overlaps */}
             <div
-              className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat"
+              className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-[position:82%_center] lg:bg-[position:76%_center] xl:bg-[position:68%_center] 2xl:bg-[position:15%_center]"
               style={{
                 backgroundImage: `url('/hero_bg2.jpg')`,
-                backgroundPosition: "15% center",
               }}
             />
 
