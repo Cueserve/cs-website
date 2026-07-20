@@ -1,7 +1,7 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import Link from "next/link";
+import { RollingButton } from "@/components/RollingButton";
 
 export interface VisionHeroContentProps {
   className?: string;
@@ -43,30 +43,8 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
               enterprises forward. From crafting intelligent workflows to standout digital experiences.
             </p>
 
-            {/* CTA Button matching Arooth Get Started Now with circle arrow */}
             <div data-hero-cta className="flex items-center justify-center xl:justify-start">
-              <Link
-                href="/contact"
-                className="group rounded-full bg-white border border-cs-border shadow-md hover:shadow-xl hover:border-cs-border-strong px-2 sm:px-2.5 py-2 sm:py-2 pl-6 sm:pl-8 text-base font-semibold text-cs-ink transition-all inline-flex items-center gap-4 pointer-events-auto"
-              >
-                <span>Get Started Now</span>
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-cs-dark-blue text-white flex items-center justify-center transition-transform group-hover:scale-105 group-hover:bg-cs-light-blue shadow-sm shrink-0">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  >
-                    <line x1="7" y1="17" x2="17" y2="7" />
-                    <polyline points="7 7 17 7 17 17" />
-                  </svg>
-                </span>
-              </Link>
+              <RollingButton text="Get Started Now" href="/contact" />
             </div>
           </div>
         </div>
