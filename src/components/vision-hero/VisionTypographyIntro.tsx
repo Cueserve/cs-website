@@ -88,7 +88,11 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                   letterSpacing: "-0.035em",
                 }}
               >
-                VISI
+                {"VISI".split("").map((char, index) => (
+                  <span key={index} data-intro-char className="inline-block">
+                    {char}
+                  </span>
+                ))}
               </span>
 
               {/* Middle Slot for the Expanding Media Pill ("O") */}
@@ -109,7 +113,11 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                   letterSpacing: "-0.035em",
                 }}
               >
-                N
+                {"N".split("").map((char, index) => (
+                  <span key={index} data-intro-char className="inline-block">
+                    {char}
+                  </span>
+                ))}
               </span>
             </div>
           </div>
@@ -123,50 +131,54 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
             data-intro-footer
             className="w-full pt-6 sm:pt-8 md:pt-10 xl:pt-12 px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 pointer-events-auto shrink-0 z-20"
           >
-            <p className="text-cs-ink text-base sm:text-lg md:text-[18px] max-w-xl leading-relaxed font-normal">
-              At CueServe, we blend AI innovation with engineering precision to build digital experiences
-              that transform enterprises. From crafting intelligent workflows to scalable platforms.
-            </p>
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full bg-white hover:bg-[#f4f8fb] text-cs-ink border border-[#cbd5e1]/80 font-semibold text-base sm:text-[16px] transition-all duration-300 shadow-md hover:shadow-lg shrink-0"
-            >
-              {/* Staggered Letter-by-Letter Rolling Text Animation (first G goes, then e, till last) */}
-              <span className="inline-flex items-center overflow-hidden h-6 leading-6">
-                {"Get Started Now".split("").map((char, index) => (
-                  <span
-                    key={index}
-                    className="relative inline-block overflow-hidden h-6 leading-6"
-                  >
+            <div data-footer-left className="max-w-xl">
+              <p className="text-cs-ink text-base sm:text-lg md:text-[18px] leading-relaxed font-normal">
+                At CueServe, we blend AI innovation with engineering precision to build digital experiences
+                that transform enterprises. From crafting intelligent workflows to scalable platforms.
+              </p>
+            </div>
+            <div data-footer-right className="shrink-0">
+              <a
+                href="#contact"
+                className="group relative inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full bg-white hover:bg-[#f4f8fb] text-cs-ink border border-[#cbd5e1]/80 font-semibold text-base sm:text-[16px] transition-all duration-300 shadow-md hover:shadow-lg shrink-0"
+              >
+                {/* Staggered Letter-by-Letter Rolling Text Animation (first G goes, then e, till last) */}
+                <span className="inline-flex items-center overflow-hidden h-6 leading-6">
+                  {"Get Started Now".split("").map((char, index) => (
                     <span
-                      className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full"
-                      style={{ transitionDelay: `${index * 18}ms` }}
+                      key={index}
+                      className="relative inline-block overflow-hidden h-6 leading-6"
                     >
-                      {char === " " ? "\u00A0" : char}
+                      <span
+                        className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full"
+                        style={{ transitionDelay: `${index * 18}ms` }}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                      <span
+                        className="absolute inset-0 inline-block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
+                        style={{ transitionDelay: `${index * 18}ms` }}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </span>
                     </span>
-                    <span
-                      className="absolute inset-0 inline-block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
-                      style={{ transitionDelay: `${index * 18}ms` }}
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </span>
-                  </span>
-                ))}
-              </span>
+                  ))}
+                </span>
 
-              {/* Larger Arrow Circle Icon sitting close to right ending with matching curves */}
-              <span className="w-10 h-10 rounded-full bg-cs-dark-blue text-white flex items-center justify-center shrink-0 transition-all duration-300 ease-out group-hover:bg-[#1a4a6b] group-hover:scale-105">
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </span>
-            </a>
+                {/* Larger Arrow Circle Icon sitting close to right ending with matching curves */}
+                <span className="w-10 h-10 rounded-full bg-cs-dark-blue text-white flex items-center justify-center shrink-0 transition-all duration-300 ease-out group-hover:bg-[#1a4a6b] group-hover:scale-105">
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

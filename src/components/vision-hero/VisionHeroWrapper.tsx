@@ -260,6 +260,91 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         );
       }
 
+      // --- INITIAL PAGE LOADING ANIMATION (Does not interfere with ScrollTrigger or scroll coordinates) ---
+      const introChars = introEl?.querySelectorAll("[data-intro-char]");
+      const mediaSlotEl = introEl?.querySelector("[data-media-slot]");
+      const footerLeft = introEl?.querySelector("[data-footer-left]");
+      const footerRight = introEl?.querySelector("[data-footer-right]");
+
+      if (introChars && introChars.length > 0) {
+        gsap.set(introChars, { y: 65, opacity: 0 });
+      }
+      if (mediaSlotEl) {
+        gsap.set(mediaSlotEl, { y: 65, opacity: 0 });
+      }
+      if (footerLeft) {
+        gsap.set(footerLeft, { x: -65, opacity: 0 });
+      }
+      if (footerRight) {
+        gsap.set(footerRight, { x: 65, opacity: 0 });
+      }
+
+      const introTl = gsap.timeline({
+        defaults: { force3D: false },
+        onComplete: () => {
+          if (introChars && introChars.length > 0) gsap.set(introChars, { clearProps: "transform" });
+          if (mediaSlotEl) gsap.set(mediaSlotEl, { clearProps: "transform" });
+          if (footerLeft) gsap.set(footerLeft, { clearProps: "transform" });
+          if (footerRight) gsap.set(footerRight, { clearProps: "transform" });
+        },
+      });
+
+      // Load letters from bottom to up
+      if (introChars && introChars.length > 0) {
+        introTl.to(
+          introChars,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            stagger: 0.07,
+            ease: "power3.out",
+          },
+          0.1
+        );
+      }
+
+      // Load O (mediaSlot) from bottom to up right along with middle characters
+      if (mediaSlotEl) {
+        introTl.to(
+          mediaSlotEl,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: "power3.out",
+          },
+          0.35
+        );
+      }
+
+      // Bottom container enters from left and right side
+      if (footerLeft) {
+        introTl.to(
+          footerLeft,
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: "power3.out",
+          },
+          0.38
+        );
+      }
+      if (footerRight) {
+        introTl.to(
+          footerRight,
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: "power3.out",
+          },
+          0.38
+        );
+      }
+      // --- END INITIAL PAGE LOADING ANIMATION ---
+
       // 5. Inverse-transform portalInner so the Hero Section inside the expanding O stays 100% stationary and 1:1 unscaled relative to the viewport right from progress 0.
       const portalInner = mediaEl.querySelector("[data-portal-inner]") as HTMLElement | null;
       if (portalInner) {
