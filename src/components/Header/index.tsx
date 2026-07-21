@@ -51,6 +51,7 @@ export function Header() {
         {/* Right Action Area (CTA + Mobile Hamburger) */}
         <div className="flex items-center gap-3">
           <RollingButton
+            variant="primary"
             text="Contact Us"
             href="/contact"
             className="hidden xl:inline-flex shrink-0 !py-1 !pl-5 !pr-1"
@@ -62,7 +63,7 @@ export function Header() {
             aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileNavOpen}
             onClick={toggleMobileNav}
-            className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-cs-dark-blue xl:hidden"
+            className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-neutral-900 xl:hidden"
           >
             <svg
               width="22"

@@ -76,7 +76,7 @@ function navItemClass(isActive: boolean) {
   return [
     "flex h-10 items-center gap-1.5 border-b-2 px-3.5 text-nav transition-colors duration-150",
     isActive
-      ? "border-cs-light-blue text-cs-light-blue font-medium"
-      : "border-transparent text-cs-dark-blue hover:text-cs-light-blue",
+      ? "border-brand-default text-brand-default font-medium"
+      : "border-transparent text-neutral-900 hover:text-brand-default",
   ].join(" ");
 }

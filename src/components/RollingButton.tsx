@@ -7,15 +7,26 @@ export interface RollingButtonProps extends React.AnchorHTMLAttributes<HTMLAncho
   text: string;
   href?: string;
   className?: string;
+  variant?: "primary" | "secondary";
 }
 
 export const RollingButton = forwardRef<HTMLAnchorElement, RollingButtonProps>(
-  ({ text, href = "#contact", className = "", ...rest }, ref) => {
+  ({ text, href = "#contact", className = "", variant = "secondary", ...rest }, ref) => {
+    const isPrimary = variant === "primary";
+
+    const pillClass = isPrimary
+      ? "bg-brand-default hover:bg-brand-hover text-text-inverse border border-brand-default"
+      : "bg-bg-page hover:bg-bg-subtle text-neutral-900 border border-border-strong";
+
+    const arrowClass = isPrimary
+      ? "bg-bg-page text-brand-default group-hover:bg-bg-subtle"
+      : "bg-brand-default text-text-inverse group-hover:bg-brand-hover";
+
     return (
       <Link
         ref={ref}
         href={href}
-        className={`group relative inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full bg-white hover:bg-[#f4f8fb] text-cs-ink border border-[#cbd5e1]/80 text-btn transition-all duration-300 shadow-md hover:shadow-lg shrink-0 ${className}`}
+        className={`group relative inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full text-btn transition-all duration-300 shadow-md hover:shadow-lg shrink-0 ${pillClass} ${className}`}
         {...rest}
       >
         {/* Staggered Letter-by-Letter Rolling Text Animation */}
@@ -39,7 +50,7 @@ export const RollingButton = forwardRef<HTMLAnchorElement, RollingButtonProps>(
         </span>
 
         {/* Larger Arrow Circle Icon sitting close to right ending with matching curves */}
-        <span className="w-10 h-10 rounded-full bg-cs-dark-blue text-white flex items-center justify-center shrink-0 transition-all duration-300 ease-out group-hover:bg-[#1a4a6b] group-hover:scale-105">
+        <span className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ease-out group-hover:scale-105 ${arrowClass}`}>
           <svg
             className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             fill="none"

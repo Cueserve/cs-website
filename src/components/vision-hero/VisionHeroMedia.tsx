@@ -30,7 +30,7 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
           data-media-border
           className="absolute inset-0 pointer-events-none z-30"
           style={{
-            border: "clamp(23px, 2.5vw, 36px) solid #09355E",
+            border: "clamp(23px, 2.5vw, 36px) solid #0040C1",
             borderRadius: "9999px",
           }}
         />

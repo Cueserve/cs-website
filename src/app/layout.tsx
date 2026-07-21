@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { spaceGrotesk, dmSans, jetbrainsMono } from "./fonts";
+import { spaceGrotesk, dmSans, jetbrainsMono, instrumentSans, poppins } from "./fonts";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { organizationJsonLd } from "@/lib/seo/jsonLd";
@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} ${instrumentSans.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />

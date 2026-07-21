@@ -1,48 +1,96 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Brand ──────────────────────────────────────────────── */
-  --color-cs-dark-blue: #0c385a;
-  --color-cs-dark-blue-hover: #1a4a6b;
-  --color-cs-dark-blue-mid: #0e4a73;
-  --color-cs-light-blue: #2384c6;
-  --color-cs-light-blue-hover: #3991cd;
-  --color-cs-light-blue-soft: #7db8d8;
-
-  /* ── Surfaces ───────────────────────────────────────────── */
-  --color-cs-surface: #ffffff;
-  --color-cs-surface-tint: #f4f8fb;
-  --color-cs-surface-subtle: #fafcfe;
-  --color-cs-surface-accent: #eef6fc;
-  --color-cs-surface-dark: #0f1920;
-
-  /* ── Borders ────────────────────────────────────────────── */
-  --color-cs-border: #e8eff5;
-  --color-cs-border-strong: #d0dfec;
-  --color-cs-border-accent: #c8dff0;
-
-  /* ── Text ───────────────────────────────────────────────── */
-  --color-cs-ink: #1e2e3d;
-  --color-cs-ink-muted: #5a7a91;
-  --color-cs-ink-subtle: #647f93;
-  --color-cs-ink-faint: #8ba4b8;
-  --color-cs-ink-trace: #b0c8db;
-  --color-cs-ink-ghost: #c0d5e6;
-
-  /* ── Semantic ───────────────────────────────────────────── */
-  --color-cs-success: #1a9b5c;
-  --color-cs-success-tint: #e8f7ef;
-  --color-cs-warning: #d97706;
-  --color-cs-warning-tint: #fef3c7;
-  --color-cs-error: #dc2626;
-  --color-cs-error-tint: #fee2e2;
-  --color-cs-info: #2384c6;
-  --color-cs-info-tint: #e9f4fb;
-
   /* ── Fonts ──────────────────────────────────────────────── */
   --font-display: var(--font-space-grotesk);
   --font-primary: var(--font-dm-sans);
   --font-mono: var(--font-jetbrains-mono);
+  --font-title: var(--font-instrument-sans), sans-serif;
+  --font-paragraph: var(--font-poppins), sans-serif;
+
+  /* ── Tokens.json Primitives: Colors ─────────────────────── */
+  --color-blue-900: #00359e;
+  --color-blue-800: #0040c1;
+  --color-blue-700: #0042c5;
+  --color-blue-500: #2970ff;
+  --color-blue-400: #256dff;
+  --color-blue-200: #c2e0ff;
+  --color-blue-150: #d1e0ff;
+  --color-blue-100: #eff4ff;
+  --color-blue-50: #f5faff;
+
+  --color-neutral-1000: #000000;
+  --color-neutral-950: #090909;
+  --color-neutral-900: #111827;
+  --color-neutral-800: #212121;
+  --color-neutral-600: #4b5563;
+  --color-neutral-500: #6b7280;
+  --color-neutral-100: #f9f9f9;
+  --color-neutral-0: #ffffff;
+
+  /* ── Tokens.json Semantic: Brand, Text, BG, Border ──────── */
+  --color-brand-default: var(--color-blue-800);
+  --color-brand-hover: var(--color-blue-900);
+  --color-brand-subtle: var(--color-blue-100);
+  --color-brand-muted: var(--color-blue-150);
+
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-tertiary: var(--color-neutral-500);
+  --color-text-muted: rgba(33, 33, 33, 0.7);
+  --color-text-inverse: var(--color-neutral-0);
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.8);
+  --color-text-brand: var(--color-blue-800);
+
+  --color-bg-page: var(--color-neutral-0);
+  --color-bg-subtle: var(--color-neutral-100);
+  --color-bg-tinted: var(--color-blue-50);
+  --color-bg-brand: var(--color-blue-800);
+  --color-bg-inverse: var(--color-neutral-900);
+  --color-bg-overlay: rgba(33, 33, 33, 0.7);
+
+  --color-border-subtle: var(--color-blue-100);
+  --color-border-default: var(--color-blue-150);
+  --color-border-strong: var(--color-blue-200);
+  --color-border-brand: var(--color-blue-800);
+
+  /* ── Tokens.json Primitives: Radius ─────────────────────── */
+  --radius-xs: 12px;
+  --radius-sm: 16px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-xxl: 40px;
+  --radius-3xl: 60px;
+  --radius-button: 100px;
+  --radius-circle: 200px;
+
+  /* ── Tokens.json Shadows ────────────────────────────────── */
+  --shadow-card: 0 2px 8px rgba(17, 24, 39, 0.12);
+  --shadow-control: 0 0 0 1px rgba(0, 0, 0, 0.10), 0 1px 3px rgba(0, 0, 0, 0.10);
+  --shadow-focus: 0 0 0 3px rgba(41, 112, 255, 0.40);
+
+  /* ── Legacy cs-* Aliases (Mapped directly to official tokens.json variables) ── */
+  --color-cs-dark-blue: var(--color-blue-800);
+  --color-cs-dark-blue-hover: var(--color-blue-900);
+  --color-cs-dark-blue-mid: var(--color-blue-700);
+  --color-cs-light-blue: var(--color-blue-500);
+  --color-cs-light-blue-hover: var(--color-blue-400);
+  --color-cs-light-blue-soft: var(--color-blue-200);
+  --color-cs-surface: var(--color-bg-page);
+  --color-cs-surface-tint: var(--color-bg-tinted);
+  --color-cs-surface-subtle: var(--color-bg-subtle);
+  --color-cs-surface-accent: var(--color-blue-100);
+  --color-cs-surface-dark: var(--color-bg-inverse);
+  --color-cs-border: var(--color-border-default);
+  --color-cs-border-strong: var(--color-border-strong);
+  --color-cs-border-accent: var(--color-border-subtle);
+  --color-cs-ink: var(--color-text-primary);
+  --color-cs-ink-muted: var(--color-text-secondary);
+  --color-cs-ink-subtle: var(--color-text-tertiary);
+  --color-cs-ink-faint: var(--color-blue-200);
+  --color-cs-ink-trace: var(--color-blue-150);
+  --color-cs-ink-ghost: var(--color-blue-100);
 
   /* ── Typography scale (brand overrides) ─────────────────── */
   --leading-tight: 1.15;
@@ -61,12 +109,12 @@
   --spacing-section: 5rem;
   /* 80px   — vertical section rhythm */
 
-  /* ── Shadows (using brand dark-blue at varying alpha) ───── */
-  --shadow-cs-sm: 0 2px 8px rgba(12, 56, 90, 0.06);
-  --shadow-cs-md: 0 4px 16px rgba(12, 56, 90, 0.1);
-  --shadow-cs-lg: 0 4px 24px rgba(12, 56, 90, 0.08);
-  --shadow-cs-xl: 0 8px 32px rgba(12, 56, 90, 0.16);
-  --shadow-cs-glow: 0 6px 24px rgba(12, 56, 90, 0.22);
+  /* ── Shadows (Legacy aliases mapped to official tokens.json shadows) ── */
+  --shadow-cs-sm: var(--shadow-control);
+  --shadow-cs-md: var(--shadow-card);
+  --shadow-cs-lg: var(--shadow-card);
+  --shadow-cs-xl: var(--shadow-focus);
+  --shadow-cs-glow: var(--shadow-focus);
 
   /* ── Hero floating-card animations ──────────────────────── */
   --animate-cs-float-a: cs-float-a 4s ease-in-out infinite;
@@ -144,38 +192,162 @@ body {
   border-radius: 3px;
 }
 
-/* ── Centralized Typography Utility Classes ───────────────── */
+/* ── Centralized Typography Utility Classes (Per tokens.json & DESIGN.md) ── */
 @utility text-hero-title {
-  font-family: var(--font-poppins), var(--font-display), sans-serif;
+  font-family: var(--font-title), sans-serif;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0em;
+  letter-spacing: -0.03em;
   font-size: clamp(2.5rem, 8.5vw, 3.5rem);
   @media (min-width: 1280px) {
-    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-size: clamp(3rem, 4.8vw, 5rem);
   }
-}
+  @media (min-width: 1536px) {
+    font-size: clamp(3.5rem, 4.4vw, 4.875rem);
+  }
+} 
 
 @utility text-para {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-paragraph), sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 0em;
+  letter-spacing: -0.02em;
   font-size: clamp(1rem, 1.25vw, 1.25rem);
 }
 
 @utility text-btn {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-paragraph), sans-serif;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0em;
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  letter-spacing: 0;
+  font-size: 1.125rem;
 }
 
 @utility text-nav {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-paragraph), sans-serif;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0em;
+  letter-spacing: -0.02em;
   font-size: 1rem;
+}
+
+/* ── Official tokens.json Typography Composite Utilities ──── */
+@utility text-title-display {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-size: clamp(4rem, 15vw, 13.5rem);
+}
+
+@utility text-title-xl {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 10vw, 8.875rem);
+}
+
+@utility text-title-lg {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 7vw, 6.25rem);
+}
+
+@utility text-h1 {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+}
+
+@utility text-h2 {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+@utility text-h3 {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+@utility text-h4 {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+@utility text-h5 {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  font-size: 1.75rem;
+}
+
+@utility text-h6 {
+  font-family: var(--font-title), sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  font-size: 1.375rem;
+}
+
+@utility text-body-lg {
+  font-family: var(--font-paragraph), sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  font-size: 1.25rem;
+}
+
+@utility text-body-md {
+  font-family: var(--font-paragraph), sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  font-size: 1.125rem;
+}
+
+@utility text-body-base {
+  font-family: var(--font-paragraph), sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  font-size: 1rem;
+}
+
+@utility text-body-sm {
+  font-family: var(--font-paragraph), sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  font-size: 0.875rem;
+}
+
+@utility text-label {
+  font-family: var(--font-paragraph), sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: 0.875rem;
+}
+
+@utility text-caption {
+  font-family: var(--font-paragraph), sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  font-size: 0.75rem;
 }
