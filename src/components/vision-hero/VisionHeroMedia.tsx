@@ -19,8 +19,8 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
         ref={ref}
         className={`relative overflow-hidden ${className}`}
         style={{
-          width: "clamp(320px, 32.5vw, 510px)",
-          height: "clamp(142px, 15.5vw, 246px)",
+          width: "clamp(142px, 32.5vw, 534px)",
+          height: "clamp(68px, 15.5vw, 255px)",
           borderRadius: "9999px",
           backgroundColor: "transparent",
         }}
@@ -30,7 +30,7 @@ export const VisionHeroMedia = forwardRef<HTMLDivElement, VisionHeroMediaProps>(
           data-media-border
           className="absolute inset-0 pointer-events-none z-30"
           style={{
-            border: "clamp(23px, 2.5vw, 34px) solid #09355E",
+            border: "clamp(23px, 2.5vw, 36px) solid #09355E",
             borderRadius: "9999px",
           }}
         />

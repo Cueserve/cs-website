@@ -15,13 +15,13 @@ export const RollingButton = forwardRef<HTMLAnchorElement, RollingButtonProps>(
       <Link
         ref={ref}
         href={href}
-        className={`group relative inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full bg-white hover:bg-[#f4f8fb] text-cs-ink border border-[#cbd5e1]/80 font-semibold text-base sm:text-[16px] transition-all duration-300 shadow-md hover:shadow-lg shrink-0 ${className}`}
+        className={`group relative inline-flex items-center gap-3 pl-6 pr-1.5 py-1.5 rounded-full bg-white hover:bg-[#f4f8fb] text-cs-ink border border-[#cbd5e1]/80 text-btn transition-all duration-300 shadow-md hover:shadow-lg shrink-0 ${className}`}
         {...rest}
       >
         {/* Staggered Letter-by-Letter Rolling Text Animation */}
-        <span className="inline-flex items-center overflow-hidden h-6 leading-6">
+        <span className="inline-flex items-center overflow-hidden h-7 leading-7">
           {text.split("").map((char, index) => (
-            <span key={index} className="relative inline-block overflow-hidden h-6 leading-6">
+            <span key={index} className="relative inline-block overflow-hidden h-7 leading-7">
               <span
                 className="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full"
                 style={{ transitionDelay: `${index * 18}ms` }}

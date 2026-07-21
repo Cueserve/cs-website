@@ -49,24 +49,24 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       const heroTicker = clipEl.querySelector("[data-hero-ticker]");
 
       // Calculate exact offset to move the pill to viewport center, and the scale needed to fill the viewport from there
-      const mediaRect = mediaEl.getBoundingClientRect();
-      const parentRect = stickyViewportRef.current.getBoundingClientRect();
-      const baseL0 = mediaRect.left - parentRect.left;
-      const baseT0 = mediaRect.top - parentRect.top;
-      const baseW0 = mediaRect.width;
-      const baseH0 = mediaRect.height;
-      const baseCx0 = baseL0 + baseW0 / 2;
-      const baseCy0 = baseT0 + baseH0 / 2;
+      let mediaRect = mediaEl.getBoundingClientRect();
+      let parentRect = stickyViewportRef.current.getBoundingClientRect();
+      let baseL0 = mediaRect.left - parentRect.left;
+      let baseT0 = mediaRect.top - parentRect.top;
+      let baseW0 = mediaRect.width;
+      let baseH0 = mediaRect.height;
+      let baseCx0 = baseL0 + baseW0 / 2;
+      let baseCy0 = baseT0 + baseH0 / 2;
 
-      const viewportCenterX = window.innerWidth / 2;
-      const viewportCenterY = window.innerHeight / 2;
-      const offsetX = viewportCenterX - baseCx0;
-      const offsetY = viewportCenterY - baseCy0;
+      let viewportCenterX = window.innerWidth / 2;
+      let viewportCenterY = window.innerHeight / 2;
+      let offsetX = viewportCenterX - baseCx0;
+      let offsetY = viewportCenterY - baseCy0;
 
       // When scaling from viewport center, the max distance to any corner is the diagonal / 2
-      const halfDiagonal = Math.hypot(window.innerWidth / 2, window.innerHeight / 2);
-      const initialRadius = Math.max(Math.min(baseW0, baseH0) / 2, 40);
-      const targetScale = Math.max((halfDiagonal * 1.2) / initialRadius, 16);
+      let halfDiagonal = Math.hypot(window.innerWidth / 2, window.innerHeight / 2);
+      let initialRadius = Math.max(Math.min(baseW0, baseH0) / 2, 40);
+      let targetScale = Math.max((halfDiagonal * 1.2) / initialRadius, 16);
 
       // Shared proxy for clip-path that tracks both the initial page-load animation and the scroll animation
       const clipProxy = {
@@ -77,17 +77,33 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       };
 
       const updateClipPath = () => {
-        if (!clipEl || !stickyViewportRef.current) return;
+        if (!clipEl || !stickyViewportRef.current || !mediaEl) return;
         const s = clipProxy.s;
         const x = clipProxy.x;
         const y = clipProxy.y;
         const r = clipProxy.r;
-        const containerW = stickyViewportRef.current.clientWidth;
-        const containerH = stickyViewportRef.current.clientHeight;
-        const top = (baseCy0 + y) - (baseH0 * s) / 2;
-        const left = (baseCx0 + x) - (baseW0 * s) / 2;
-        const right = containerW - ((baseCx0 + x) + (baseW0 * s) / 2);
-        const bottom = containerH - ((baseCy0 + y) + (baseH0 * s) / 2);
+        const containerRect = stickyViewportRef.current.getBoundingClientRect();
+        const containerW = containerRect.width;
+        const containerH = containerRect.height;
+
+        // If s === 1 (at rest or during intro), dynamically read exact live mediaEl position to guarantee 0px offset
+        let currentCx = baseCx0 + x;
+        let currentCy = baseCy0 + y;
+        let currentW = baseW0 * s;
+        let currentH = baseH0 * s;
+
+        if (s <= 1.02 && mediaEl) {
+          const liveRect = mediaEl.getBoundingClientRect();
+          currentW = liveRect.width * s;
+          currentH = liveRect.height * s;
+          currentCx = (liveRect.left - containerRect.left) + currentW / 2 + x;
+          currentCy = (liveRect.top - containerRect.top) + currentH / 2 + (y === 65 ? 65 : y === 0 ? 0 : y);
+        }
+
+        const top = currentCy - currentH / 2;
+        const left = currentCx - currentW / 2;
+        const right = containerW - (currentCx + currentW / 2);
+        const bottom = containerH - (currentCy + currentH / 2);
         const r_scaled = r * s;
         clipEl.style.clipPath = `inset(${top}px ${right}px ${bottom}px ${left}px round ${r_scaled}px)`;
       };
@@ -426,6 +442,26 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         tl.to(clipProxy, { r: 0, duration: 0.47, ease: "power3.in", onUpdate: updateClipPath }, 0.45);
 
         const handleResize = () => {
+          if (!mediaEl || !stickyViewportRef.current) return;
+          const mr = mediaEl.getBoundingClientRect();
+          const pr = stickyViewportRef.current.getBoundingClientRect();
+          baseL0 = mr.left - pr.left;
+          baseT0 = mr.top - pr.top;
+          baseW0 = mr.width;
+          baseH0 = mr.height;
+          baseCx0 = baseL0 + baseW0 / 2;
+          baseCy0 = baseT0 + baseH0 / 2;
+
+          viewportCenterX = window.innerWidth / 2;
+          viewportCenterY = window.innerHeight / 2;
+          offsetX = viewportCenterX - baseCx0;
+          offsetY = viewportCenterY - baseCy0;
+
+          halfDiagonal = Math.hypot(window.innerWidth / 2, window.innerHeight / 2);
+          initialRadius = Math.max(Math.min(baseW0, baseH0) / 2, 40);
+          targetScale = Math.max((halfDiagonal * 1.2) / initialRadius, 16);
+
+          updateClipPath();
           ScrollTrigger.refresh();
         };
         window.addEventListener("resize", handleResize);

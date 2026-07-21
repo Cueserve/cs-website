@@ -18,32 +18,32 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
         {/* Container matching exact Header width (w-[90%] xl:w-[82%] max-w-[1260px] mx-auto) so text aligns perfectly to navbar right edge on desktop, centered on mobile */}
         <div className="mx-auto w-[96%] sm:w-[90%] xl:w-[82%] max-w-[1260px] flex justify-center xl:justify-end">
           {/* Hero Content: wide width spread and clean top margin on mobile (< 1280px), right-aligned on laptop/desktop */}
-          <div className="w-full max-w-[480px] sm:max-w-[540px] xl:max-w-[500px] 2xl:max-w-[680px] 3xl:max-w-[760px] text-center xl:text-left mt-6 sm:mt-8 md:mt-10 xl:mt-12 shrink-0">
-            {/* Main Headline with exact Arooth horizontal rule accent line on desktop, compact centered on mobile */}
+          <div className="w-full max-w-[480px] sm:max-w-[540px] xl:max-w-[660px] 2xl:max-w-[700px] 3xl:max-w-[780px] text-center xl:text-right mt-6 sm:mt-8 md:mt-10 xl:mt-12 shrink-0">
+            {/* Main Headline using centralized text-hero-title utility class, Option B (Figma Exact 3-line layout) */}
             <h1
               data-hero-title
-              className="font-display font-normal leading-[1.18] xl:leading-[1.12] tracking-[-0.03em] text-cs-dark-blue mb-3 sm:mb-4 xl:mb-6 text-[clamp(2.1rem,9vw,3.4rem)] xl:text-[clamp(2.1rem,3.4vw,4.5rem)]"
+              className="text-hero-title text-cs-dark-blue mb-3 sm:mb-4 xl:mb-6"
             >
               Crafting Modern{" "}
               <br className="hidden xl:inline" />
-              <span className="inline xl:inline-flex items-center justify-center xl:justify-start gap-2 sm:gap-3 md:gap-4 text-cs-light-blue my-1 sm:my-1.5 whitespace-normal xl:whitespace-nowrap">
-                <span className="hidden xl:inline-block h-[2.5px] sm:h-[3px] w-8 sm:w-12 md:w-24 bg-cs-light-blue rounded-full shrink-0" />
-                <span>AI Vision For the</span>
+              <span className="inline xl:inline-flex items-center justify-center xl:justify-end gap-2 sm:gap-3 md:gap-4 text-cs-light-blue my-1 sm:my-1.5 whitespace-normal xl:whitespace-nowrap">
+                <span className="hidden xl:inline-block h-[2.5px] sm:h-[3px] w-8 sm:w-12 md:w-20 bg-cs-light-blue rounded-full shrink-0" />
+                <span>Vision For the</span>
               </span>{" "}
               <br className="hidden xl:inline" />
-              <span className="text-cs-ink">Ambitious Brands</span>
+              <span className="text-cs-ink whitespace-nowrap">Ambitious Brands</span>
             </h1>
 
-            {/* Subheadline / Description Text: expanded comfortable width while staying slightly narrower than heading */}
+            {/* Subheadline / Description Text using universal text-para utility class */}
             <p
               data-hero-desc
-              className="mb-5 sm:mb-6 xl:mb-8 mx-auto xl:mx-0 max-w-[340px] sm:max-w-[420px] xl:max-w-lg text-sm sm:text-base xl:text-lg leading-relaxed text-cs-ink-muted font-normal text-center xl:text-left"
+              className="text-para text-[#111827] mb-5 sm:mb-6 xl:mb-8 mx-auto xl:mx-0 xl:ml-auto max-w-[340px] sm:max-w-[440px] xl:max-w-[565px] text-center xl:text-right"
             >
               We blend engineering precision with agentic AI to build digital platforms that move
               enterprises forward. From crafting intelligent workflows to standout digital experiences.
             </p>
 
-            <div data-hero-cta className="flex items-center justify-center xl:justify-start">
+            <div data-hero-cta className="flex items-center justify-center xl:justify-end">
               <RollingButton text="Get Started Now" href="/contact" />
             </div>
           </div>
@@ -87,8 +87,8 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
                   <React.Fragment key={`${loopIdx}-${idx}`}>
                     <span
                       className={`font-display leading-none uppercase tracking-[-0.03em] font-normal ${idx % 2 === 0
-                          ? "italic text-cs-ink"
-                          : "text-cs-dark-blue"
+                        ? "italic text-cs-ink"
+                        : "text-cs-dark-blue"
                         }`}
                       style={{ fontSize: "clamp(2.75rem, 5vw, 5rem)" }}
                     >

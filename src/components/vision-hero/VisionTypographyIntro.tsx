@@ -142,7 +142,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                 data-text-right
                 className="text-cs-dark-blue font-display font-extrabold tracking-tighter leading-none will-change-transform select-none"
                 style={{
-                  fontSize: "clamp(5.8rem, 21.5vw, 22rem)",
+                  fontSize: "clamp(5.88rem, 21.5vw, 22.06rem)",
                   letterSpacing: "-0.035em",
                 }}
               >
@@ -165,7 +165,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
             className="w-full pt-6 sm:pt-8 md:pt-8 xl:pt-10 2xl:pt-12 px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 pointer-events-auto shrink-0 z-20"
           >
             <div data-footer-left className="max-w-xl">
-              <p className="text-cs-ink text-base sm:text-lg md:text-[18px] leading-relaxed font-normal">
+              <p className="text-para text-cs-ink">
                 At CueServe, we blend AI innovation with engineering precision to build digital experiences
                 that transform enterprises. From crafting intelligent workflows to scalable platforms.
               </p>

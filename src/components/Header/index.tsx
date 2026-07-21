@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { RollingButton } from "@/components/RollingButton";
 import { useHeaderState } from "./useHeaderState";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";
@@ -23,10 +24,10 @@ export function Header() {
     <header className="fixed top-3 sm:top-4 md:top-5 left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300">
       <div
         className={[
-          "pointer-events-auto mx-auto w-[90%] xl:w-[82%] max-w-[1260px] rounded-full border transition-all duration-300 px-6 sm:px-9 py-2 sm:py-2.5 flex items-center justify-between shadow-md",
+          "pointer-events-auto mx-auto w-[90%] xl:w-[82%] max-w-[1260px] rounded-full border border-[#D1E0FF] transition-all duration-300 pl-6 pr-[10px] py-2 sm:py-2.5 flex items-center justify-between shadow-md",
           scrolled
-            ? "bg-white/95 border-[#cbd5e1]/80 backdrop-blur-md"
-            : "bg-white/92 border-[#cbd5e1]/65 backdrop-blur-md",
+            ? "bg-white/95 backdrop-blur-md"
+            : "bg-white/92 backdrop-blur-md",
         ].join(" ")}
       >
         {/* Logo — far left inside white navbar */}
@@ -35,7 +36,7 @@ export function Header() {
           aria-label="Cueserve home"
           className="shrink-0 flex items-center"
         >
-          <Logo className="h-8 sm:h-9 w-auto" />
+          <Logo className="h-[24px] w-auto" />
         </Link>
 
         {/* Center Nav Links inside white navbar */}
@@ -49,12 +50,11 @@ export function Header() {
 
         {/* Right Action Area (CTA + Mobile Hamburger) */}
         <div className="flex items-center gap-3">
-          <Link
+          <RollingButton
+            text="Contact Us"
             href="/contact"
-            className="hidden rounded-full bg-cs-dark-blue px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#09355E] hover:shadow-md xl:inline-flex items-center shrink-0"
-          >
-            Talk to Us
-          </Link>
+            className="hidden xl:inline-flex shrink-0 !py-1 !pl-5 !pr-1"
+          />
 
           {/* Hamburger — mobile and tablet (< 1280px) */}
           <button
