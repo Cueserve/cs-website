@@ -87,10 +87,10 @@ export function AboutMediaSection() {
         {/* Side-by-side resting layout: Both reduced equally (46% each) with a clean gap between, and EXACT SAME height (250px) */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-[6%] w-full">
 
-          {/* Left Container: Video Format Card (Exact same resting height as right box: h-[250px]) */}
+          {/* Left Container: Video Format Card (Exact same resting height as right box: h-[200px]) */}
           <div
             ref={videoWrapperRef}
-            className="w-full lg:w-[47%] h-[220px] sm:h-[240px] lg:h-[250px] rounded-[32px] sm:rounded-[40px] overflow-hidden relative shadow-md bg-cs-ink/5 border border-cs-border shrink-0 flex items-center justify-center group"
+            className="w-full lg:w-[47%] h-[185px] sm:h-[195px] lg:h-[200px] rounded-[32px] sm:rounded-[38px] overflow-hidden relative shadow-md bg-cs-ink/5 border border-cs-border shrink-0 flex items-center justify-center group"
           >
             {/* Background Video */}
             <video
@@ -127,14 +127,14 @@ export function AboutMediaSection() {
             </button>
           </div>
 
-          {/* Right Container: Icon & Metrics Box (Exact same resting height as video: h-[250px]) */}
+          {/* Right Container: Icon & Metrics Box (Exact same resting height as video: h-[200px]) */}
           <div
             ref={statsWrapperRef}
-            className="w-full lg:w-[47%] h-[220px] sm:h-[240px] lg:h-[250px] rounded-[32px] sm:rounded-[40px] p-6 sm:p-8 border border-[#e2edff] bg-[#F5FAFF] flex flex-col sm:flex-row items-center gap-6 sm:gap-8 justify-between shrink-0 shadow-sm"
+            className="w-full lg:w-[47%] h-[185px] sm:h-[195px] lg:h-[200px] rounded-[32px] sm:rounded-[38px] p-5 sm:p-6 border border-[#e2edff] bg-[#F5FAFF] flex flex-col sm:flex-row items-center gap-5 sm:gap-6 justify-between shrink-0 shadow-sm"
           >
             {/* Left Icon Box with gradient: linear-gradient(180deg, #0136A2 0%, #266DFB 100%) */}
             <div
-              className="w-24 h-24 sm:w-28 sm:h-28 lg:w-[130px] lg:h-[130px] rounded-[24px] sm:rounded-[32px] shrink-0 flex items-center justify-center shadow-md relative overflow-hidden"
+              className="w-24 h-24 sm:w-28 sm:h-28 lg:w-[132px] lg:h-[132px] rounded-[24px] sm:rounded-[30px] shrink-0 flex items-center justify-center shadow-md relative overflow-hidden"
               style={{ background: "linear-gradient(180deg, #0136A2 0%, #266DFB 100%)" }}
             >
               {/* Timer / Clock Icon from public folder */}
@@ -149,10 +149,10 @@ export function AboutMediaSection() {
             <div className="flex flex-1 items-center justify-around gap-4 sm:gap-6 w-full sm:pl-2">
               {/* Stat 1: 96% Positive Feedback */}
               <div className="flex flex-col items-start">
-                <span className="text-h3 font-display font-medium text-cs-ink tracking-tight leading-none mb-1 sm:mb-1.5">
+                <span className="text-h3 font-display font-medium text-cs-ink tracking-tight leading-none mb-2 sm:mb-2.5">
                   96%
                 </span>
-                <span className="text-caption sm:text-label font-medium text-cs-ink-ghost uppercase tracking-wider leading-snug">
+                <span className="font-paragraph font-light text-base text-neutral-900 leading-none uppercase w-[147px]">
                   Positive Feedback<br />From Clients
                 </span>
               </div>
@@ -162,10 +162,10 @@ export function AboutMediaSection() {
 
               {/* Stat 2: 98% Accurately Delivered */}
               <div className="flex flex-col items-start">
-                <span className="text-h3 font-display font-medium text-cs-ink tracking-tight leading-none mb-1 sm:mb-1.5">
+                <span className="text-h3 font-display font-medium text-cs-ink tracking-tight leading-none mb-2 sm:mb-2.5">
                   98%
                 </span>
-                <span className="text-caption sm:text-label font-medium text-cs-ink-ghost uppercase tracking-wider leading-snug">
+                <span className="font-paragraph font-light text-base text-neutral-900 leading-none uppercase w-[147px]">
                   Accurately<br />Delivered
                 </span>
               </div>
