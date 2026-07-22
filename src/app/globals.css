@@ -121,6 +121,9 @@
   --animate-cs-float-b: cs-float-b 5s ease-in-out infinite;
   --animate-cs-float-c: cs-float-c 4.5s ease-in-out infinite;
   --animate-cs-float-slow: cs-float-b 6s ease-in-out infinite;
+  --animate-cs-float-pill-a: cs-float-pill-a 6.5s ease-in-out infinite;
+  --animate-cs-float-pill-b: cs-float-pill-b 7.2s ease-in-out infinite;
+  --animate-cs-float-metric: cs-float-metric 8s ease-in-out infinite;
 
   @keyframes cs-float-a {
 
@@ -155,6 +158,59 @@
 
     50% {
       transform: translateY(-6px);
+    }
+  }
+
+  /* ── Organic 2D Elliptical Floating for About Section Pills (Hardware Accelerated) ── */
+  @keyframes cs-float-pill-a {
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    25% {
+      transform: translate3d(8px, -14px, 0) rotate(2deg);
+    }
+
+    50% {
+      transform: translate3d(0, -26px, 0) rotate(0deg);
+    }
+
+    75% {
+      transform: translate3d(-8px, -12px, 0) rotate(-2deg);
+    }
+  }
+
+  @keyframes cs-float-pill-b {
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+
+    25% {
+      transform: translate3d(-10px, 14px, 0) rotate(-2deg);
+    }
+
+    50% {
+      transform: translate3d(0, 26px, 0) rotate(0deg);
+    }
+
+    75% {
+      transform: translate3d(10px, 12px, 0) rotate(2deg);
+    }
+  }
+
+  @keyframes cs-float-metric {
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    50% {
+      transform: translate3d(0, -12px, 0) scale(1.018);
     }
   }
 }
