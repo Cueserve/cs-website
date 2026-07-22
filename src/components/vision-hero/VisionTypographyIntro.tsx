@@ -115,7 +115,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
     return (
       <div
         ref={ref}
-        className={`absolute inset-0 z-20 flex flex-col pointer-events-none select-none ${className}`}
+        className={`absolute inset-0 z-[100] flex flex-col pointer-events-none select-none ${className}`}
       >
         {/* Main Flexible Architectural Box Container */}
         <div className="w-[95%] xl:w-[88%] max-w-[1380px] mx-auto h-full flex flex-col justify-between relative">
@@ -125,7 +125,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
           {/* Middle Flexible Box containing VISION Typography + Media Pill */}
           <div className="w-full flex-1 pt-8 sm:pt-12 md:pt-16 xl:pt-[clamp(1.5rem,5vh,4rem)] 2xl:pt-[clamp(2rem,6vh,5rem)] pb-4 sm:pb-6 md:pb-6 xl:pb-[clamp(1rem,3vh,2rem)] 2xl:pb-[clamp(1.25rem,3.5vh,2.5rem)] flex items-center justify-center relative min-h-0">
             {/* VISION Typography & Media Pill */}
-            <div className="flex items-center justify-center w-full px-2 sm:px-6 relative z-20">
+            <div className="flex items-center justify-center w-full px-2 sm:px-6 relative z-[100]">
               {/* Left Typography: VISI */}
               <span
                 data-intro-fade
@@ -146,7 +146,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
               {/* Middle Slot for the Expanding Media Pill ("O") */}
               <div
                 data-media-slot
-                className="mx-2 sm:mx-3.5 md:mx-5 flex items-center justify-center relative z-30"
+                className="mx-2 sm:mx-3.5 md:mx-5 flex items-center justify-center relative z-[100]"
               >
                 {mediaSlot}
               </div>
