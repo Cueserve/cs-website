@@ -50,12 +50,14 @@ export function Header() {
 
         {/* Right Action Area (CTA + Mobile Hamburger) */}
         <div className="flex items-center gap-3">
-          <RollingButton
-            variant="primary"
-            text="Contact Us"
-            href="/contact"
-            className="hidden xl:inline-flex shrink-0 !py-1 !pl-5 !pr-1"
-          />
+          <div className="!hidden xl:!flex items-center">
+            <RollingButton
+              variant="primary"
+              text="Contact Us"
+              href="/contact"
+              className="!hidden xl:!inline-flex shrink-0 !py-1 !pl-5 !pr-1"
+            />
+          </div>
 
           {/* Hamburger — mobile and tablet (< 1280px) */}
           <button

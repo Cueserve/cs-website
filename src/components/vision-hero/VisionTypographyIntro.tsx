@@ -137,7 +137,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                 }}
               >
                 {"VISI".split("").map((char, index) => (
-                  <span key={index} data-intro-char className="inline-block">
+                  <span key={index} data-intro-char className="inline-block" style={{ opacity: 0 }}>
                     {char}
                   </span>
                 ))}
@@ -147,6 +147,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
               <div
                 data-media-slot
                 className="mx-2 sm:mx-3.5 md:mx-5 flex items-center justify-center relative z-[100]"
+                style={{ opacity: 0 }}
               >
                 {mediaSlot}
               </div>
@@ -162,7 +163,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                 }}
               >
                 {"N".split("").map((char, index) => (
-                  <span key={index} data-intro-char className="inline-block">
+                  <span key={index} data-intro-char className="inline-block" style={{ opacity: 0 }}>
                     {char}
                   </span>
                 ))}
@@ -179,13 +180,13 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
             data-intro-footer
             className="w-full pt-4 sm:pt-6 md:pt-6 xl:pt-[clamp(1.25rem,3.5vh,3rem)] 2xl:pt-[clamp(1.5rem,4vh,3.5rem)] pb-6 sm:pb-8 md:pb-8 xl:pb-[clamp(2rem,6vh,4.5rem)] 2xl:pb-[clamp(2.5rem,7vh,5rem)] px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 pointer-events-auto shrink-0 z-20"
           >
-            <div data-footer-left className="max-w-xl">
+            <div data-footer-left className="max-w-xl" style={{ opacity: 0 }}>
               <p className="text-para text-cs-ink">
-                At CueServe, we blend AI innovation with engineering precision to build digital experiences
-                that transform enterprises. From crafting intelligent workflows to scalable platforms.
+                We blend creativity with strategy to build digital experiences that move brands
+                forward. From crafting standout websites.
               </p>
             </div>
-            <div data-footer-right className="shrink-0">
+            <div data-footer-right className="shrink-0" style={{ opacity: 0 }}>
               <RollingButton text="Get Started Now" href="#contact" />
             </div>
           </div>

@@ -71,16 +71,6 @@ export function MobileMenu({
             </li>
           );
         })}
-
-        <li className="pt-2">
-          <Link
-            href="/contact"
-            onClick={onCloseNav}
-            className="block w-full rounded bg-cs-dark-blue px-4 py-2.5 text-center text-sm font-medium text-white"
-          >
-            Talk to Us
-          </Link>
-        </li>
       </ul>
     </nav>
   );

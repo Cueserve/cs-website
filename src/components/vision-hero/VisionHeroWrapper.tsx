@@ -538,16 +538,23 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
               data-hero-clip
               className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-hidden opacity-0"
             >
-              {/* Layer 1: Pure White Base for Hero */}
-              <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
-
-              {/* Layer 2: Full Hero Background Image where the helmet girl is part of the bg */}
+              {/* Layer 1: Seamless Base + Background Layer (hero_bg3.png without the person) */}
+              <div className="absolute inset-0 pointer-events-none z-0 bg-[#e6f2ff]" />
               <div
-                className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-[position:82%_center] lg:bg-[position:76%_center] xl:bg-[position:68%_center] 2xl:bg-[position:15%_center]"
+                className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-center"
                 style={{
-                  backgroundImage: `url('/hero_bg2.jpg')`,
+                  backgroundImage: `url('/hero_bg3.png')`,
                 }}
               />
+
+              {/* Layer 2: Independent Foreground Man Cutout (`hero_men.png`) with strict fixed pixel isolation (`-136px` on large, `-153px` on mid, and `-20px` on extra large) so breakpoints never interrupt each other */}
+              <div className="absolute bottom-0 left-[-11vw] sm:left-[-136px] xl:left-[-136px] 2xl:left-[-153px] min-[1800px]:!left-[-20px] h-[68vh] sm:h-[75vh] xl:h-[85vh] 2xl:h-[86vh] max-h-[860px]  pointer-events-none z-10 flex items-end">
+                <img
+                  src="/hero_men.png"
+                  alt="Vision Hero Character"
+                  className="w-auto h-full object-contain object-left-bottom select-none"
+                />
+              </div>
 
               {/* Layer 3: Right-Aligned Hero Content – initially hidden, revealed by timeline right when portal reaches fullscreen */}
               <VisionHeroContent />
