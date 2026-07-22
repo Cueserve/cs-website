@@ -21,10 +21,10 @@ export function Header() {
   } = useHeaderState();
 
   return (
-    <header className="fixed top-3 sm:top-4 md:top-5 left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300">
+    <header className="fixed top-2 sm:top-3 xl:top-[clamp(0.75rem,2vh,1.25rem)] left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300">
       <div
         className={[
-          "pointer-events-auto mx-auto w-[90%] xl:w-[82%] max-w-[1260px] rounded-full border border-[#D1E0FF] transition-all duration-300 pl-6 pr-[10px] py-2 sm:py-2.5 flex items-center justify-between shadow-md",
+          "pointer-events-auto mx-auto w-[90%] xl:w-[82%] max-w-[1260px] rounded-full border border-[#D1E0FF] transition-all duration-300 pl-6 pr-[10px] py-2 sm:py-2.5 xl:py-[clamp(0.5rem,1.2vh,0.625rem)] flex items-center justify-between shadow-md",
           scrolled
             ? "bg-white/95 backdrop-blur-md"
             : "bg-white/92 backdrop-blur-md",

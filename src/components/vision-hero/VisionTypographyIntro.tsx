@@ -15,7 +15,7 @@ export const VisionTypographyGridLines = forwardRef<HTMLDivElement, { className?
         ref={ref}
         className={`absolute inset-0 z-0 flex flex-col pointer-events-none select-none ${className}`}
       >
-        <div className="w-[95%] xl:w-[88%] max-w-[1380px] mx-auto h-full flex flex-col justify-start relative">
+        <div className="w-[95%] xl:w-[88%] max-w-[1380px] mx-auto h-full flex flex-col justify-between relative">
           {/* Outer Left Vertical Line */}
           <div
             data-intro-fade
@@ -33,10 +33,10 @@ export const VisionTypographyGridLines = forwardRef<HTMLDivElement, { className?
               background: "linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 50%, rgba(166,200,224,0.75) 85%, rgba(166,200,224,0.75) 100%)",
             }}
           />
-          <div className="w-full shrink-0 h-16 sm:h-20 md:h-24 xl:h-32 2xl:h-32" />
+          <div className="w-full shrink-0 h-16 sm:h-20 md:h-24 xl:h-[clamp(5.25rem,12.5vh,8rem)] 2xl:h-[clamp(5.75rem,13.5vh,8.5rem)]" />
 
           {/* Middle Flexible Box containing Borders & 5 Vertical Lines */}
-          <div className="w-full pt-16 sm:pt-20 md:pt-24 xl:pt-20 2xl:pt-36 pb-4 sm:pb-6 md:pb-6 xl:pb-6 2xl:pb-10 flex items-center justify-center relative">
+          <div className="w-full flex-1 pt-8 sm:pt-12 md:pt-16 xl:pt-[clamp(1.5rem,5vh,4rem)] 2xl:pt-[clamp(2rem,6vh,5rem)] pb-4 sm:pb-6 md:pb-6 xl:pb-[clamp(1rem,3vh,2rem)] 2xl:pb-[clamp(1.25rem,3.5vh,2.5rem)] flex items-center justify-center relative min-h-0">
             {/* Top & Bottom Borders */}
             <div
               data-intro-fade
@@ -79,7 +79,7 @@ export const VisionTypographyGridLines = forwardRef<HTMLDivElement, { className?
             <div className="flex items-center justify-center w-full px-2 sm:px-6 relative z-20 pointer-events-none opacity-0">
               <span
                 className="font-display font-extrabold tracking-tighter leading-none select-none"
-                style={{ fontSize: "clamp(5.2rem, 19vw, 19.5rem)" }}
+                style={{ fontSize: "clamp(5rem, min(19vw, 35vh), 19.5rem)" }}
               >
                 V
               </span>
@@ -88,6 +88,21 @@ export const VisionTypographyGridLines = forwardRef<HTMLDivElement, { className?
 
           {/* Crisp Architectural Partition Line */}
           <div data-intro-fade className="w-full h-[1px] bg-[#cbd5e1] shrink-0 relative z-10" />
+
+          {/* Invisible placeholder for footer container so justify-between spacing is exact */}
+          <div
+            className="w-full pt-4 sm:pt-6 md:pt-6 xl:pt-[clamp(1.25rem,3.5vh,3rem)] 2xl:pt-[clamp(1.5rem,4vh,3.5rem)] pb-6 sm:pb-8 md:pb-8 xl:pb-[clamp(2rem,6vh,4.5rem)] 2xl:pb-[clamp(2.5rem,7vh,5rem)] px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 pointer-events-none opacity-0 shrink-0"
+          >
+            <div className="max-w-xl">
+              <p className="text-para text-cs-ink">
+                At CueServe, we blend AI innovation with engineering precision to build digital experiences
+                that transform enterprises. From crafting intelligent workflows to scalable platforms.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <RollingButton text="Get Started Now" href="#contact" />
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -103,12 +118,12 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
         className={`absolute inset-0 z-20 flex flex-col pointer-events-none select-none ${className}`}
       >
         {/* Main Flexible Architectural Box Container */}
-        <div className="w-[95%] xl:w-[88%] max-w-[1380px] mx-auto h-full flex flex-col justify-start relative">
+        <div className="w-[95%] xl:w-[88%] max-w-[1380px] mx-auto h-full flex flex-col justify-between relative">
           {/* Small Top Container above VISION box */}
-          <div className="w-full shrink-0 h-16 sm:h-20 md:h-24 xl:h-32 2xl:h-32" />
+          <div className="w-full shrink-0 h-16 sm:h-20 md:h-24 xl:h-[clamp(5.25rem,12.5vh,8rem)] 2xl:h-[clamp(5.75rem,13.5vh,8.5rem)]" />
 
           {/* Middle Flexible Box containing VISION Typography + Media Pill */}
-          <div className="w-full pt-16 sm:pt-20 md:pt-24 xl:pt-20 2xl:pt-36 pb-4 sm:pb-6 md:pb-6 xl:pb-6 2xl:pb-10 flex items-center justify-center relative">
+          <div className="w-full flex-1 pt-8 sm:pt-12 md:pt-16 xl:pt-[clamp(1.5rem,5vh,4rem)] 2xl:pt-[clamp(2rem,6vh,5rem)] pb-4 sm:pb-6 md:pb-6 xl:pb-[clamp(1rem,3vh,2rem)] 2xl:pb-[clamp(1.25rem,3.5vh,2.5rem)] flex items-center justify-center relative min-h-0">
             {/* VISION Typography & Media Pill */}
             <div className="flex items-center justify-center w-full px-2 sm:px-6 relative z-20">
               {/* Left Typography: VISI */}
@@ -117,7 +132,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                 data-text-left
                 className="text-cs-dark-blue font-display font-extrabold tracking-tighter leading-none will-change-transform select-none"
                 style={{
-                  fontSize: "clamp(5.2rem, 19vw, 19.5rem)",
+                  fontSize: "clamp(5rem, min(19vw, 35vh), 19.5rem)",
                   letterSpacing: "-0.035em",
                 }}
               >
@@ -142,7 +157,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                 data-text-right
                 className="text-cs-dark-blue font-display font-extrabold tracking-tighter leading-none will-change-transform select-none"
                 style={{
-                  fontSize: "clamp(5.88rem, 21.5vw, 22.06rem)",
+                  fontSize: "clamp(5.88rem, min(21.5vw, 39.5vh), 22.06rem)",
                   letterSpacing: "-0.035em",
                 }}
               >
@@ -162,7 +177,7 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
           <div
             data-intro-fade
             data-intro-footer
-            className="w-full pt-6 sm:pt-8 md:pt-8 xl:pt-10 2xl:pt-12 px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 pointer-events-auto shrink-0 z-20"
+            className="w-full pt-4 sm:pt-6 md:pt-6 xl:pt-[clamp(1.25rem,3.5vh,3rem)] 2xl:pt-[clamp(1.5rem,4vh,3.5rem)] pb-6 sm:pb-8 md:pb-8 xl:pb-[clamp(2rem,6vh,4.5rem)] 2xl:pb-[clamp(2.5rem,7vh,5rem)] px-6 sm:px-12 md:px-16 xl:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 pointer-events-auto shrink-0 z-20"
           >
             <div data-footer-left className="max-w-xl">
               <p className="text-para text-cs-ink">
