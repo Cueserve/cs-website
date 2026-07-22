@@ -47,17 +47,17 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
           </div>
         </div>
 
-        {/* Continuous Infinite Motion Marquee Ticker: relative underneath CTA on mobile with generous spacing, absolute bottom-0 on desktop */}
+        {/* Continuous Infinite Motion Tech Stack Logo Slider (matching Figma design) */}
         <div
           data-hero-ticker
-          className="relative mt-8 sm:mt-12 xl:mt-0 xl:absolute xl:bottom-0 left-0 right-0 w-full pt-6 sm:pt-8 xl:pt-20 pb-2 sm:pb-3 overflow-hidden z-40 pointer-events-auto shrink-0"
+          className="relative mt-8 sm:mt-12 xl:mt-0 xl:absolute xl:bottom-0 left-0 right-0 w-full pt-6 sm:pt-8 xl:pt-14 pb-6 sm:pb-8 overflow-hidden z-40 pointer-events-auto shrink-0"
           style={{
             background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 40%, rgba(255, 255, 255, 0.88) 75%, #ffffff 100%)",
           }}
         >
           <style dangerouslySetInnerHTML={{
             __html: `
-            @keyframes heroTickerScroll {
+            @keyframes heroLogoScroll {
               0% { transform: translate3d(0, 0, 0); }
               100% { transform: translate3d(-50%, 0, 0); }
             }
@@ -66,39 +66,32 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
           <div
             className="flex w-max items-center whitespace-nowrap select-none"
             style={{
-              animation: "heroTickerScroll 130s linear infinite",
+              animation: "heroLogoScroll 55s linear infinite",
             }}
           >
             {/* Render two identical tracks side-by-side for seamless infinite looping */}
             {[0, 1].map((loopIdx) => (
-              <div key={loopIdx} className="flex items-center shrink-0">
+              <div key={loopIdx} className="flex items-center gap-[48px] sm:gap-[64px] xl:gap-[80px] 2xl:gap-[96px] pr-[48px] sm:pr-[64px] xl:pr-[80px] 2xl:pr-[96px] shrink-0">
                 {[
-                  "ENTERPRISE AI ARCHITECTURE",
-                  "AGENTIC WORKFLOWS",
-                  "PRECISION ENGINEERING",
-                  "INTELLIGENT AUTOMATION",
-                  "STANDOUT DIGITAL PLATFORMS",
-                  "STRATEGIC ACCELERATION",
-                  "NEXT-GEN VISUAL SYSTEMS",
-                  "FUTURE-READY SCALE",
-                ].map((item, idx) => (
-                  <React.Fragment key={`${loopIdx}-${idx}`}>
-                    <span
-                      className={`font-display leading-none uppercase tracking-[-0.03em] font-normal ${idx % 2 === 0
-                        ? "italic text-cs-ink"
-                        : "text-cs-dark-blue"
-                        }`}
-                      style={{ fontSize: "clamp(2.75rem, 5vw, 5rem)" }}
-                    >
-                      {item}
-                    </span>
-                    <span
-                      className="text-cs-light-blue font-normal leading-none px-6 sm:px-8 md:px-10"
-                      style={{ fontSize: "clamp(2.75rem, 5vw, 5rem)" }}
-                    >
-                      *
-                    </span>
-                  </React.Fragment>
+                  { name: "Microsoft .NET", src: "/sliding_logos/dotnet.png" },
+                  { name: "Angular", src: "/sliding_logos/angular.png" },
+                  { name: "React", src: "/sliding_logos/react.png" },
+                  { name: "Next.js", src: "/sliding_logos/nextjs.png" },
+                  { name: "HTML5", src: "/sliding_logos/html.png" },
+                  { name: "CSS3", src: "/sliding_logos/css.png" },
+                  { name: "JavaScript", src: "/sliding_logos/javascript.png" },
+                  { name: "Android Studio", src: "/sliding_logos/android-studio.png" },
+                ].map((logo, idx) => (
+                  <div
+                    key={`${loopIdx}-${idx}`}
+                    className="flex items-center justify-center shrink-0 transition-opacity duration-300 hover:opacity-100"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.name}
+                      className="h-[36px] sm:h-[44px] xl:h-[54px] 2xl:h-[64px] w-auto object-contain select-none pointer-events-none"
+                    />
+                  </div>
                 ))}
               </div>
             ))}

@@ -497,12 +497,12 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
         {/* Layer 1: Pure White Base outside the O portal */}
         <div className="absolute inset-0 pointer-events-none z-0 bg-white" />
 
-        {/* Layer 2: Hero Background Image (/hero.png) – shifted slightly lower down so background is visible behind VISI and N */}
+        {/* Layer 2: Hero Background Image */}
         <div
           className="absolute top-0 left-0 right-0 h-[115vh] pointer-events-none z-0 bg-cover bg-no-repeat"
           style={{
-            backgroundImage: `url('/hero.png')`,
-            backgroundPosition: "center -15vh",
+            backgroundImage: `url('/hero.jpg')`,
+            backgroundPosition: "center -10vh",
           }}
         />
 

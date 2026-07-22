@@ -186,8 +186,9 @@ export const VisionTypographyIntro = forwardRef<HTMLDivElement, VisionTypography
                 forward. From crafting standout websites.
               </p>
             </div>
-            <div data-footer-right className="shrink-0" style={{ opacity: 0 }}>
-              <RollingButton text="Get Started Now" href="#contact" />
+            <div data-footer-right className="shrink-0 flex items-center gap-3 sm:gap-4 flex-wrap justify-end" style={{ opacity: 0 }}>
+              <RollingButton text="Book a Free Call" href="#contact" variant="primary" />
+              <RollingButton text="Get Started Now" href="#contact" variant="secondary" />
             </div>
           </div>
         </div>
