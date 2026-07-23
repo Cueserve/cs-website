@@ -3,6 +3,8 @@ export { metadata } from "./metadata";
 import { HeroSection } from "./_components/HeroSection";
 import { AboutSection } from "./_components/AboutSection";
 import { AboutMediaSection } from "./_components/AboutMediaSection";
+import { ServicesSection } from "./_components/ServicesSection";
+import { ProjectsSection } from "./_components/ProjectsSection";
 
 export default function HomePage() {
   return (
@@ -10,6 +12,8 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <AboutMediaSection />
+      <ServicesSection />
+      <ProjectsSection />
     </>
   );
 }
