@@ -81,7 +81,7 @@ export function ProjectsSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-32">
           {projects.map((project, idx) => (
             <div
               key={idx}
@@ -91,7 +91,7 @@ export function ProjectsSection() {
               <div className="grid grid-cols-[auto_1fr]">
 
                 {/* Number: Row 1, Col 1 */}
-                <div className="text-7xl md:text-[120px] font-paragraph font-normal text-cs-ink leading-[0.75] tracking-tighter col-start-1 col-end-2 row-start-1 row-end-2 z-10">
+                <div className="text-7xl md:text-[120px] font-paragraph font-normal text-cs-ink leading-[0.75] col-start-1 col-end-2 row-start-1 row-end-2 z-10">
                   {project.id}
                 </div>
 
@@ -110,11 +110,11 @@ export function ProjectsSection() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex flex-col items-start gap-2">
-                    <h3 className="text-lg md:text-xl font-paragraph font-medium text-cs-ink">
+                  <div className="flex flex-col items-start gap-3 mt-2">
+                    <h3 className="text-xl md:text-2xl font-paragraph font-normal text-cs-ink">
                       {project.name}
                     </h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-brand-default bg-brand-subtle">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-paragraph font-medium leading-none uppercase tracking-[0.1em] text-neutral-900 bg-brand-muted">
                       {project.category}
                     </span>
                   </div>
