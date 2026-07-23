@@ -1,0 +1,87 @@
+"use client";
+
+import React from "react";
+import { RollingButton } from "@/components/RollingButton";
+import { CircleArrow } from "@/components/CircleArrow";
+
+const articles = [
+  {
+    id: 1,
+    category: "Advice",
+    date: "Nov 14, 2025",
+    title: "Designing for Emotion: The Secret to Memorable Brands.",
+    image: "/project.png",
+    link: "#"
+  },
+  {
+    id: 2,
+    category: "Strategy",
+    date: "Dec 02, 2025",
+    title: "How to Build a Design System that Scales.",
+    image: "/project.png",
+    link: "#"
+  },
+  {
+    id: 3,
+    category: "Design",
+    date: "Jan 18, 2026",
+    title: "The Evolution of Digital Interfaces.",
+    image: "/project.png",
+    link: "#"
+  }
+];
+
+export function ArticlesSection() {
+  return (
+    <section className="relative w-full bg-white flex flex-col justify-between pt-12 md:pt-16 pb-24">
+      {/* Inner Content Container */}
+      <div className="relative z-10 w-[90%] xl:w-[82%] max-w-[1260px] mx-auto h-full flex flex-col lg:flex-row gap-12 lg:gap-24">
+        
+        {/* Left Fixed Container */}
+        <div className="lg:w-[50%] flex flex-col items-start gap-6 lg:sticky lg:top-32 h-fit">
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full text-label uppercase tracking-wider text-brand-default border border-brand-default/30 bg-[#f4f8ff]">
+            News & Articles
+          </span>
+          <h2 className="text-4xl md:text-[56px] font-paragraph font-normal text-cs-ink leading-[1.1]">
+            Fresh Perspectives <br className="hidden md:block"/>
+            <span className="text-brand-default">On Strategy.</span>
+          </h2>
+          <p className="text-neutral-900 font-paragraph font-normal text-base md:text-lg mb-2 leading-relaxed">
+            We combine strategy, creativity, and technology to help brands grow in the modern digital landscape.
+          </p>
+          <RollingButton
+            text="View All Articles"
+            href="#"
+            variant="secondary"
+            className="border-none bg-brand-subtle !shadow-none hover:bg-brand-muted"
+          />
+        </div>
+
+        {/* Right Scrollable Container */}
+        <div className="lg:w-[50%] flex flex-col gap-24">
+          {articles.map((article) => (
+            <div key={article.id} className="flex flex-col items-center text-center">
+              <div className="w-full aspect-[608/367] rounded-[20px] overflow-hidden bg-brand-muted mb-8">
+                <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
+              </div>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs md:text-sm font-paragraph font-normal bg-brand-muted mb-6 uppercase">
+                <span className="text-brand-default">{article.category}</span>
+                <span className="text-brand-default">•</span>
+                <span className="text-neutral-900">{article.date}</span>
+              </span>
+              <h3 className="text-xl md:text-2xl font-paragraph font-normal text-neutral-900 leading-[1.4] mb-8 w-[90%] md:w-[80%] mx-auto">
+                {article.title}
+              </h3>
+              <div className="flex items-center justify-center gap-4 cursor-pointer group">
+                <span className="font-paragraph text-sm font-normal text-neutral-900 group-hover:text-brand-default transition-colors">Read More</span>
+                <CircleArrow className="bg-brand-default text-white !w-6 !h-6 md:!w-8 md:!h-8" iconClassName="!w-3 !h-3" />
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+  );
+}

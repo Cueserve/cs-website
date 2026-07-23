@@ -6,6 +6,7 @@ import { AboutMediaSection } from "./_components/AboutMediaSection";
 import { ServicesSection } from "./_components/ServicesSection";
 import { ProjectsSection } from "./_components/ProjectsSection";
 import { TestimonialSection } from "./_components/TestimonialSection";
+import { ArticlesSection } from "./_components/ArticlesSection";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProjectsSection />
       <TestimonialSection />
+      <ArticlesSection />
     </>
   );
 }
