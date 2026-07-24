@@ -62,15 +62,7 @@ export function Preloader() {
     };
 
     // Main GSAP Timeline
-    const tl = gsap.timeline({
-      onComplete: () => {
-        document.body.style.overflow = "";
-        setTimeout(() => {
-          ScrollTrigger.refresh(true);
-          window.dispatchEvent(new Event("resize"));
-        }, 50);
-      }
-    });
+    const tl = gsap.timeline();
 
     const logoPaths = logoRef.current?.querySelectorAll("path, polygon");
 

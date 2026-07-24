@@ -97,19 +97,19 @@ export function AboutMediaSection() {
             trigger: cardsSectionRef.current,
             start: "center center",
             end: "+=1500", // Lengthened slightly so the anticipation pause feels intentional
-            scrub: 1, 
+            scrub: 1,
             pin: true,
           }
         });
 
         // Personality: Unique start positions
         const startPositions = [
-          { x: -350, y: -200, rot: -12, scale: 0.35 }, 
-          { x: 40,   y: -350, rot: 6,   scale: 0.45 }, 
-          { x: 300,  y: -150, rot: 15,  scale: 0.35 }, 
-          { x: -300, y: 250,  rot: -10, scale: 0.45 }, 
-          { x: 0,    y: 300,  rot: 8,   scale: 0.40 }, 
-          { x: 250,  y: -250, rot: -14, scale: 0.30 }, 
+          { x: -350, y: -200, rot: -12, scale: 0.35 },
+          { x: 40, y: -350, rot: 6, scale: 0.45 },
+          { x: 300, y: -150, rot: 15, scale: 0.35 },
+          { x: -300, y: 250, rot: -10, scale: 0.45 },
+          { x: 0, y: 300, rot: 8, scale: 0.40 },
+          { x: 250, y: -250, rot: -14, scale: 0.30 },
         ];
 
         // INITIAL STATE
@@ -124,8 +124,8 @@ export function AboutMediaSection() {
         });
 
         wrappers.forEach((wrapper, i) => {
-          const baseStartTime = i * 0.12; 
-          
+          const baseStartTime = i * 0.12;
+
           // 1. Float for 200-300ms (Builds anticipation with a tiny drift)
           tl.to(wrapper, {
             opacity: 1,
@@ -137,9 +137,9 @@ export function AboutMediaSection() {
           }, baseStartTime);
 
           const travelStart = baseStartTime + 0.4;
-          
+
           // 4. Stagger the ending naturally so they don't all finish together
-          const mainDuration = 1.2 + (i % 3) * 0.15; 
+          const mainDuration = 1.2 + (i % 3) * 0.15;
 
           // 3. Add a slight drift (Curved path created by splitting X and Y easings)
           tl.to(wrapper, {
