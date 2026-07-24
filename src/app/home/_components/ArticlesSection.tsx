@@ -82,6 +82,9 @@ export function ArticlesSection() {
         </div>
 
       </div>
+
+      {/* Full Width Bottom Border */}
+      <hr className="w-full border-t border-border-default mt-16 md:mt-24" />
     </section>
   );
 }
