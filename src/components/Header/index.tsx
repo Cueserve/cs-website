@@ -41,11 +41,7 @@ export function Header() {
 
         {/* Center Nav Links inside white navbar */}
         <div className="hidden xl:flex items-center">
-          <DesktopNav
-            openMenu={openMenu}
-            onMenuEnter={openDesktopMenu}
-            onMenuLeave={closeDesktopMenu}
-          />
+          <DesktopNav />
         </div>
 
         {/* Right Action Area (CTA + Mobile Hamburger) */}

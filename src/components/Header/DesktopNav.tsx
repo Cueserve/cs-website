@@ -18,56 +18,28 @@ interface Props {
   onMenuLeave: () => void;
 }
 
-export function DesktopNav({ openMenu, onMenuEnter, onMenuLeave }: Props) {
+export function DesktopNav() {
   const pathname = usePathname();
 
   return (
-    <div
-      className="relative hidden md:block"
-      onMouseLeave={onMenuLeave}
-    >
+    <div className="relative hidden md:block">
       <nav className="flex items-center" aria-label="Primary">
         {MEGA_MENU_ORDER.map((key) => {
           const isActive =
-            openMenu === key ||
             pathname === NAV_HREFS[key] ||
             pathname.startsWith(NAV_HREFS[key] + "/");
           return (
-            <div key={key} onMouseEnter={() => onMenuEnter(key)}>
+            <div key={key}>
               <Link
                 href={NAV_HREFS[key]}
-                aria-haspopup="true"
-                aria-expanded={openMenu === key}
                 className={navItemClass(isActive)}
               >
                 {NAV_LABELS[key]}
-                <ChevronDownIcon
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    openMenu === key ? "rotate-180" : ""
-                  }`}
-                />
               </Link>
             </div>
           );
         })}
       </nav>
-
-      {openMenu && (
-        <>
-          {/* Transparent bridge fills the mt-1.5 gap so mouseleave doesn't fire mid-transit */}
-          <div
-            className="absolute left-0 right-0 top-full z-40 h-1.5"
-            onMouseEnter={() => onMenuEnter(openMenu)}
-            aria-hidden="true"
-          />
-          <MegaMenu
-            config={MEGA_MENU_MAP[openMenu]}
-            menuKey={openMenu}
-            onClose={onMenuLeave}
-            onMouseEnter={() => onMenuEnter(openMenu)}
-          />
-        </>
-      )}
     </div>
   );
 }
