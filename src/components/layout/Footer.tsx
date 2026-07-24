@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Logo } from "./Logo";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   return (
@@ -116,7 +116,7 @@ export function Footer() {
       {/* Bottom Copyright Bar */}
       <div className="w-full border-t-2 border-white py-12 md:py-16 flex items-center justify-center text-center px-4">
         <p className="text-base text-black font-paragraph font-light leading-none">
-          © 2026 Copyright - Cueserve | Designed by "Cueserve" | License | Powered by Cueserve
+          Â© 2026 Copyright - Cueserve | Designed by "Cueserve" | License | Powered by Cueserve
         </p>
       </div>
     </footer>

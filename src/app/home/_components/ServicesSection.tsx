@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { CircleArrow } from "@/components/CircleArrow";
+import { CircleArrow } from "@/components/ui/CircleArrow";
 
 type Service = {
   id: string;

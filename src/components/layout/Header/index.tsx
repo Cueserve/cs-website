@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
-import { RollingButton } from "@/components/RollingButton";
+import { Logo } from "@/components/ui/Logo";
+import { RollingButton } from "@/components/ui/RollingButton";
 import { useHeaderState } from "./useHeaderState";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";

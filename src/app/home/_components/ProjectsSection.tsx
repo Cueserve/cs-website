@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { RollingButton } from "@/components/RollingButton";
+import { RollingButton } from "@/components/ui/RollingButton";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -107,6 +107,8 @@ export function ProjectsSection() {
                       src={project.image}
                       alt={project.name}
                       fill
+                      sizes={project.isLarge ? "(max-width: 1400px) 90vw, 1260px" : "(max-width: 768px) 90vw, (max-width: 1400px) 45vw, 630px"}
+                      priority={idx === 0}
                       className="object-cover"
                     />
                   </div>

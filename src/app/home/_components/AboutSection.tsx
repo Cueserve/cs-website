@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { RollingButton } from "@/components/RollingButton";
+import { RollingButton } from "@/components/ui/RollingButton";
 
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);

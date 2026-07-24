@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { MegaMenuConfig, MenuKey } from "@/lib/navigation";
 import { DropdownPanel } from "./DropdownPanel";
-import { HireDevelopersCard } from "@/components/HireDevelopersCard";
+import { HireDevelopersCard } from "@/components/ui/HireDevelopersCard";
 
 interface Props {
   config: MegaMenuConfig;

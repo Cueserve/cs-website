@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { RollingButton } from "@/components/RollingButton";
+import { RollingButton } from "@/components/ui/RollingButton";
 
 const faqs = [
   {

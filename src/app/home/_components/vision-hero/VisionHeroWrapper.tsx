@@ -134,7 +134,6 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
           scale: 3,
           duration: 0.45,
           ease: "power2.inOut",
-          force3D: false,
         },
         0
       );
@@ -147,7 +146,6 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
           x: offsetX,
           duration: 0.35,
           ease: "power2.inOut",
-          force3D: false,
         },
         0.20
       );
@@ -161,7 +159,6 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
           scale: targetScale,
           duration: 0.47,
           ease: "power3.in",
-          force3D: false,
         },
         0.45
       );
@@ -335,7 +332,6 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
       }
 
       const introTl = gsap.timeline({
-        defaults: { force3D: false },
         onComplete: () => {
           if (introChars && introChars.length > 0) gsap.set(introChars, { clearProps: "transform" });
           if (mediaSlotEl) gsap.set(mediaSlotEl, { clearProps: "transform" });

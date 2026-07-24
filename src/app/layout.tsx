@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, dmSans, jetbrainsMono, instrumentSans, poppins } from "./fonts";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { organizationJsonLd } from "@/lib/seo/jsonLd";
 import "./globals.css";
 

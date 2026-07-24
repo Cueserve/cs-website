@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { VisionHeroWrapper } from "@/components/vision-hero";
+import { VisionHeroWrapper } from "@/app/home/_components/vision-hero";
 
 export function HeroSection() {
   return (

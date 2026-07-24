@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { RollingButton } from "@/components/RollingButton";
-import { CircleArrow } from "@/components/CircleArrow";
+import { RollingButton } from "@/components/ui/RollingButton";
+import { CircleArrow } from "@/components/ui/CircleArrow";
 
 const articles = [
   {

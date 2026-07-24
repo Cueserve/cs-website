@@ -1,7 +1,7 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import { RollingButton } from "@/components/RollingButton";
+import { RollingButton } from "@/components/ui/RollingButton";
 
 export interface VisionHeroContentProps {
   className?: string;
