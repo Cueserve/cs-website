@@ -75,16 +75,16 @@ export function AboutSection() {
         </div>
 
         {/* Main Two-Column Layout Container matching exact Figma proportions (352px left vs 764px right, 30px gap) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-[30px] items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-[30px] items-center w-full">
 
           {/* Left Column: Image Slot / Graphic Container (4 cols ~ 352px) */}
-          <div className="lg:col-span-4 flex items-center justify-center">
+          <div className="md:col-span-4 flex items-center justify-center">
             <div
               ref={containerRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               data-about-image-slot
-              className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[352/318] max-w-[420px] lg:max-w-none mx-auto flex items-center justify-center rounded-3xl bg-transparent cursor-pointer [perspective:1000px]"
+              className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[352/318] max-w-[420px] md:max-w-none mx-auto flex items-center justify-center rounded-3xl bg-transparent cursor-pointer [perspective:1000px]"
             >
               {/* IMAGE SLOT: Place your custom image right here. E.g.: */}
               {/* <img src="/about_metric.png" alt="About Us Metric" className="w-full h-full object-contain" /> */}
@@ -94,7 +94,7 @@ export function AboutSection() {
                 {/* Top Right "Projects" Pill (Parallax Outer + GPU Elliptical Floating Inner) */}
                 <div
                   ref={projectsParallaxRef}
-                  className="absolute top-6 sm:top-8 right-4 sm:right-8 md:right-12 lg:right-6 z-20"
+                  className="absolute top-6 sm:top-8 md:-top-[9px] lg:top-8 right-4 sm:right-8 md:-right-[20px] lg:right-6 z-20"
                 >
                   <div
                     ref={projectsFloatRef}
@@ -127,7 +127,7 @@ export function AboutSection() {
                 {/* Bottom Left "Completed" Pill (Parallax Outer + GPU Elliptical Floating Inner) */}
                 <div
                   ref={completedParallaxRef}
-                  className="absolute bottom-6 sm:bottom-10 left-4 sm:left-8 md:left-12 lg:left-6 z-20"
+                  className="absolute bottom-6 sm:bottom-10 md:-bottom-[17px] lg:bottom-10 left-4 sm:left-8 md:-left-[20px] lg:left-6 z-20"
                 >
                   <div
                     ref={completedFloatRef}
@@ -149,7 +149,7 @@ export function AboutSection() {
           </div>
 
           {/* Right Column: Description & Paragraph block (8 cols ~ 764px fill) with crisp left border */}
-          <div className="lg:col-span-8 lg:border-l lg:border-cs-border lg:pl-8 xl:pl-10 py-2 flex flex-col justify-start w-full">
+          <div className="md:col-span-8 md:border-l md:border-cs-border md:pl-8 xl:pl-10 py-2 flex flex-col justify-start w-full">
             {/* Description Size / Subheading using official text-h3 token, wide 764px fill */}
             <h2 className="text-h3 font-display font-normal text-cs-ink mb-6 sm:mb-8 max-w-[764px] w-full">
               Our team of designers, developers, and thinkers driven by{" "}

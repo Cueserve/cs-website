@@ -25,7 +25,7 @@ export function ProjectsSection() {
   useGSAP(() => {
     const projectCards = gsap.utils.toArray<HTMLElement>('.project-card');
     
-    projectCards.forEach((card) => {
+    projectCards.forEach((card, index) => {
       const content = card.querySelector('.project-content');
       if (content) {
         // Set the perspective so the rotation looks 3D
@@ -33,6 +33,7 @@ export function ProjectsSection() {
         
         gsap.from(content, {
           y: 200,
+          rotation: index % 2 === 0 ? -4 : 4, // Opposite tilt angle
           rotationX: 45, // Tilted backward
           opacity: 0,
           ease: "power2.out", // Smoother easing
@@ -62,8 +63,8 @@ export function ProjectsSection() {
       <div className="relative z-10 w-[90%] xl:w-[82%] max-w-[1260px] mx-auto pt-20 h-full flex flex-col">
 
         {/* Header Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-24 gap-8">
-          <div className="flex flex-col items-start gap-6">
+        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-24 gap-8 text-center sm:text-left">
+          <div className="flex flex-col items-center sm:items-start gap-6">
             <span className="inline-flex items-center px-4 py-1.5 rounded-full text-label uppercase tracking-wider text-brand-default border border-brand-default/30 bg-[#f4f8ff]">
               Our Projects
             </span>
@@ -76,7 +77,7 @@ export function ProjectsSection() {
             text="View Projects"
             href="#"
             variant="secondary"
-            className="border-none bg-brand-subtle !shadow-none hover:bg-brand-muted mb-2"
+            className="border-none bg-brand-subtle !shadow-none hover:bg-brand-muted sm:mb-2"
           />
         </div>
 
@@ -85,21 +86,21 @@ export function ProjectsSection() {
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className={`project-card flex flex-col ${project.isLarge ? "md:col-span-2" : "col-span-1"} ${idx === 1 || idx === 4 ? "md:mt-32" : ""}`}
+              className={`project-card flex flex-col ${project.isLarge ? "md:col-span-2" : "col-span-1"} ${idx === 1 || idx === 4 ? "lg:mt-32" : ""}`}
             >
               {/* Inner Grid for exact diagonal attachment */}
               <div className="grid grid-cols-[auto_1fr]">
 
                 {/* Number: Row 1, Col 1 */}
-                <div className="text-7xl md:text-[120px] font-paragraph font-normal text-cs-ink leading-[0.75] col-start-1 col-end-2 row-start-1 row-end-2 z-10">
+                <div className="relative z-20 text-7xl md:text-[80px] lg:text-[120px] font-paragraph font-normal text-cs-ink leading-[0.75] col-start-1 col-end-2 row-start-1 row-end-2">
                   {project.id}
                 </div>
 
-                {/* Image & Text Wrapper: Row 2, Col 2 */}
-                <div className={`project-content flex flex-col items-start w-full col-start-2 col-end-3 row-start-2 row-end-3 -mt-6 md:-mt-8 ${project.isLarge ? "" : "md:max-w-[452px]"}`}>
+                {/* Image & Text Wrapper: Row 2, spans both cols on mobile/tablet, indented on desktop */}
+                <div className={`project-content flex flex-col items-start w-full col-start-1 lg:col-start-2 col-end-3 row-start-2 row-end-3 -mt-6 md:mt-2 lg:-mt-8 ${project.isLarge ? "" : "lg:max-w-[452px]"}`}>
                   <div
                     className={`relative w-full rounded-[24px] md:rounded-[32px] overflow-hidden mb-6 ${project.isLarge
-                      ? "aspect-[2/1]"
+                      ? "aspect-[4/5] md:aspect-[2/1]"
                       : "aspect-[4/5]"
                       }`}
                   >

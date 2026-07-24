@@ -21,16 +21,15 @@ export function Header() {
   } = useHeaderState();
 
   return (
-    <header className="fixed top-2 sm:top-3 xl:top-[clamp(0.75rem,2vh,1.25rem)] left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300">
+    <header className="fixed top-2 sm:top-3 xl:top-[clamp(0.75rem,2vh,1.25rem)] left-0 right-0 z-50 w-full pointer-events-none transition-all duration-500 flex flex-col items-center">
+      {/* Top Navbar Pill */}
       <div
         className={[
-          "pointer-events-auto mx-auto w-[90%] xl:w-[82%] max-w-[1260px] rounded-full border border-[#D1E0FF] transition-all duration-300 pl-6 pr-[10px] py-2 sm:py-2.5 xl:py-[clamp(0.5rem,1.2vh,0.625rem)] flex items-center justify-between shadow-md",
-          scrolled
-            ? "bg-white/95 backdrop-blur-md"
-            : "bg-white/92 backdrop-blur-md",
+          "pointer-events-auto w-[90%] xl:w-[82%] max-w-[1260px] rounded-full border border-[#D1E0FF] transition-all duration-500 pl-6 pr-[10px] py-2 sm:py-2.5 xl:py-[clamp(0.5rem,1.2vh,0.625rem)] flex items-center justify-between shadow-md",
+          scrolled ? "bg-white/95 backdrop-blur-md" : "bg-white/92 backdrop-blur-md",
         ].join(" ")}
       >
-        {/* Logo — far left inside white navbar */}
+        {/* Logo */}
         <Link
           href="/"
           aria-label="Cueserve home"
@@ -39,12 +38,12 @@ export function Header() {
           <Logo className="h-[24px] w-auto" />
         </Link>
 
-        {/* Center Nav Links inside white navbar */}
+        {/* Center Nav Links */}
         <div className="hidden xl:flex items-center">
           <DesktopNav />
         </div>
 
-        {/* Right Action Area (CTA + Mobile Hamburger) */}
+        {/* Right Action Area */}
         <div className="flex items-center gap-3">
           <div className="!hidden xl:!flex items-center">
             <RollingButton
@@ -55,13 +54,13 @@ export function Header() {
             />
           </div>
 
-          {/* Hamburger — mobile and tablet (< 1280px) */}
+          {/* Hamburger */}
           <button
             type="button"
             aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileNavOpen}
             onClick={toggleMobileNav}
-            className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded text-neutral-900 xl:hidden"
+            className="ml-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#f4f8ff] text-brand-default transition-all hover:bg-[#e4efff] xl:hidden"
           >
             <svg
               width="22"
@@ -89,13 +88,18 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile accordion nav */}
-      <MobileMenu
-        mobileNavOpen={mobileNavOpen}
-        openMobileMenu={openMobileMenu}
-        onAccordionToggle={toggleMobileAccordion}
-        onCloseNav={closeMobileNav}
-      />
+      {/* Floating Dropdown Menu */}
+      <div 
+        className={`pointer-events-auto w-[90%] max-w-[1260px] mt-2 rounded-[24px] bg-white border-[#D1E0FF] shadow-lg transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${mobileNavOpen ? "max-h-[400px] opacity-100 border" : "max-h-0 opacity-0 border-0"}`}
+      >
+        <MobileMenu
+          mobileNavOpen={mobileNavOpen}
+          openMobileMenu={openMobileMenu}
+          onAccordionToggle={toggleMobileAccordion}
+          onCloseNav={closeMobileNav}
+        />
+      </div>
+
     </header>
   );
 }

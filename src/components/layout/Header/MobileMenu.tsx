@@ -5,7 +5,7 @@ import {
   NAV_LABELS,
 } from "@/lib/navigation";
 import type { MenuKey } from "@/lib/navigation";
-import { ChevronDownIcon } from "@/components/icons/HeroIcons";
+
 
 interface Props {
   mobileNavOpen: boolean;
@@ -20,54 +20,33 @@ export function MobileMenu({
   onAccordionToggle,
   onCloseNav,
 }: Props) {
-  if (!mobileNavOpen) return null;
-
   return (
     <nav
-      className="border-t border-cs-border bg-cs-surface xl:hidden"
+      className="xl:hidden pb-4 pt-2"
       aria-label="Mobile primary"
     >
-      <ul className="mx-auto flex max-w-[1200px] flex-col gap-1 px-8 py-4">
+      <ul className="mx-auto flex w-full flex-col gap-2 px-6">
         {MEGA_MENU_ORDER.map((key) => {
-          const isOpen = openMobileMenu === key;
-          const { subMenuLinks } = MEGA_MENU_MAP[key];
+          // Define top-level routes for each section
+          const routes: Record<MenuKey, string> = {
+            about: "/about",
+            services: "/services",
+            solutions: "/services",
+            ourWork: "/projects",
+          };
+
           return (
-            <li key={key} className="space-y-1">
-              <button
-                type="button"
-                aria-expanded={isOpen}
-                aria-controls={`mobile-submenu-${key}`}
-                onClick={() => onAccordionToggle(key)}
-                className={[
-                  "flex w-full items-center justify-between rounded px-2 py-2 text-left text-sm font-medium transition-colors",
-                  isOpen
-                    ? "bg-cs-surface-tint text-cs-dark-blue"
-                    : "text-cs-ink-subtle hover:bg-cs-surface-tint hover:text-cs-dark-blue",
-                ].join(" ")}
+            <li key={key} className="w-full">
+              <Link
+                href={routes[key]}
+                onClick={onCloseNav}
+                className="flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left text-xl font-paragraph font-normal transition-all duration-300 text-cs-ink hover:bg-[#f4f8ff] hover:text-brand-default"
               >
                 {NAV_LABELS[key]}
-                <ChevronDownIcon
-                  className={`h-4 w-4 transition-transform duration-200 ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {isOpen && (
-                <ul id={`mobile-submenu-${key}`} className="space-y-0.5 rounded-3xl border border-cs-border bg-white p-3">
-                  {subMenuLinks.map(({ label, href }) => (
-                    <li key={label}>
-                      <Link
-                        href={href}
-                        onClick={onCloseNav}
-                        className="block rounded-2xl px-3 py-2 text-sm text-cs-ink-subtle transition-colors hover:bg-cs-surface-tint hover:text-cs-dark-blue"
-                      >
-                        {label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </Link>
             </li>
           );
         })}

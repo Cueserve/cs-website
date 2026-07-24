@@ -471,18 +471,36 @@ export const VisionHeroWrapper: React.FC<VisionHeroWrapperProps> = ({
     <>
       {/* Mobile & Tablet (< 1280px): Directly load the main hero theme right away without the VISION scrolling intro overlay */}
       <section className="relative w-full h-auto xl:hidden overflow-hidden flex flex-col justify-start bg-white pt-24 sm:pt-28 pb-0">
-        {/* Full Hero Background Image with responsive positioning so girl stays visible along with right text */}
+        
+        {/* --- Mobile Background (< 768px) --- */}
         <div
-          className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-[position:65%_center] md:bg-[position:75%_center]"
+          className="absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-[position:65%_center] md:hidden"
           style={{
             backgroundImage: `url('/hero_bg2.jpg')`,
           }}
         />
-        {/* Subtle readable overlay for mobile/tablet so text pops crisply against the background */}
-        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-white/95 via-white/88 to-white/40 md:from-transparent md:via-white/60 md:to-white/95" />
+        <div className="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-white/95 via-white/88 to-white/40 md:hidden" />
 
-        {/* Direct Hero Content: compact auto-height with minimal breathing spaces */}
-        <VisionHeroContent className="relative !inset-auto !opacity-100 !pointer-events-auto z-10 w-full flex flex-col justify-start" />
+        {/* --- Tablet Background (>= 768px) --- */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none z-0 bg-[#e6f2ff]" />
+        <div
+          className="hidden md:block absolute inset-0 pointer-events-none z-0 bg-cover bg-no-repeat bg-center"
+          style={{
+            backgroundImage: `url('/hero_bg3.png')`,
+          }}
+        />
+
+        {/* Tablet Image on the Left (shifted left and up) */}
+        <div className="hidden md:flex absolute bottom-4 lg:bottom-8 left-[-260px] lg:left-[-320px] xl:left-[-380px] h-[65vh] lg:h-[70vh] max-h-[650px] pointer-events-none z-10 items-end">
+          <img
+            src="/hero_men.png"
+            alt="Vision Hero Character"
+            className="w-auto h-full object-contain object-left-bottom select-none"
+          />
+        </div>
+
+        {/* Direct Hero Content: right-aligned starting from md breakpoint, removed extra bottom padding */}
+        <VisionHeroContent className="relative !inset-auto !opacity-100 !pointer-events-auto z-20 w-full flex flex-col justify-start pb-0" />
       </section>
 
       {/* Laptop & Desktop (>= 1280px): Full VISION Typography Intro with O Portal & Scroll Animation */}
