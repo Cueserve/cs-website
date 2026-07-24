@@ -64,7 +64,7 @@ export function Preloader() {
     // Main GSAP Timeline
     const tl = gsap.timeline();
 
-    const logoPaths = logoRef.current?.querySelectorAll("path, polygon");
+    const logoPaths = logoRef.current ? Array.from(logoRef.current.querySelectorAll("path, polygon")) : [];
 
     // Setup initial states
     gsap.set(logoPaths, { strokeDashoffset: 3000, fill: "transparent", opacity: 0 });
