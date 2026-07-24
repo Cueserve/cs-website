@@ -5,6 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { organizationJsonLd } from "@/lib/seo/jsonLd";
 import "./globals.css";
 
+import { Preloader } from "@/components/ui/Preloader";
+
 const SITE_URL = "https://www.cueserve.com";
 
 export const metadata: Metadata = {
@@ -40,6 +42,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} ${instrumentSans.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Preloader />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
