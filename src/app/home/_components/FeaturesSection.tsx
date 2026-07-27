@@ -264,7 +264,7 @@ function AgenticVisual() {
               y1={nodes[a].y + 5}
               x2={nodes[b].x}
               y2={nodes[b].y}
-              stroke="#D0DFEC"
+              stroke="var(--color-cs-border-strong)"
               strokeWidth={0.8}
               strokeDasharray="2,2"
             />
@@ -401,7 +401,11 @@ function WebVisual() {
     <div className="overflow-hidden rounded-xl border border-cs-border bg-cs-surface-tint">
       <div className="flex items-center gap-2 bg-cs-border px-3 py-2">
         <div className="flex gap-1.5">
-          {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
+          {[
+            "var(--color-cs-error)",
+            "var(--color-cs-warning)",
+            "var(--color-cs-success)",
+          ].map((c) => (
             <div key={c} className="h-2 w-2 rounded-full" style={{ background: c }} />
           ))}
         </div>

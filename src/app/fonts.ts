@@ -1,17 +1,16 @@
-import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Bebas_Neue, Outfit, JetBrains_Mono } from "next/font/google";
 
-export const spaceGrotesk = Space_Grotesk({
+export const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["400"],
+  variable: "--font-bebas-neue",
   display: "swap",
 });
 
-export const dmSans = DM_Sans({
+export const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-dm-sans",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-outfit",
   display: "swap",
 });
 

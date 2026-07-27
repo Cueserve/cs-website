@@ -33,7 +33,7 @@ export function MegaMenu({ config, menuKey, onClose, onMouseEnter }: Props) {
                 key={title}
                 className="flex cursor-default items-start gap-2.5 rounded-xl p-2 hover:bg-cs-surface-tint"
               >
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#EBF4FB]">
+                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-cs-surface-accent">
                   <Icon className="h-4 w-4 text-cs-light-blue" />
                 </div>
                 <div>
