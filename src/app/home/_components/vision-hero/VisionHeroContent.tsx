@@ -73,14 +73,14 @@ export const VisionHeroContent = forwardRef<HTMLDivElement, VisionHeroContentPro
             {[0, 1].map((loopIdx) => (
               <div key={loopIdx} className="flex items-center gap-[48px] sm:gap-[64px] xl:gap-[80px] 2xl:gap-[96px] pr-[48px] sm:pr-[64px] xl:pr-[80px] 2xl:pr-[96px] shrink-0">
                 {[
-                  { name: "Microsoft .NET", src: "/sliding_logos/dotnet.png" },
-                  { name: "Angular", src: "/sliding_logos/angular.png" },
-                  { name: "React", src: "/sliding_logos/react.png" },
-                  { name: "Next.js", src: "/sliding_logos/nextjs.png" },
-                  { name: "HTML5", src: "/sliding_logos/html.png" },
-                  { name: "CSS3", src: "/sliding_logos/css.png" },
-                  { name: "JavaScript", src: "/sliding_logos/javascript.png" },
-                  { name: "Android Studio", src: "/sliding_logos/android-studio.png" },
+                  { name: "Microsoft .NET", src: "/Sliding_logos/dotnet.png" },
+                  { name: "Angular", src: "/Sliding_logos/angular.png" },
+                  { name: "React", src: "/Sliding_logos/react.png" },
+                  { name: "Next.js", src: "/Sliding_logos/nextjs.png" },
+                  { name: "HTML5", src: "/Sliding_logos/html.png" },
+                  { name: "CSS3", src: "/Sliding_logos/css.png" },
+                  { name: "JavaScript", src: "/Sliding_logos/javascript.png" },
+                  { name: "Android Studio", src: "/Sliding_logos/android-studio.png" },
                 ].map((logo, idx) => (
                   <div
                     key={`${loopIdx}-${idx}`}
