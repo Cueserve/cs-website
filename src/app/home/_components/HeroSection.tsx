@@ -1,5 +1,8 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LayersIcon } from "@/components/icons/HeroIcons";
+import { LayersIcon, StarIcon } from "@/components/icons/HeroIcons";
 import { AIDashboardVisual } from "./AIDashboardVisual";
 
 const STATS = [
@@ -8,7 +11,34 @@ const STATS = [
   ["24×7", "Support"],
 ] as const;
 
+const TESTIMONIALS = [
+  {
+    quote: "Reduced support workload by 62% in just 3 weeks.",
+    author: "CTO, SaaS Company",
+    avatar: "https://i.pravatar.cc/150?u=saas-cto",
+  },
+  {
+    quote: "The AI accuracy is mind-blowing. Saved us 20hrs/week!",
+    author: "Alex M., Product Lead",
+    avatar: "https://i.pravatar.cc/150?u=product-lead",
+  },
+  {
+    quote: "Finally, an AI that actually works out of the box.",
+    author: "David K., Founder",
+    avatar: "https://i.pravatar.cc/150?u=founder-ai",
+  },
+];
+
 export function HeroSection() {
+  const [testiIdx, setTestiIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTestiIdx((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-white px-8 mt-5">
       {/* Hero Section Grid */}
@@ -64,8 +94,44 @@ export function HeroSection() {
         {/* Content - Rightside */}
         <div className="relative flex items-center justify-center">
           <AIDashboardVisual />
+
+          {/* Testimonial Card */}
+          <div 
+            className="absolute -bottom-12 right-30 z-20 w-[280px] rounded-2xl bg-white p-5 shadow-cs-xl border border-cs-border"
+            style={{ animation: "var(--animate-cs-float-slow)" }}
+          >
+            <div className="flex gap-0.5 mb-3">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <StarIcon key={i} className="h-3.5 w-3.5 text-[#FFB800]" />
+              ))}
+            </div>
+            
+            <div className="relative min-h-[70px]">
+              {TESTIMONIALS.map((t, i) => (
+                <div
+                  key={i}
+                  className={`transition-all duration-700 absolute inset-0 ${
+                    i === testiIdx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-1">
+                      <p className="text-[13px] font-bold leading-snug text-cs-dark-blue mb-2">
+                        "{t.quote}"
+                      </p>
+                      <p className="text-[11px] text-cs-ink-muted">— {t.author}</p>
+                    </div>
+                    <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-cs-border-accent">
+                      <img src={t.avatar} alt={t.author} className="h-full w-full object-cover" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
